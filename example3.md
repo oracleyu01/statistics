@@ -21,11 +21,16 @@ GROUP BY job;
 
 ### R 코드
 ```r
-attach(emp)
 
-# 그룹별 합계 계산
-tapply(sal, list(job, deptno), sum)
 
-# 급여 데이터 시각화
-pie(emp$sal, col = rainbow(14))
+
+
+
+
+
+
+
+
+
+
 ```
