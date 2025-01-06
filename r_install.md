@@ -7,7 +7,8 @@ R은 데이터 분석과 통계학 학습에 널리 사용되는 강력한 프�
 #### **1️⃣ R 다운로드 및 설치**  
 1. [CRAN (Comprehensive R Archive Network)](https://cran.r-project.org/) 웹사이트에 접속합니다.  
 2. 사용 중인 운영 체제(Windows, macOS, Linux)에 맞는 설치 파일을 선택합니다.  
-3. 설치 파일을 다운로드한 후 실행하여 설치 과정을 완료합니다.  
+3. 설치 파일을 다운로드한 후 실행하여 설치 과정을 완료합니다.
+     
  **팁**: 기본 설정을 그대로 유지하면 대부분의 경우 문제가 없습니다.  
 
 &nbsp;  
@@ -15,7 +16,8 @@ R은 데이터 분석과 통계학 학습에 널리 사용되는 강력한 프�
 #### **2️⃣ RStudio 설치** (선택 사항)  
 RStudio는 R의 강력한 IDE(통합 개발 환경)로, 코드를 작성하고 실행하기 쉽도록 도와줍니다.  
 1. [RStudio 공식 웹사이트](https://posit.co/download/rstudio-desktop/)에서 무료 버전인 "RStudio Desktop"을 다운로드합니다.  
-2. 설치 파일을 실행하여 RStudio를 설치합니다.  
+2. 설치 파일을 실행하여 RStudio를 설치합니다.
+     
  **팁**: RStudio는 R과 함께 작동하므로, 먼저 R이 설치되어 있어야 합니다.  
 
 &nbsp;  
