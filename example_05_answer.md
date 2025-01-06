@@ -33,9 +33,9 @@ R에서 데이터 프레임에서 특정 데이터를 검색할 때는 `[행, �
 
 **답**:  
 ```r
-emp[emp$job == "SALESMAN", c("ename", "sal", "job")]  
+emp[emp$job == "SALESMAN", c("ename", "sal", "job")]     
 
-
+```
 #### **정리**  
 
 | **구문**                                | **설명**                                                  |
