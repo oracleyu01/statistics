@@ -32,7 +32,7 @@ FROM emp
 GROUP BY job;
 ```
 
-### R 코드
+### 위의 결과를 R 코드로는 ?
 ```r
 
 
