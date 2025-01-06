@@ -3,6 +3,7 @@
 안녕하세요, 여러분! 🌟  
 
 통계학을 누구나 쉽게 배울 수 있도록 수업 자료를 깃허브에 정리했습니다.  
+
 이 자료가 여러분의 데이터 분석 여정에 든든한 밑거름이 되길 바랍니다. 😊  
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/statistics.png" width="600" height="400">
