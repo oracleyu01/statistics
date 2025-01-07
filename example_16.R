@@ -11,7 +11,7 @@ SQL>  select ename, replace( sal, 0, '*')
 
 # 설명: gsub( 변경전 데이터, 변경후 데이터, 컬럼)
  
-# 😄 문제1. 아래의 SQL을 R 로 구현하시오 ! (카카오 뱅크 데이터 분석가 공석빈 제공)
+# 😄 문제1. 아래의 SQL을 R 로 구현하시오 ! 
 # 
 # select  ename, regexp_replace( sal, '[0-2]', '*')
 #   from   emp;
