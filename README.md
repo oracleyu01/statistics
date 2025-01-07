@@ -48,21 +48,21 @@
 - **예제7. 데이터 결합을 위한 연결 연산자 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_07_q.md)
 - **예제8. 여러 데이터를 검색할 때 사용하는 %in% 연산자**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_08_q.md)
 - **예제9. 결측치 데이터를 탐색하는 is.na 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_09_q.md)
-- **예제10. 범위 데이터를 검색하는 방법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_10_q.md)
-- **예제11. 특정 단어나 철자를 포함한 데이터 검색법**: 📄[노트]()
-- **예제12. 데이터에서 중복 제거하기**: 📄[노트]()
-- **예제13. 데이터를 정렬하여 출력하는 방법**: 📄[노트]()
-- **예제14. 대소문자 변환 함수 활용하기**: 📄[노트]()
+- **예제10. 범위 데이터를 검색하는 방법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_10.R)
+- **예제11. 특정 단어나 철자를 포함한 데이터 검색법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_11.R)
+- **예제12. 데이터에서 중복 제거하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_12.R)
+- **예제13. 데이터를 정렬하여 출력하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_13.R)
+- **예제14. 대소문자 변환 함수 활용하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_14.R)
 
 ---
 
 ### 데이터 가공과 처리
-- **예제15. SQL의 substr 함수 구현 방법**: 📄[노트]()
-- **예제16. SQL의 replace 함수 구현 방법**: 📄[노트]()
-- **예제17. 숫자 반올림 시 주의해야 할 점**: 📄[노트]()
-- **예제18. trunc 함수의 소수점 처리 이해하기**: 📄[노트]()
-- **예제19. 날짜 연산을 위한 데이터 타입 변환**: 📄[노트]()
-- **예제20. 데이터 변환 함수의 이해와 활용**: 📄[노트]()
+- **예제15. SQL의 substr 함수 구현 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_15.R)
+- **예제16. SQL의 replace 함수 구현 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_16.R)
+- **예제17. 숫자 반올림 시 주의해야 할 점**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_17.R)
+- **예제18. trunc 함수의 소수점 처리 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_18.R)
+- **예제19. 날짜 연산을 위한 데이터 타입 변환**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_19.R)
+- **예제20. 데이터 변환 함수의 이해와 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_20.R)
 - **예제21. 통계 분석에서 자주 쓰이는 일반 함수**: 📄[노트]()
 
 ---
