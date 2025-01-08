@@ -57,16 +57,14 @@
 #😄문제5.  직업이 SALESMAN 인 사원들의 이름과 월급을 출력하는데
 # 월급이 높은 사원부터 출력하시오 !
   
-library(doBy)
-orderBy(  ~ -sal, emp[ emp$job=='SALESMAN', c("ename", "sal") ] ) 
+
+
 
 #😄문제6. 이번에는 doBy 패키지 없이 문제25번을 수행하시오 !
 
-a <- emp[ emp$job=="SALESMAN", c("ename", "sal", "job") ]
-a
-str(a)  # 데이터 프레임입니다. 
 
-a[ order( a$sal, decreasing=T ), c("ename", "sal") ] 
+
+
 
 #😄문제7.  emp20 테이블에서 나이가 20대인 학생들의 이름과 나이를 
 #         출력하는데 나이가 높은 학생부터 출력하시오 !
@@ -75,8 +73,4 @@ a[ order( a$sal, decreasing=T ), c("ename", "sal") ]
 
 
   
-a<-emp20[ grep( "^2", emp20$age), c("ename","age")]
 
-a[ order(a$age, decreasing = T), c("ename","age")]
-
-# 
