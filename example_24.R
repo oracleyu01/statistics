@@ -3,12 +3,11 @@
 # ➡️ 문법1. 직업, 직업별 인원수를 출력하시오 !
 
 SQL> select  job, count(*)
-from  emp
-group  by  job; 
+      from  emp
+      group  by  job; 
 
-R> x <- aggregate( empno ~ job, emp, length )
-names(x) <- c("직업", "인원수")
-x
+R> 
+
 
 # ➡️ 문법2. 직업과 직업별 인원수를 가로로 출력하시오 !
 
