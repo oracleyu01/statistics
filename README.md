@@ -63,7 +63,7 @@
 - **예제18. trunc 함수의 소수점 처리 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_18.R)
 - **예제19. 날짜 연산을 위한 데이터 타입 변환**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_19.R)
 - **예제20. 데이터 변환 함수의 이해와 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_20.R)
-- **예제21. 통계 분석에서 자주 쓰이는 일반 함수**: 📄[노트]()
+- **예제21. 통계 분석에서 자주 쓰이는 일반 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_21.R)
 
 ---
 
