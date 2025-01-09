@@ -77,24 +77,24 @@
 - **예제28. 데이터 조인: equi join의 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_28.R)
 - **예제29. outer join의 이해와 실습**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_29.R)
 - **예제30. self join의 개념과 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_30.R)
-- **예제31. 집합 연산자 이해하기**: 📄[노트]()
-- **예제32. 서브쿼리 작성법 배우기**: 📄[노트]()
-- **예제33. 데이터 순위 출력하기**: 📄[노트]()
+- **예제31. 집합 연산자 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_31.R)
+- **예제32. 서브쿼리 작성법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_32.R)
+- **예제33. 데이터 순위 출력하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_33.R)
 
 ---
 
 ### 프로그래밍과 반복문
-- **예제34. 함수를 생성하는 방법**: 📄[노트]()
-- **예제35. 조건문(if)의 작성법**: 📄[노트]()
-- **예제36. 반복문(loop)의 활용법**: 📄[노트]()
+- **예제34. 함수를 생성하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_34.R)
+- **예제35. 조건문(if)의 작성법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_35.R)
+- **예제36. 반복문(loop)의 활용법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_36.R)
 
 ---
 
 ### 데이터 시각화
-- **예제37. 시각화 기법 1: 막대 그래프**: 📄[노트]()
-- **예제38. 시각화 기법 2: 원형 그래프**: 📄[노트]()
-- **예제39. 시각화 기법 3: 산포도 그래프**: 📄[노트]()
-- **예제40. 시각화 기법 4: 라인 그래프**: 📄[노트]()
+- **예제37. 시각화 기법 1: 막대 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_37.R)
+- **예제38. 시각화 기법 2: 원형 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_38.R)
+- **예제39. 시각화 기법 3: 산포도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_39.R)
+- **예제40. 시각화 기법 4: 라인 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_40.R)
 - **예제41. 시각화 기법 5: 히스토그램**: 📄[노트]()
 - **예제42. 시각화 기법 6: 박스 그래프**: 📄[노트]()
 - **예제43. 시각화 기법 7: 워드 클라우드 그래프**: 📄[노트]()
