@@ -143,6 +143,7 @@ Offline 수업을 수강하시기 어려우시다면 온라인 강의를 추천�
     <img src="SQL200.png" alt="SQL200" style="width:300px;">
 </a>
 &nbsp;  
+
 위의 링크를 클릭하시고 만약 접속이 안되면 웹 url 주소에서 한번더 엔터를 치시면 됩니다.
 
 
