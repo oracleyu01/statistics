@@ -139,9 +139,10 @@ Offline 수업을 수강하시기 어려우시다면 온라인 강의를 추천�
 
 ### **초보자도 쉽게 배우는 SQL200제**
 
-<a href="https://www.inflearn.com/course/데이터-분석가-실무-sql" target="_blank" rel="noopener noreferrer">
+<a href="https://inf.run/R9Te3" target="_blank" rel="noopener noreferrer">
     <img src="SQL200.png" alt="SQL200" style="width:300px;">
 </a>
+
 
 &nbsp;  
 
