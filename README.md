@@ -84,7 +84,7 @@
 ---
 
 ### 프로그래밍과 반복문
-- **예제34. 함수를 생성하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_34.R)    💻[영상](https://drive.google.com/file/d/1jEvUFtz2wYvkv9SoyDNWP_gsXrKF1OkW/view?usp=sharing)
+- **예제34. 함수를 생성하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_34.R)    💻[영상1](https://drive.google.com/file/d/1jEvUFtz2wYvkv9SoyDNWP_gsXrKF1OkW/view?usp=sharing)      💻[영상2](https://drive.google.com/file/d/1GTwm01ATRv-LPlDUtV7NiuazJxMOTy2Z/view?usp=sharing)  
 - **예제35. 조건문(if)의 작성법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_35.R)
 - **예제36. 반복문(loop)의 활용법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_36.R)
 
