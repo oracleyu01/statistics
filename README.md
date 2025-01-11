@@ -95,12 +95,12 @@
 - **예제38. 시각화 기법 2: 원형 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_38.R)
 - **예제39. 시각화 기법 3: 산포도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_39.R)
 - **예제40. 시각화 기법 4: 라인 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_40.R)
-- **예제41. 시각화 기법 5: 히스토그램**: 📄[노트]()
-- **예제42. 시각화 기법 6: 박스 그래프**: 📄[노트]()
-- **예제43. 시각화 기법 7: 워드 클라우드 그래프**: 📄[노트]()
-- **예제44. 시각화 기법 8: 지도 그래프**: 📄[노트]()
-- **예제45. 시각화 기법 9: 소리 데이터의 시각화**: 📄[노트]()
-- **예제46. 시각화 기법 10: 사회 연결망 그래프**: 📄[노트]()
+- **예제41. 시각화 기법 5: 히스토그램**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_41.R)
+- **예제42. 시각화 기법 6: 박스 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_42.R)
+- **예제43. 시각화 기법 7: 워드 클라우드 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_43.R)
+- **예제44. 시각화 기법 8: 지도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_44.R)
+- **예제45. 시각화 기법 9: 소리 데이터의 시각화**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_45.R)
+- **예제46. 시각화 기법 10: 사회 연결망 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_46.R)
 
 ---
 
