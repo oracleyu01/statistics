@@ -78,7 +78,7 @@
 - **예제29. outer join의 이해와 실습**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_29.R)
 - **예제30. self join의 개념과 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_30.R)
 - **예제31. 집합 연산자 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_31.R)
-- **예제32. 서브쿼리 작성법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_32.R)
+- **예제32. 서브쿼리 작성법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_32.R)💻[영상](https://drive.google.com/file/d/1HGFZo_MlW78oS1F7pniDw_UufVgMiqWF/view?usp=drive_link)
 - **예제33. 데이터 순위 출력하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_33.R)
 
 ---
