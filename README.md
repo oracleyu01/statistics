@@ -139,9 +139,10 @@ Offline 수업을 수강하시기 어려우시다면 온라인 강의를 추천�
 
 ### **초보자도 쉽게 배우는 SQL200제**
 
-<a href="https://www.inflearn.com/course/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B0%80-%EC%8B%A4%EB%AC%B4-sql">
+<a href="https://www.inflearn.com/course/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B0%80-%EC%8B%A4%EB%AC%B4-sql" target="_blank" rel="noopener noreferrer">
     <img src="SQL200.png" alt="SQL200" style="width:300px;">
 </a>
+
 &nbsp;  
 
 위의 이미지를 클릭하시고 만약 접속이 안되면 접속된 웹 url 주소에서 한번더 엔터를 치시면 됩니다.
