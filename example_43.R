@@ -1,34 +1,34 @@
-🎯 예제43. 데이터 시각화7 (워드 클라우드 그래프)
+# 🎯 예제43. 데이터 시각화7 (워드 클라우드 그래프)
+# 
+# 텍스트 데이터 탐색 및 요약 그리고 주요 단어 강조등을 시각화 하고 싶을때
+# 사용하는 그래프로 트랜드를 분석하거나 쇼셜 미디어와 뉴스에서 언급하는
+# 주요 내용들을 분석할 때 유용한 그래프 입니다. 
+# 마케팅에서 고객 만족도 등을 조사할 때 많이 사용됩니다.  
+# 문서나 문학 작품을 분석하고자 할 때 유용한 그래프입니다. 
+# 
+# ➡️ 문법1.  R java 를 설치하시오 !
+# 
+# 1. 아래에서 java 64비트를 다운로드 받는다 
+# 
+# https://www.java.com/en/download/manual.jsp
+# 
+# 2. Windows Offline (64-bit) 으로 설치
+# 
+# 3. 아래와 같이 환경설정을 한다.
 
-  텍스트 데이터 탐색 및 요약 그리고 주요 단어 강조등을 시각화 하고 싶을때
-  사용하는 그래프로 트랜드를 분석하거나 쇼셜 미디어와 뉴스에서 언급하는
-  주요 내용들을 분석할 때 유용한 그래프 입니다. 
-  마케팅에서 고객 만족도 등을 조사할 때 많이 사용됩니다.  
-  문서나 문학 작품을 분석하고자 할 때 유용한 그래프입니다. 
-
-➡️ 문법1.  R java 를 설치하시오 !
-
-1. 아래에서 java 64비트를 다운로드 받는다 
-
- https://www.java.com/en/download/manual.jsp
-
-2. Windows Offline (64-bit) 으로 설치
-
-3. 아래와 같이 환경설정을 한다.
-                  
 Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jdk1.8.0_202')
 
-※ 설명 : R 에서 지금 자바홈 위치가 어디있다는 것을 알려주는 것 
-
-4. 설치를 한다. 
+# ※ 설명 : R 에서 지금 자바홈 위치가 어디있다는 것을 알려주는 것 
+# 
+# 4. 설치를 한다. 
 
 install.packages("rJava")
 
 library(rJava)
 
-➡️ 문법2. 한글을 R이 인식할 수 있도록 KoNLP 패키지를 설치합니다.
+# ➡️ 문법2. 한글을 R이 인식할 수 있도록 KoNLP 패키지를 설치합니다.
 
- # 필요한 라이브러리 로드(개인 깃허브에서 다운로드 받습니다.)
+# 필요한 라이브러리 로드(개인 깃허브에서 다운로드 받습니다.)
 install.packages("remotes")
 library(remotes)
 remotes::install_github("haven-jeon/KoNLP")
@@ -61,10 +61,10 @@ library(dplyr)
 
 
 
-
-➡️ 문법3. 영화 겨울왕국 대본을 워드 클라우드로 그리시오 
-
-데이터 게시판에서 겨울왕국 대본(winter.txt) 를 data 폴더에 가져다 둡니다. 
+# 
+# ➡️ 문법3. 영화 겨울왕국 대본을 워드 클라우드로 그리시오 
+# 
+# 데이터 게시판에서 겨울왕국 대본(winter.txt) 를 data 폴더에 가져다 둡니다. 
 
 # 필요한 라이브러리 로드
 install.packages("KoNLP", dependencies = TRUE)
@@ -107,13 +107,13 @@ library(RColorBrewer)
 # 워드 클라우드 생성
 
 
-
-➡️ 문법4.  EBS 방송국의 인기 만화인 레이디 버그 게시판의 게시글을 워드 클라우드로
-              그리시오 ! (  한글 데이터 )
-
- 파이썬 웹스크롤링으로 스크롤함.
-
-데이터 있는곳 : https://cafe.daum.net/oracleoracle/Soei/41
+# 
+# ➡️ 문법4.  EBS 방송국의 인기 만화인 레이디 버그 게시판의 게시글을 워드 클라우드로
+# 그리시오 ! (  한글 데이터 )
+# 
+# 파이썬 웹스크롤링으로 스크롤함.
+# 
+# 데이터 있는곳 : https://cafe.daum.net/oracleoracle/Soei/41
 
 install.packages("wordcloud2")
 
@@ -141,10 +141,10 @@ library(data.table)   #  데이터를 테이블로 다루기 위한 패키지를
 
 # 명사 추출 함수
 extract_nouns_simple <- function(doc) {
-  doc <- as.character(doc)     # 문자로 변환
-  words <- unlist(strsplit(doc, "\\s+"))  # 공백을 기준으로 단어 분리
-  nouns <- Filter(function(x) {grepl("^[가-힣]+$", x) && nchar(x) >= 2}, words)  # 한글로만 구성된 단어 추출 및 길이 2 이상 필터링
-  return(nouns)
+doc <- as.character(doc)     # 문자로 변환
+words <- unlist(strsplit(doc, "\\s+"))  # 공백을 기준으로 단어 분리
+nouns <- Filter(function(x) {grepl("^[가-힣]+$", x) && nchar(x) >= 2}, words)  # 한글로만 구성된 단어 추출 및 길이 2 이상 필터링
+return(nouns)
 }
 
 # 명사 추출
@@ -173,23 +173,23 @@ extract_nouns_simple <- function(doc) {
 # 워드클라우드 생성 (하트 모양)
 
 
-
-😊문제1.  유튜브 뎃글 분석을 위해 할매 떡볶이 로 검색한 모든 뎃글을 워드 클라우드로
-             시각화 하시오 !
-
-데이터 있는곳:  https://cafe.daum.net/oracleoracle/Soei/42
-
-기본 제공 모양
-
-circle: 원형 (기본값)
-cardioid: 심장 모양
-diamond: 다이아몬드 모양
-triangle-forward: 정삼각형 (앞쪽)
-triangle: 정삼각형 (뒤쪽)
-pentagon: 오각형
-star: 별 모양
-
-답:
+# 
+# 😊문제1.  유튜브 뎃글 분석을 위해 할매 떡볶이 로 검색한 모든 뎃글을 워드 클라우드로
+# 시각화 하시오 !
+# 
+# 데이터 있는곳:  https://cafe.daum.net/oracleoracle/Soei/42
+# 
+# 기본 제공 모양
+# 
+# circle: 원형 (기본값)
+# cardioid: 심장 모양
+# diamond: 다이아몬드 모양
+# triangle-forward: 정삼각형 (앞쪽)
+# triangle: 정삼각형 (뒤쪽)
+# pentagon: 오각형
+# star: 별 모양
+# 
+# 답:
 
 install.packages("wordcloud2")
 
@@ -242,9 +242,9 @@ library(data.table)   #  데이터를 테이블로 다루기 위한 패키지를
 # 워드클라우드 생성 (하트 모양)
 
 
+# 
+# ➡️ 문법5.  영문 데이터를 wordcloud2  패키지로 워드클라우드 그래프를 그리시오
 
-➡️ 문법5.  영문 데이터를 wordcloud2  패키지로 워드클라우드 그래프를 그리시오
-              
 install.packages("wordcloud2")
 install.packages("tm")                #  텍스트 데이터 전처리 전문 패키지 
 install.packages("RColorBrewer")
@@ -280,7 +280,7 @@ corpus <- tm_map(corpus, content_transformer(tolower))  # 소문자로 변환
 corpus <- tm_map(corpus, removePunctuation)  # 구두점 제거 (마침표, 쉼표, 물음표,..)
 corpus <- tm_map(corpus, removeNumbers)  # 숫자 제거
 corpus <- tm_map(corpus, removeWords, stopwords("en"))  # 영어 불용어 제거
-                                                                             # am, i, she, the ....
+# am, i, she, the ....
 corpus <- tm_map(corpus, stripWhitespace)  # 여백 제거
 
 # 단어 행렬 생성
@@ -291,9 +291,7 @@ word_freq_df <- data.frame(word = names(word_freqs), freq = word_freqs)
 
 # 워드 클라우드 생성 (하트 모양)
 wordcloud2(data = word_freq_df, shape = "heart", color = brewer.pal(8, "Dark2"))
-
-문제1. 위의 워드 클라우드에서 anna 는 제외시키시오 ! 
-
-답: 
-
-
+# 
+# 😊 문제1. 위의 워드 클라우드에서 anna 는 제외시키시오 ! 
+# 
+# 답: 
