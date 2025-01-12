@@ -1,5 +1,8 @@
 #🎯 예제47번. Z 검정 이론
-# 
+
+# 그림 :
+# https://github.com/oracleyu01/statistics/blob/main/가설검정그림.png 
+
 # ➡️ 1. 개요
 # 
 # Z 검정은 모집단이 정규분포를 따르고 모집단의 분산(또는 표준편차)이 
