@@ -41,35 +41,4 @@
 # 
 # 
 # 
-# ➡️ 문법3.  자동화 코드를 편하게 사용할 수 있도록 박스 메세지가 화면에 출력되게하시오
-# 
-# 
-# 
-# 
-# 
-# ➡️ 문법4.  자동화 스크립트를 수행했을때 그래프와 관련된 코드도 나오지만
-#             그 그래프도 바로 출력되게 yys.R  코드를 수정하시오 !
-# 
-# # 필요한 패키지 로드
-# library(svDialogs)
-# 
-# # 옵션 메시지 정의
-# options_message <- "1: 막대 그래프 코드\n2: 원형 그래프 코드\n번호를 선택하세요:"
-# 
-# # 사용자 입력 받기 (대화 상자 사용)
-# dialog_result <- dlgInput(options_message, "")$res
-# num <- as.integer(dialog_result)
-# 
-# # switch 문을 사용해서 선택에 따라 다른 메세지 출력
-# result <- switch(as.character(num),
-#                "1" = { cat(readLines("bar_plot.R"), sep = "\n")
-#                          source("bar_plot.R")
-#                         },
-#                "2" = { cat(readLines("pie_plot.R"), sep = "\n")
-#                          source("pie_plot.R") 
-#                        },
-#                "유효하지 않은 선택입니다."
-# )
-# 
-# cat(result, "\n")
-# 
+
