@@ -93,7 +93,7 @@
 ### 데이터 시각화
 - **예제37. 시각화 기법 1: 막대 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_37.R)
 - **예제38. 시각화 기법 2: 원형 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_38.R)  💻[영상](https://drive.google.com/file/d/1mxEoAhUeNILlGjf-osI0EWnFCj6v5vEP/view?usp=sharing)
-- **예제39. 시각화 기법 3: 산포도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_39.R)
+- **예제39. 시각화 기법 3: 산포도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_39.R)  💻[영상](https://drive.google.com/file/d/1MtcUQIELjzdQFRiRe03GxxTZ1dkoXVda/view?usp=sharing)
 - **예제40. 시각화 기법 4: 라인 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_40.R)
 - **예제41. 시각화 기법 5: 히스토그램**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_41.R)
 - **예제42. 시각화 기법 6: 박스 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_42.R)
