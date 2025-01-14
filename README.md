@@ -38,7 +38,7 @@
 - **예제1. 통계학을 배워야하는 이유?**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/statistics.md)
 - **예제2. 통계 소프트웨어 준비하기: R 설치하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/r_install.md)
 - **예제3. SQL과 통계 소프트웨어의 차이점은 무엇인가요?**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example3.md)
-- **예제4. 통계에서 사용하는 데이터 구조 5가지**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_4_q.md)
+- **예제4. 통계에서 사용하는 데이터 구조 5가지**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_04_q.md)
 - **예제5. 데이터를 효과적으로 검색하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_05_q.md)
 
 ---
