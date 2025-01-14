@@ -116,7 +116,7 @@
 - **예제55. 가설검정5.두 모집단의 모평균 차이 검정: 대응표본 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_55.R)
 - **예제56. 가설검정6.세 모집단 이상의 모평균 차이 검정 (ANOVA)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_56.R)
 - **예제57. 가설검정7.정규분포를 따르지 않는 경우 - 비모수적 가설 검정**:  📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_57.R)
-- **예제58. A/B 테스트와 가설검정**: 📄[노트]()
+- **예제58. A/B 테스트와 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_58.pdf)
 
 ## 강의 안내
 
