@@ -1,0 +1,72 @@
+# 필요한 패키지 로드
+if (!require(psych)) install.packages("psych")
+library(psych)
+
+# 재현성을 위해 시드 설정
+set.seed(123)  
+
+# 데이터 생성
+n <- 500  
+
+# BMI 생성 (정규분포 사용)
+bmi <- rnorm(n, mean = 25, sd = 4)
+bmi <- pmin(pmax(bmi, 18.5), 40)  
+
+# 운동시간은 BMI와 음의 상관관계를 가지도록 생성
+exercise <- 20 - (bmi - 18.5) * 0.5 + rnorm(n, 0, 2)
+exercise <- pmin(pmax(exercise, 0), 20)  
+
+# 콜레스테롤은 BMI와 양의 상관관계를 가지도록 생성
+cholesterol <- 150 + (bmi - 18.5) * 5 + rnorm(n, 0, 20)
+cholesterol <- pmin(pmax(cholesterol, 150), 300)  
+
+# 표준화
+bmi_z <- scale(bmi)
+exercise_z <- scale(exercise)
+cholesterol_z <- scale(cholesterol)
+
+# 당뇨병 발생 확률 계산
+logit <- 2 * as.vector(bmi_z) - 1.5 * as.vector(exercise_z) + as.vector(cholesterol_z) + rnorm(n, 0, 0.5)
+prob <- 1 / (1 + exp(-logit))
+diabetes <- as.numeric(prob > 0.5)
+
+# 데이터프레임 생성
+health_data <- data.frame(
+  BMI = bmi,
+  운동시간 = exercise,
+  콜레스테롤 = cholesterol,
+  당뇨병 = diabetes
+)
+
+# 데이터 저장
+write.csv(health_data, "c:\\data\\health01.csv", row.names = FALSE, fileEncoding = "utf-8")
+
+# 저장된 파일 불러오기
+health_data_loaded <- read.csv("c:\\data\\health01.csv", fileEncoding = "utf-8")
+
+# 데이터 확인
+print("불러온 데이터:")
+print(head(health_data_loaded))
+
+# 상관행렬 계산
+cor_matrix <- cor(health_data_loaded)
+print("상관행렬:")
+print(round(cor_matrix, 3))
+
+# 시각화 1: pairs.panels 사용
+pairs.panels(health_data_loaded, 
+             method = "pearson",
+             hist.col = "lightblue",
+             density = TRUE,
+             ellipses = TRUE,
+             main = "건강 데이터 상관행렬 및 산점도")
+
+# 당뇨병과의 상관관계 분석
+diabetes_cor <- cor_matrix[4, -4]  
+print("\n당뇨병과 각 변수의 상관계수:")
+print(sort(diabetes_cor, decreasing = TRUE))
+
+# 기술통계량 출력
+print("\n기술통계량:")
+print(summary(health_data_loaded))
+
