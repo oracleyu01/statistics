@@ -1,37 +1,4 @@
-# 필요한 패키지 로드
-library(dplyr)
-library(psych)
-
-# 1. 가상의 데이터 생성
-set.seed(123)  # 재현성을 위해 시드 설정
-n <- 500  # 데이터 개수
-
-data <- data.frame(
-  age = sample(18:65, n, replace = TRUE),  # 고객 나이
-  income = sample(2000:10000, n, replace = TRUE),  # 월 소득
-  region = factor(sample(c("도시", "교외", "농촌"), n, replace = TRUE)),  # 지역
-  job = factor(sample(c("전문직", "사무직", "서비스직", "영업직", "기타"), n, replace = TRUE)),  # 직업
-  gender = factor(sample(c("남성", "여성"), n, replace = TRUE)),  # 성별
-  purchase_amount = NA  # 구매 금액 (빈 값으로 초기화)
-)
-
-# 구매 금액을 생성 (소득과 나이, 지역에 따라 영향을 받도록 설정)
-data$purchase_amount <- round(
-  0.5 * data$income + 2 * data$age + 
-    ifelse(data$region == "도시", 200, ifelse(data$region == "교외", 100, 50)) + 
-    rnorm(n, mean = 0, sd = 500),  # 랜덤 노이즈 추가
-  2
-)
-
-# 지역과 성별 인코딩
-# 지역 인코딩 (도시=1, 교외=2, 농촌=3)
-data$region_numeric <- as.numeric(factor(data$region, levels = c("도시", "교외", "농촌")))
-
-# 성별 인코딩 (남성=1, 여성=2)
-data$gender_numeric <- ifelse(data$gender == "남성", 1, 2)
-
-# 가상 데이터를 CSV 파일로 저장
-write.csv(data, "c:\\data\\customers02.csv", row.names = FALSE, fileEncoding = "utf-8")
+#답:
 
 # 저장한 데이터 불러오기
 loaded_data <- read.csv("customers02.csv", fileEncoding = "utf-8")
