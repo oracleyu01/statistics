@@ -1,33 +1,39 @@
-#답:
 
-# 저장한 데이터 불러오기
-loaded_data <- read.csv("customers02.csv", fileEncoding = "utf-8")
+# 답:
+#1. 데이터 불러오기
+customers <- read.csv("c:\\data\\customers02.csv")
+customers <- customers[   , c(-7,-8)]
+head(customers)
 
-# 데이터 확인
-head(loaded_data)
+#2. 범주형 변수 인코딩(순서또는 서열을 갖는 문자형 변수
+#                      인 팩터(factor)로 변환 )
+str(customers)
+customers$region_encoding <- as.numeric(factor(customers$region))
+customers$gender_encoding <- as.numeric(factor(customers$gender))
+customers$job_encoding <- as.numeric(factor(customers$job))
+summary(customers)
+head(customers)
 
-# 2. 상관관계 분석
-# 숫자형 변수만 선택
-numeric_data <- loaded_data %>% select(purchase_amount, age, income, 
-                                       region_numeric, gender_numeric)
+#3. 숫자 변수들만 추출
+numeric_custormers <- customers[    , c("age",
+                                        "income",
+                                        "region_encoding",
+                                        "gender_encoding",
+                                        "job_encoding",
+                                        "purchase_amount")]
+head(numeric_custormers)
 
-# 상관행렬 계산
-cor_matrix <- cor(numeric_data)
+#4. 상관행렬 계산
+cor(numeric_custormers)
 
-# 상관행렬 출력
-print("상관행렬:")
-print(cor_matrix)
+#설명: 구매금액과과 가장 높은 상관관계를 가진 변수는 소득입니다.
+# 다른 변수들(성별,직업,지역)은 상관관계가 약하거나 거의 없습니다. 
+# 따라서 구매행동을 이해하기 위해서는 소득을 가장 중요한 변수로
+# 고려해야 합니다. 
 
-# 상관계수 시각화 (pairs.panels)
-pairs.panels(numeric_data, main = "상관행렬 및 산점도", ellipses = TRUE)
+#5. 결과 시각화 
 
-# 3. 결과 해석
-# 1) 상관행렬 분석 결과:
-# - 구매 금액은 소득과 강한 양의 상관관계를 가짐.
-# - 나이와도 양의 상관관계를 보이지만, 소득보다는 약함.
-# - 지역 인코딩 값과 약한 상관관계를 보임 (도시 > 교외 > 농촌 순으로 구매 금액이 높음).
-# - 성별 인코딩 값과 구매 금액은 큰 상관관계를 보이지 않음.
-#
-# 2) 범주형 변수 분석 결과:
-# - 지역별로 도시가 구매 금액이 가장 높음.
-# - 성별은 구매 금액에 큰 영향을 미치지 않음.
+library(psych)
+
+pairs.panels(numeric_custormers, pch='.')
+
