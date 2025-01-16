@@ -4,7 +4,7 @@
 다음은 건강 데이터를 기반으로 한 분석 문제입니다.
 
 ## 데이터 파일
-[health01.csv 다운로드](https://example.com/data/health01.csv)
+[health01.csv 다운로드](https://github.com/oracleyu01/statistics/blob/main/health01.csv)
 
 ## 문제 설명
 
