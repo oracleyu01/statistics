@@ -67,7 +67,7 @@
 ---
 
 <details>
-<summary><b>✍️ 빈칸 정답 보기(왜 자꾸 클릭해요)</b></summary>
+<summary><b>✍️ 빈칸 정답 보기</b></summary>
 
 - 제1종 오류 (Type 1 error)
 - 제2종 오류 (Type 2 error)
