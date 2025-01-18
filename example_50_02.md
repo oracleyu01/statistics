@@ -34,7 +34,7 @@
 ---
 
 <details>
-<summary><b>📈 R 코드로 분석하기 (클릭하여 펼치지 마세요! 직접 해보세요)</b></summary>
+<summary><b>📈 R 코드로 분석하기 </b></summary>
 
 ```r
 # 데이터 설정
