@@ -58,4 +58,5 @@
 
 ---
 
-출처: `hsm-edu.tistory.com/129`
+그림 출처: `hsm-edu.tistory.com/129`
+그림 출처: `https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=uranusjj&logNo=221610312776`
