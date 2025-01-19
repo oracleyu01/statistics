@@ -41,7 +41,7 @@
 
 **예시 그림:**
 
-<img src="그림.좌측.png" width="80%">
+<img src="그림.좌측.png" width="50%">
 
 ---
 
