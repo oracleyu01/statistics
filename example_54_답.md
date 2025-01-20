@@ -126,16 +126,53 @@ A반(n₁=15)의 평균은 82점(s₁=12), B반(n₂=18)의 평균은 75점(s₂
 
 2) R코드 분석
 ```r
-# 데이터 설정
-n1 <- 15; n2 <- 18
-x1_bar <- 82; x2_bar <- 75
-s1 <- 12; s2 <- 6
-alpha <- 0.05
+# 📌 1. 데이터 설정
+n1 <- 15; n2 <- 18      # 표본 크기
+x1_bar <- 82; x2_bar <- 75  # 표본 평균
+s1 <- 12; s2 <- 6       # 표본 표준편차
+alpha <- 0.05           # 유의수준 설정
 
-# Welch's t-test
-t.test(rep(x1_bar, n1), rep(x2_bar, n2),
-       var.equal=FALSE,
-       alternative="greater")
+# 📌 2. 정규분포에서 난수 생성
+set.seed(123)  # 재현성을 위해 시드 설정
+group1 <- rnorm(n1, mean=x1_bar, sd=s1)  # A반 표본 데이터
+group2 <- rnorm(n2, mean=x2_bar, sd=s2)  # B반 표본 데이터
+
+# 📌 3. Welch의 t-검정 수행 (이분산 가정, 우측검정)
+t_result <- t.test(group1, group2, var.equal=FALSE, alternative="greater")
+
+# 📌 4. 결과 출력
+print(t_result)
+
+# 📌 5. 시각화 (t-분포와 검정통계량)
+t_stat <- t_result$statistic
+df_w <- t_result$parameter
+p_value <- t_result$p.value
+t_crit <- qt(1-alpha, df_w)
+
+curve(dt(x, df_w), from=-4, to=4, 
+      main="t-분포와 검정통계량",
+      ylab="밀도", xlab="t", col="black", lwd=2)
+
+abline(v=t_crit, col="red", lty=2, lwd=2)  # 임계값
+abline(v=t_stat, col="blue", lwd=3)  # 검정통계량
+
+legend("topright", 
+       legend=c("임계값 (Critical Value)", "검정통계량 (t-statistic)"), 
+       col=c("red", "blue"), 
+       lty=c(2, 1), lwd=c(2, 3))
+
+# 📌 6. 최종 결론 출력
+cat("\n✨ 검정통계량 (t):", round(t_stat, 3), "\n")
+cat("🎯 자유도 (df):", round(df_w, 3), "\n")
+cat("🚨 임계값 (t_crit):", round(t_crit, 3), "\n")
+cat("📊 p-value:", round(p_value, 4), "\n")
+
+if (p_value < alpha) {
+  cat("\n🔴 결론: A반의 성적이 B반보다 유의미하게 높음.\n")
+} else {
+  cat("\n🔵 결론: A반의 성적이 B반보다 유의미하게 높다고 할 수 없음.\n")
+}
+
 ```
 
 3) 결과 해석
