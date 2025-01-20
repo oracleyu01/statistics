@@ -5,6 +5,8 @@
 ![가설검정의 유형](그림11.png)
 ![가설검정의 유형](table1.png)
 
+[아래의 예제와 문제들을 수식으로 이해하기](https://chatgpt.com/share/678e49de-0c1c-8009-8fdf-bb470e1fd58e)  
+
 ## 1️⃣ 이론 설명
 
 ### ANOVA란?
