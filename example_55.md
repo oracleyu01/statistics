@@ -47,46 +47,9 @@ H₁: μD > 0 (프로그램 후 체중이 감소했다)
 
 2. R코드로 분석
 ```r
-# 데이터 입력
-before <- c(68, 72, 65, 70, 75, 67, 71, 69, 73, 74)
-after <- c(65, 68, 62, 67, 71, 65, 69, 66, 70, 72)
 
-# 차이 계산
-diff <- before - after
-n <- length(diff)
 
-# 기초 통계량 계산
-d_bar <- mean(diff)
-sd_d <- sd(diff)
-alpha <- 0.05
 
-# t 통계량 계산
-t_stat <- d_bar/(sd_d/sqrt(n))
-print(paste("t 통계량:", round(t_stat, 3)))
-
-# 자유도와 임계값
-df <- n - 1
-t_crit <- qt(1-alpha, df)
-print(paste("임계값:", round(t_crit, 3)))
-
-# p-value 계산 (우측검정)
-p_value <- pt(t_stat, df, lower.tail=FALSE)
-print(paste("p-value:", round(p_value, 4)))
-
-# R의 내장 함수 사용
-t.test(before, after, 
-       paired=TRUE,        # 대응표본 검정
-       alternative="greater")
-
-# 결과 시각화
-par(mfrow=c(1,2))
-# 1. 전후 비교 boxplot
-boxplot(before, after, names=c("전", "후"),
-        main="체중 변화 boxplot")
-
-# 2. 차이의 분포
-hist(diff, main="차이의 분포", 
-     xlab="체중 감소량(kg)")
 ```
 
 3. 결론 도출
@@ -123,14 +86,9 @@ hist(diff, main="차이의 분포",
 
 2) R코드 분석
 ```r
-before <- c(65, 70, 75, 68, 72, 69, 71, 73)
-after <- c(70, 75, 80, 72, 78, 73, 76, 77)
 
-# 대응표본 t 검정
-result <- t.test(after, before, 
-                 paired=TRUE,
-                 alternative="greater")
-print(result)
+
+
 ```
 
 3) 결과 해석
