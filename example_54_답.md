@@ -39,48 +39,61 @@ H₁: μ₁ - μ₂ ≠ 0 (두 회사의 고객 만족도는 다르다)
 
 2. R코드로 분석
 ```r
-# 데이터 설정
-n1 <- 20; n2 <- 25          # 표본 크기
+# 📌 1. 데이터 설정
+n1 <- 20; n2 <- 25      # 표본 크기
 x1_bar <- 85; x2_bar <- 78  # 표본 평균
-s1 <- 15; s2 <- 8           # 표본 표준편차
-alpha <- 0.05               # 유의수준
+s1 <- 15; s2 <- 8       # 표본 표준편차
+alpha <- 0.05           # 유의수준 설정
 
-# t 통계량 계산
-t_stat <- (x1_bar - x2_bar)/sqrt((s1^2/n1) + (s2^2/n2))
-print(paste("t 통계량:", round(t_stat, 3)))
+# 📌 2. 정규분포에서 난수 생성 (표본 데이터 만들기)
+set.seed(123)  # 재현성을 위해 시드 설정
+group1 <- rnorm(n1, mean=x1_bar, sd=s1)  # A회사 표본 데이터
+group2 <- rnorm(n2, mean=x2_bar, sd=s2)  # B회사 표본 데이터
 
-# 수정된 자유도 계산
-df_w <- ((s1^2/n1 + s2^2/n2)^2)/
-        ((s1^2/n1)^2/(n1-1) + (s2^2/n2)^2/(n2-1))
-print(paste("수정된 자유도:", round(df_w, 3)))
+# 📌 3. Welch의 t-검정 수행 (이분산 가정)
+t_result <- t.test(group1, group2, var.equal=FALSE, alternative="two.sided")
+
+# 📌 4. 결과 출력
+print(t_result)
+
+# 📌 5. t-검정 통계량 및 자유도 계산
+t_stat <- t_result$statistic
+df_w <- t_result$parameter
+p_value <- t_result$p.value
 
 # 임계값 계산
-t_crit <- qt(1-alpha/2, df_w)
-print(paste("임계값: ±", round(t_crit, 3)))
+t_crit <- qt(1 - alpha/2, df_w)
 
-# p-value 계산 (양측검정)
-p_value <- 2 * pt(abs(t_stat), df_w, lower.tail=FALSE)
-print(paste("p-value:", round(p_value, 4)))
-
-# 결과 시각화
+# 📌 6. 시각화 (t-분포와 검정통계량)
 curve(dt(x, df_w), from=-4, to=4, 
-      main="t분포와 검정통계량",
-      ylab="밀도", xlab="t")
-abline(v=c(-t_crit, t_crit), col="red", lty=2)
-abline(v=t_stat, col="blue", lwd=2)
-legend("topright", 
-       legend=c("임계값", "검정통계량"), 
-       col=c("red", "blue"), 
-       lty=c(2, 1))
+      main="t-분포와 검정통계량",
+      ylab="밀도", xlab="t", col="black", lwd=2)
 
-# R의 내장 함수 사용
-group1 <- rep(x1_bar, n1)
-group2 <- rep(x2_bar, n2)
-var1 <- rep(s1^2, n1)
-var2 <- rep(s2^2, n2)
-t.test(group1, group2, 
-       var.equal=FALSE,     # 이분산 가정
-       alternative="two.sided")
+# 임계값 (Critical value) 표시
+abline(v=c(-t_crit, t_crit), col="red", lty=2, lwd=2)
+
+# 검정 통계량 (t-statistic) 표시
+abline(v=t_stat, col="blue", lwd=3)
+
+# 범례 추가
+legend("topright", 
+       legend=c("임계값 (Critical Value)", "검정통계량 (t-statistic)"), 
+       col=c("red", "blue"), 
+       lty=c(2, 1), lwd=c(2, 3))
+
+# 📌 7. 최종 결과 출력
+cat("\n✨ 검정통계량 (t):", round(t_stat, 3), "\n")
+cat("🎯 자유도 (df):", round(df_w, 3), "\n")
+cat("🚨 임계값 (t_crit): ±", round(t_crit, 3), "\n")
+cat("📊 p-value:", round(p_value, 4), "\n")
+
+# 귀무가설 기각 여부 판단
+if (p_value < alpha) {
+  cat("\n🔴 결론: 유의수준 5%에서 귀무가설 기각! 두 그룹의 평균은 통계적으로 유의미한 차이가 있음.\n")
+} else {
+  cat("\n🔵 결론: 유의수준 5%에서 귀무가설 기각 실패. 두 그룹의 평균 차이는 유의미하지 않음.\n")
+}
+
 ```
 
 3. 결론 도출
