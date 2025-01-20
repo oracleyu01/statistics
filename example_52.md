@@ -38,36 +38,10 @@ H₁: μ ≠ 200 (회사의 주장이 틀리다)
 
 2. 검정통계량 계산
 ```r
-# 데이터 설정
-mu0 <- 200      # 귀무가설의 평균
-xbar <- 195     # 표본평균
-s <- 10         # 표본표준편차
-n <- 25         # 표본크기
-alpha <- 0.05   # 유의수준
 
-# t 통계량 계산
-t_stat <- (xbar - mu0)/(s/sqrt(n))
-print(paste("t 통계량:", round(t_stat, 3)))
 
-# 자유도와 임계값
-df <- n - 1
-t_crit <- qt(1-alpha/2, df)
-print(paste("임계값: ±", round(t_crit, 3)))
 
-# p-value 계산 (양측검정)
-p_value <- 2 * pt(abs(t_stat), df, lower.tail=FALSE)
-print(paste("p-value:", round(p_value, 4)))
 
-# 결과 시각화
-curve(dt(x, df), from=-4, to=4, 
-      main="t분포와 검정통계량",
-      ylab="밀도", xlab="t")
-abline(v=c(-t_crit, t_crit), col="red", lty=2)
-abline(v=t_stat, col="blue", lwd=2)
-legend("topright", 
-       legend=c("임계값", "검정통계량"), 
-       col=c("red", "blue"), 
-       lty=c(2, 1))
 ```
 
 3. 결론 도출
@@ -95,38 +69,13 @@ legend("topright",
 <details>
 <summary><b>✍️ 정답</b></summary>
 
-1) 가설 설정 (좌측검정)
-   - H₀: μ ≥ 70
-   - H₁: μ < 70
-
-2) 검정통계량
-   $$t = \frac{68 - 70}{5/\sqrt{16}} = -1.60$$
-
-3) α = 0.05, 자유도 = 15일 때 임계값 = -1.753
-   |-1.60| < 1.753이므로 귀무가설 기각 실패
 
 4) R코드
 ```r
-mu0 <- 70       # 귀무가설의 평균
-xbar <- 68      # 표본평균
-s <- 5          # 표본표준편차
-n <- 16         # 표본크기
-alpha <- 0.05   # 유의수준
-df <- n - 1     # 자유도
 
-# t 통계량 계산
-t_stat <- (xbar - mu0)/(s/sqrt(n))
 
-# 좌측검정의 임계값
-t_crit <- qt(alpha, df)
 
-# p-value 계산 (좌측검정)
-p_value <- pt(t_stat, df)
 
-# 결과 출력
-print(paste("t 통계량:", round(t_stat, 3)))
-print(paste("임계값:", round(t_crit, 3)))
-print(paste("p-value:", round(p_value, 4)))
 ```
 </details>
 
