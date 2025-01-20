@@ -54,39 +54,9 @@ method_A <- c(75, 82, 78, 80, 85, 81, 82, 77, 79, 83, 81, 80, 77, 82, 84)
 method_B <- c(70, 75, 72, 74, 77, 75, 76, 73, 71, 76, 75, 73, 72, 74, 76)
 method_C <- c(85, 88, 82, 84, 90, 86, 87, 83, 85, 88, 86, 84, 83, 87, 89)
 
-# 데이터프레임 생성
-scores <- data.frame(
-  score = c(method_A, method_B, method_C),
-  method = factor(rep(c("A", "B", "C"), each = 15))
-)
 
-# 기술통계량
-tapply(scores$score, scores$method, function(x) {
-  c(mean = mean(x), sd = sd(x))
-})
 
-# ANOVA 실시
-result <- aov(score ~ method, data = scores)
-summary(result)
 
-# 사후검정 (Tukey's HSD)
-TukeyHSD(result)
-
-# 시각화
-par(mfrow=c(1,2))
-
-# 1. 상자그림
-boxplot(score ~ method, data = scores,
-        main = "교수법별 시험 점수",
-        ylab = "점수",
-        xlab = "교수법")
-
-# 2. 정규성 검정을 위한 Q-Q plot
-qqnorm(residuals(result))
-qqline(residuals(result))
-
-# 등분산성 검정
-bartlett.test(score ~ method, data = scores)
 ```
 
 3. 결론 도출
@@ -123,20 +93,8 @@ program_X <- c(3.5, 4.2, 3.8, 4.0, 3.9, 4.1, 3.7, 4.3, 3.6, 4.0)
 program_Y <- c(2.8, 3.1, 2.9, 3.0, 3.2, 2.7, 3.0, 2.8, 3.1, 2.9)
 program_Z <- c(4.5, 4.8, 4.6, 4.7, 4.9, 4.5, 4.8, 4.6, 4.7, 4.4)
 
-weight_loss <- data.frame(
-  loss = c(program_X, program_Y, program_Z),
-  program = factor(rep(c("X", "Y", "Z"), each = 10))
-)
 
-# ANOVA 및 사후검정
-result <- aov(loss ~ program, data = weight_loss)
-summary(result)
-TukeyHSD(result)
 
-# 결론
-# F값과 p-value < 0.05이므로 세 프로그램 간에 유의한 차이가 있음
-# 사후검정 결과, 모든 프로그램 쌍 간에 유의한 차이가 있으며
-# Z > X > Y 순으로 효과가 있음
 ```
 
 </details>
