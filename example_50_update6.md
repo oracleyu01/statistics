@@ -37,34 +37,7 @@
 <summary><b>📈 R 코드로 분석하기 </b></summary>
 
 ```r
-# 데이터 설정
-mu0 <- 150       # 귀무가설의 평균
-xbar <- 153      # 표본평균
-sigma <- 12      # 모표준편차
-n <- 100         # 표본크기
 
-# 검정통계량 Z 계산
-z_stat <- (xbar - mu0)/(sigma/sqrt(n))
-print(paste("Z 통계량:", round(z_stat, 3)))
-
-# p-value 계산 (우측검정)
-p_value <- 1 - pnorm(z_stat)
-print(paste("p-value:", round(p_value, 4)))
-
-# 결과 해석
-alpha <- 0.05    # 유의수준
-if(p_value < alpha) {
-  print("귀무가설을 기각합니다.")
-  print("평균 월급이 150만원보다 크다고 할 수 있습니다.")
-} else {
-  print("귀무가설을 기각할 수 없습니다.")
-}
-
-# 시각화
-curve(dnorm(x), from=-3, to=3, main="표준정규분포와 검정통계량",
-      ylab="밀도", xlab="Z")
-abline(v=z_stat, col="red", lty=2)
-legend("topright", legend=c("Z 통계량"), col="red", lty=2)
 ```
 
 **분석 결과 설명:**
