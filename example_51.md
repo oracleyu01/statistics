@@ -68,38 +68,10 @@ $$Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}$$
 <details>
 <summary><b>✍️ 정답</b></summary>
 
-1) 가설 설정 (좌측검정)
-   - H₀: μ ≥ 50
-   - H₁: μ < 50
-
-2) 검정통계량
-   $$Z = \frac{49.5 - 50}{2/\sqrt{49}} = -1.75$$
-
-3) α = 0.01일 때 임계값 = -2.326
-   |-1.75| < 2.326이므로 귀무가설 기각 실패
-
-4) R코드
 ```r
-# 데이터 설정
-mu0 <- 50       # 귀무가설의 평균
-sigma <- 2      # 알려진 표준편차
-xbar <- 49.5    # 표본평균
-n <- 49         # 표본크기
-alpha <- 0.01   # 유의수준
 
-# 검정통계량 Z 계산
-z_stat <- (xbar - mu0)/(sigma/sqrt(n))
+  
 
-# 좌측검정의 임계값
-z_crit <- qnorm(alpha)
-
-# p-value 계산 (좌측검정)
-p_value <- pnorm(z_stat)
-
-# 결과 출력
-print(paste("Z 통계량:", round(z_stat, 3)))
-print(paste("임계값:", round(z_crit, 3)))
-print(paste("p-value:", round(p_value, 4)))
 ```
 </details>
 
