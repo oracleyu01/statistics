@@ -30,15 +30,8 @@
 before <- c(150, 145, 160, 155, 148, 152, 158, 142, 156, 151)
 after <- c(142, 140, 155, 150, 145, 148, 152, 140, 152, 147)
 
-# 정규성 검정
-shapiro.test(before - after)  # 정규성 검정
 
-# 윌콕슨 부호순위검정
-wilcox.test(before, after, paired=TRUE)
 
-# 시각화
-boxplot(list(Before=before, After=after),
-        main="치료제 복용 전후 혈압 비교")
 ```
 
 ### 📌 예제 2: 만-휘트니 U검정
@@ -49,12 +42,9 @@ boxplot(list(Before=before, After=after),
 method_A <- c(85, 78, 82, 88, 94, 75, 85, 82)
 method_B <- c(75, 72, 68, 80, 76, 70, 74, 78)
 
-# 만-휘트니 U검정
-wilcox.test(method_A, method_B)
 
-# 시각화
-boxplot(list(A=method_A, B=method_B),
-        main="교육 방법별 성취도 비교")
+
+
 ```
 
 ### 📌 예제 3: 크루스칼-왈리스 검정
@@ -66,18 +56,9 @@ program_A <- c(5.2, 4.8, 5.5, 4.9, 5.1)
 program_B <- c(4.8, 4.5, 4.9, 4.6, 4.7)
 program_C <- c(5.5, 5.8, 5.6, 5.7, 5.9)
 
-# 데이터프레임 생성
-data <- data.frame(
-  effect = c(program_A, program_B, program_C),
-  program = factor(rep(c("A", "B", "C"), each=5))
-)
 
-# 크루스칼-왈리스 검정
-kruskal.test(effect ~ program, data=data)
 
-# 시각화
-boxplot(effect ~ program, data=data,
-        main="프로그램별 효과 비교")
+
 ```
 
 ## 3️⃣ 연습문제
@@ -102,16 +83,9 @@ boxplot(effect ~ program, data=data,
 before <- c(5.2, 4.8, 5.0, 4.5, 4.9, 5.1, 4.7, 4.6)
 after <- c(6.1, 5.9, 5.8, 5.5, 6.0, 5.7, 5.6, 5.8)
 
-# 정규성 검정
-shapiro.test(after - before)
 
-# 윌콕슨 부호순위검정
-result <- wilcox.test(after, before, 
-                      paired=TRUE, 
-                      alternative="greater")
-print(result)
 
-# 결론: p-value < 0.05이므로 수면제가 효과가 있다고 할 수 있다
+
 ```
 </details>
 
@@ -136,16 +110,9 @@ print(result)
 pharmacy_A <- c(5200, 4800, 5500, 4900, 5100, 5300, 4700, 5000, 5400, 4900)
 pharmacy_B <- c(4800, 4500, 4900, 4600, 4700, 4800, 4400, 4700, 4900, 4600)
 
-# 만-휘트니 U검정
-result <- wilcox.test(pharmacy_A, pharmacy_B)
-print(result)
 
-# 시각화
-boxplot(list(A=pharmacy_A, B=pharmacy_B),
-        main="약국별 약품 가격 비교",
-        ylab="가격(원)")
 
-# 결론: p-value < 0.05이므로 두 약국의 가격에 유의한 차이가 있다
+
 ```
 </details>
 
