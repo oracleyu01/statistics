@@ -107,7 +107,7 @@
 ### 통계 분석 기법
 - **예제47. 회귀분석1.상관관계 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_47.R)  
 - **예제48. 회귀분석2.단순선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_48.R) 
-- **예제49. 회귀분석3.다중선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_49.R)   🔗[관련 게시글](https://cafe.daum.net/oracleoracle/Sotv/641)
+- **예제49. 회귀분석3.다중선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_49.R)   🔗[관련 이론설명](https://cafe.daum.net/oracleoracle/Sotv/641)
 - **예제50. 가설검정0.가설검정 용어 이해하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_50_update1.md)  
 - **예제51. 가설검정1.단일 모집단의 모평균 검정: 분산을 아는 경우(Z 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_51.md)
 - **예제52. 가설검정2.단일 모집단의 모평균 검정: 분산을 모르는 경우 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_52.md)
