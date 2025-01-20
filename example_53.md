@@ -41,38 +41,11 @@ H₁: μ₁ - μ₂ ≠ 0 (두 약품의 효과는 다르다)
 
 2. R코드로 분석
 ```r
-# 데이터 설정
-n1 <- 15; n2 <- 12          # 표본 크기
-x1_bar <- 85; x2_bar <- 78  # 표본 평균
-s1 <- 8; s2 <- 7            # 표본 표준편차
-alpha <- 0.05               # 유의수준
 
-# 통합표준편차 계산
-sp <- sqrt(((n1-1)*s1^2 + (n2-1)*s2^2)/(n1+n2-2))
 
-# t 통계량 계산
-t_stat <- (x1_bar - x2_bar)/(sp*sqrt(1/n1 + 1/n2))
-print(paste("t 통계량:", round(t_stat, 3)))
 
-# 자유도와 임계값
-df <- n1 + n2 - 2
-t_crit <- qt(1-alpha/2, df)
-print(paste("임계값: ±", round(t_crit, 3)))
 
-# p-value 계산 (양측검정)
-p_value <- 2 * pt(abs(t_stat), df, lower.tail=FALSE)
-print(paste("p-value:", round(p_value, 4)))
 
-# 결과 시각화
-curve(dt(x, df), from=-4, to=4, 
-      main="t분포와 검정통계량",
-      ylab="밀도", xlab="t")
-abline(v=c(-t_crit, t_crit), col="red", lty=2)
-abline(v=t_stat, col="blue", lwd=2)
-legend("topright", 
-       legend=c("임계값", "검정통계량"), 
-       col=c("red", "blue"), 
-       lty=c(2, 1))
 ```
 
 3. 결론 도출
@@ -106,20 +79,12 @@ legend("topright",
 
 2) 통합표준편차와 검정통계량
    ```r
-   # R 코드로 계산
-   n1 <- 20; n2 <- 18
-   x1_bar <- 75; x2_bar <- 70
-   s1 <- 10; s2 <- 9
-   df <- n1 + n2 - 2
-   
-   sp <- sqrt(((n1-1)*s1^2 + (n2-1)*s2^2)/(n1+n2-2))
-   t_stat <- (x1_bar - x2_bar)/(sp*sqrt(1/n1 + 1/n2))
-   
-   # 우측검정의 p-value
-   p_value <- pt(t_stat, df, lower.tail=FALSE)
+
+
+
    ```
 
-3) 결론
+2) 결론
    - t 통계량 = 1.645
    - 유의수준 5%에서의 임계값 = 1.686
    - p-value = 0.0542 > 0.05
