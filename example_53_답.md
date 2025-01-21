@@ -151,6 +151,7 @@ legend("topright",
        lty=c(2, 1))
 
    ```
+</details>
 
 ## 3️⃣ 단측검정(좌측검정) 
 
