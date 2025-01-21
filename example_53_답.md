@@ -25,7 +25,7 @@ $$t = \frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{s_p\sqrt{\frac{1}{n_1} + 
 ### 통합표준편차
 $$s_p = \sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}$$
 
-## 2️⃣ 예제 풀이
+## 2️⃣ 양측검정
 
 ### 📌 문제 상황
 신약 개발 회사에서 두 가지 다른 제조 방법으로 만든 약품의 효과를 비교하고자 한다.
@@ -53,28 +53,33 @@ alpha <- 0.05               # 유의수준
 sp <- sqrt(((n1-1)*s1^2 + (n2-1)*s2^2)/(n1+n2-2))
 
 # t 통계량 계산
-t_stat <- (x1_bar - x2_bar)/(sp*sqrt(1/n1 + 1/n2))
+t_stat <- (x1_bar - x2_bar) / (sp * sqrt(1/n1 + 1/n2))
 print(paste("t 통계량:", round(t_stat, 3)))
 
-# 자유도와 임계값
+# 자유도와 임계값 (양측검정)
 df <- n1 + n2 - 2
-t_crit <- qt(1-alpha/2, df)
+t_crit <- qt(1 - alpha/2, df)
 print(paste("임계값: ±", round(t_crit, 3)))
 
-# p-value 계산 (양측검정)
-p_value <- 2 * pt(abs(t_stat), df, lower.tail=FALSE)
-print(paste("p-value:", round(p_value, 4)))
+# 결과 해석 (t 통계량과 임계값 비교)
+if (abs(t_stat) > t_crit) {
+  print("귀무가설을 기각합니다.")
+  print("두 집단의 평균에 유의미한 차이가 있다고 할 수 있습니다.")
+} else {
+  print("귀무가설을 기각할 수 없습니다.")
+}
 
-# 결과 시각화
+# 시각화
 curve(dt(x, df), from=-4, to=4, 
       main="t분포와 검정통계량",
       ylab="밀도", xlab="t")
-abline(v=c(-t_crit, t_crit), col="red", lty=2)
-abline(v=t_stat, col="blue", lwd=2)
+abline(v=c(-t_crit, t_crit), col="red", lty=2)  # 임계값 표시
+abline(v=t_stat, col="blue", lwd=2)  # 검정통계량 표시
 legend("topright", 
        legend=c("임계값", "검정통계량"), 
        col=c("red", "blue"), 
        lty=c(2, 1))
+
 ```
 
 3. 결론 도출
@@ -83,7 +88,7 @@ legend("topright",
 - p-value = 0.0251 < 0.05
 - 따라서 귀무가설을 기각하고, 두 제조 방법에 따른 약품의 효과에 차이가 있다고 할 수 있다.
 
-## 3️⃣ 연습문제
+## 3️⃣ 단측검정(우측검정) 
 
 <details>
 <summary><b>🎯 문제</b></summary>
@@ -109,24 +114,112 @@ legend("topright",
 2) 통합표준편차와 검정통계량
    ```r
    # R 코드로 계산
-   n1 <- 20; n2 <- 18
-   x1_bar <- 75; x2_bar <- 70
-   s1 <- 10; s2 <- 9
-   df <- n1 + n2 - 2
-   
-   sp <- sqrt(((n1-1)*s1^2 + (n2-1)*s2^2)/(n1+n2-2))
-   t_stat <- (x1_bar - x2_bar)/(sp*sqrt(1/n1 + 1/n2))
-   
-   # 우측검정의 p-value
-   p_value <- pt(t_stat, df, lower.tail=FALSE)
+# 데이터 설정
+n1 <- 20; n2 <- 18          # 표본 크기
+x1_bar <- 75; x2_bar <- 70  # 표본 평균
+s1 <- 10; s2 <- 9           # 표본 표준편차
+alpha <- 0.05               # 유의수준
+df <- n1 + n2 - 2           # 자유도
+
+# 통합표준편차 계산
+sp <- sqrt(((n1-1)*s1^2 + (n2-1)*s2^2)/(n1+n2-2))
+
+# t 통계량 계산
+t_stat <- (x1_bar - x2_bar) / (sp * sqrt(1/n1 + 1/n2))
+print(paste("t 통계량:", round(t_stat, 3)))
+
+# 우측검정의 임계값
+t_crit <- qt(1 - alpha, df)
+print(paste("임계값:", round(t_crit, 3)))
+
+# 결과 해석 (t 통계량과 임계값 비교)
+if (t_stat > t_crit) {
+  print("귀무가설을 기각합니다.")
+  print("첫 번째 집단의 평균이 두 번째 집단보다 유의미하게 크다고 할 수 있습니다.")
+} else {
+  print("귀무가설을 기각할 수 없습니다.")
+}
+
+# 시각화
+curve(dt(x, df), from=-4, to=4, 
+      main="t분포와 검정통계량",
+      ylab="밀도", xlab="t")
+abline(v=t_crit, col="red", lty=2)  # 임계값 표시
+abline(v=t_stat, col="blue", lwd=2)  # 검정통계량 표시
+legend("topright", 
+       legend=c("임계값", "검정통계량"), 
+       col=c("red", "blue"), 
+       lty=c(2, 1))
+
    ```
 
-3) 결론
-   - t 통계량 = 1.645
-   - 유의수준 5%에서의 임계값 = 1.686
-   - p-value = 0.0542 > 0.05
-   - 따라서 귀무가설을 기각할 수 없음
-   - 교수법 A가 더 효과적이라고 할 수 없음
+## 3️⃣ 단측검정(좌측검정) 
+
+<details>
+<summary><b>🎯 문제</b></summary>
+
+한 연구팀이 **새로운 혈압약이 기존 혈압약보다 평균 혈압을 낮출 수 있는지** 검증하려고 한다.  
+실험을 위해 **기존 혈압약을 복용한 22명**과 **새로운 혈압약을 복용한 20명**의 혈압을 측정했다.  
+
+- 기존 혈압약 그룹: 평균 혈압 **130mmHg**, 표준편차 **8mmHg**  
+- 새로운 혈압약 그룹: 평균 혈압 **125mmHg**, 표준편차 **7mmHg**  
+
+유의수준 **5%**에서 **새로운 혈압약이 혈압을 유의하게 낮추는지** 검정하시오.
+
+1) 가설을 설정하시오  
+2) 검정통계량을 계산하시오  
+3) 결론을 내리시오  
+4) R코드로 분석하시오  
+
+</details>
+
+<details>
+<summary><b>✍️ 정답</b></summary>
+
+1) **가설 설정 (좌측검정)**  
+   - 귀무가설 (H₀): 새로운 혈압약이 기존 혈압약보다 혈압을 낮추지 않는다. (μ₁ - μ₂ ≥ 0)  
+   - 대립가설 (H₁): 새로운 혈압약이 기존 혈압약보다 혈압을 낮춘다. (μ₁ - μ₂ < 0)  
+
+2) **통합표준편차와 검정통계량 계산**  
+
+```r
+# 데이터 설정
+n1 <- 22; n2 <- 20          # 표본 크기
+x1_bar <- 130; x2_bar <- 125  # 표본 평균 (기존 약 - 새로운 약)
+s1 <- 8; s2 <- 7             # 표본 표준편차
+alpha <- 0.05               # 유의수준
+df <- n1 + n2 - 2           # 자유도
+
+# 통합표준편차 계산
+sp <- sqrt(((n1-1)*s1^2 + (n2-1)*s2^2) / (n1+n2-2))
+
+# t 통계량 계산
+t_stat <- (x1_bar - x2_bar) / (sp * sqrt(1/n1 + 1/n2))
+print(paste("t 통계량:", round(t_stat, 3)))
+
+# 좌측검정의 임계값
+t_crit <- qt(alpha, df)
+print(paste("임계값:", round(t_crit, 3)))
+
+# 결과 해석 (t 통계량과 임계값 비교)
+if (t_stat < t_crit) {
+  print("귀무가설을 기각합니다.")
+  print("새로운 혈압약이 기존 혈압약보다 혈압을 유의하게 낮춘다고 할 수 있습니다.")
+} else {
+  print("귀무가설을 기각할 수 없습니다.")
+}
+
+# 시각화
+curve(dt(x, df), from=-4, to=4, 
+      main="t분포와 검정통계량",
+      ylab="밀도", xlab="t")
+abline(v=t_crit, col="red", lty=2)  # 임계값 표시
+abline(v=t_stat, col="blue", lwd=2)  # 검정통계량 표시
+legend("topright", 
+       legend=c("임계값", "검정통계량"), 
+       col=c("red", "blue"), 
+       lty=c(2, 1))
+
 
 </details>
 
