@@ -130,19 +130,8 @@ wilcox.test(method_A, method_B)
 boxplot(list(A=method_A, B=method_B), 
         main="교육 방법별 성취도 비교")
 
-
-```r
-# 데이터
-method_A <- c(85, 78, 82, 88, 94, 75, 85, 82)
-method_B <- c(75, 72, 68, 80, 76, 70, 74, 78)
-
-# 만-휘트니 U검정
-wilcox.test(method_A, method_B)
-
-# 시각화
-boxplot(list(A=method_A, B=method_B),
-        main="교육 방법별 성취도 비교")
 ```
+
 
 ### 📌 예제 3: 크루스칼-왈리스 검정  
 
@@ -184,25 +173,7 @@ boxplot(effect ~ program, data=data,
         main="프로그램별 효과 비교")
 
 
-```r
-# 데이터 준비
-program_A <- c(5.2, 4.8, 5.5, 4.9, 5.1)
-program_B <- c(4.8, 4.5, 4.9, 4.6, 4.7)
-program_C <- c(5.5, 5.8, 5.6, 5.7, 5.9)
 
-# 데이터프레임 생성
-data <- data.frame(
-  effect = c(program_A, program_B, program_C),
-  program = factor(rep(c("A", "B", "C"), each=5))
-)
-
-# 크루스칼-왈리스 검정
-kruskal.test(effect ~ program, data=data)
-
-# 시각화
-boxplot(effect ~ program, data=data,
-        main="프로그램별 효과 비교")
-```
 
 ## 3️⃣ 연습문제
 
