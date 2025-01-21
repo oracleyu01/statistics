@@ -172,7 +172,7 @@ kruskal.test(effect ~ program, data=data)
 boxplot(effect ~ program, data=data,
         main="프로그램별 효과 비교")
 
-
+```
 
 
 ## 3️⃣ 연습문제
