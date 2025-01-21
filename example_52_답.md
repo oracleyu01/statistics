@@ -48,24 +48,28 @@ n <- 25         # 표본크기
 alpha <- 0.05   # 유의수준
 
 # t 통계량 계산
-t_stat <- (xbar - mu0)/(s/sqrt(n))
+t_stat <- (xbar - mu0) / (s / sqrt(n))
 print(paste("t 통계량:", round(t_stat, 3)))
 
-# 자유도와 임계값
+# 자유도와 임계값 (양측검정)
 df <- n - 1
-t_crit <- qt(1-alpha/2, df)
+t_crit <- qt(1 - alpha/2, df)
 print(paste("임계값: ±", round(t_crit, 3)))
 
-# p-value 계산 (양측검정)
-p_value <- 2 * pt(abs(t_stat), df, lower.tail=FALSE)
-print(paste("p-value:", round(p_value, 4)))
+# 결과 해석 (t 통계량과 임계값 비교)
+if(abs(t_stat) > t_crit) {
+  print("귀무가설을 기각합니다.")
+  print("새로운 공정이 평균 길이를 변화시켰다고 할 수 있습니다.")
+} else {
+  print("귀무가설을 기각할 수 없습니다.")
+}
 
-# 결과 시각화
+# 시각화
 curve(dt(x, df), from=-4, to=4, 
       main="t분포와 검정통계량",
       ylab="밀도", xlab="t")
-abline(v=c(-t_crit, t_crit), col="red", lty=2)
-abline(v=t_stat, col="blue", lwd=2)
+abline(v=c(-t_crit, t_crit), col="red", lty=2)  # 임계값 표시
+abline(v=t_stat, col="blue", lwd=2)  # 검정통계량 표시
 legend("topright", 
        legend=c("임계값", "검정통계량"), 
        col=c("red", "blue"), 
@@ -73,10 +77,20 @@ legend("topright",
 ```
 
 3. 결론 도출
-- t 통계량 = -2.5
-- 자유도 24에서의 임계값 = ±2.064
-- p-value = 0.0196 < 0.05
-- 따라서 귀무가설을 기각하고, 회사의 주장이 틀렸다고 할 수 있다.
+1) **가설 설정 (양측검정)**  
+   - **귀무가설 (\( H_0 \))**: μ = 200 (새로운 공정이 평균 길이에 영향을 미치지 않는다.)  
+   - **대립가설 (\( H_1 \))**: μ ≠ 200 (새로운 공정이 평균 길이를 변화시켰다.)  
+
+2) **검정통계량 계산**  
+   $$ t = \frac{195 - 200}{10/\sqrt{25}} = -2.5 $$  
+
+3) **임계값 계산 (자유도 \( df = 24 \), α = 0.05)**  
+   $$ t_{\text{crit}} = qt(0.975, 24) = 2.064 $$  
+
+   - **\( |t_{\text{stat}}| = 2.5 \) > \( t_{\text{crit}} = 2.064 \)**  
+   - 기각역에 속하므로 **귀무가설 기각**  
+   - **결론**: 새로운 공정이 **평균 길이를 변화**시켰다고 할 수 있다.
+     
 
 ## 3️⃣ 연습문제
 
