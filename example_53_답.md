@@ -89,7 +89,7 @@ legend("topright",
 
 ## 3️⃣ 단측검정(우측검정) 
 
-<details>
+
 <summary><b>🎯 문제</b></summary>
 
 두 가지 교수법의 효과를 비교하기 위해 실험을 실시했다. 
@@ -101,9 +101,9 @@ legend("topright",
 2) 검정통계량을 계산하시오
 3) 결론을 내리시오
 4) R코드로 분석하시오
-</details>
 
-<details>
+
+
 <summary><b>✍️ 정답</b></summary>
 
 1) 가설 설정 (우측검정)
@@ -111,7 +111,8 @@ legend("topright",
    - H₁: μ₁ - μ₂ > 0
 
 2) 통합표준편차와 검정통계량
-   ```r
+   
+```r
    # R 코드로 계산
 # 데이터 설정
 n1 <- 20; n2 <- 18          # 표본 크기
@@ -150,12 +151,12 @@ legend("topright",
        col=c("red", "blue"), 
        lty=c(2, 1))
 
-   ```
-</details>
+```
+
 
 ## 3️⃣ 단측검정(좌측검정) 
 
-<details>
+
 <summary><b>🎯 문제</b></summary>
 
 한 연구팀이 **새로운 혈압약이 기존 혈압약보다 평균 혈압을 낮출 수 있는지** 검증하려고 한다.  
@@ -171,9 +172,8 @@ legend("topright",
 3) 결론을 내리시오  
 4) R코드로 분석하시오  
 
-</details>
 
-<details>
+
 <summary><b>✍️ 정답</b></summary>
 
 1) **가설 설정 (좌측검정)**  
@@ -221,7 +221,7 @@ legend("topright",
        lty=c(2, 1))
 
 
-</details>
+
 
 > 💡 **핵심 포인트**
 > - 두 집단이 독립적이어야 합니다
