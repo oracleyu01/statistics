@@ -113,7 +113,8 @@ legend("topright",
    
    |-1.75| < 2.326이므로 귀무가설 기각 실패
 
-5) R코드
+5) R코드  
+   
 ```r
 # 데이터 설정
 mu0 <- 50       # 귀무가설의 평균
@@ -123,18 +124,31 @@ n <- 49         # 표본크기
 alpha <- 0.01   # 유의수준
 
 # 검정통계량 Z 계산
-z_stat <- (xbar - mu0)/(sigma/sqrt(n))
+z_stat <- (xbar - mu0) / (sigma / sqrt(n))
+print(paste("Z 통계량:", round(z_stat, 3)))
 
 # 좌측검정의 임계값
 z_crit <- qnorm(alpha)
-
-# p-value 계산 (좌측검정)
-p_value <- pnorm(z_stat)
-
-# 결과 출력
-print(paste("Z 통계량:", round(z_stat, 3)))
 print(paste("임계값:", round(z_crit, 3)))
-print(paste("p-value:", round(p_value, 4)))
+
+# 결과 해석 (Z 통계량과 임계값 비교)
+if(z_stat < z_crit) {
+  print("귀무가설을 기각합니다.")
+  print("새로운 공정이 평균을 감소시켰다고 할 수 있습니다.")
+} else {
+  print("귀무가설을 기각할 수 없습니다.")
+}
+
+# 시각화
+curve(dnorm, from=-4, to=4, main="표준정규분포와 검정통계량",
+      ylab="밀도", xlab="Z")
+abline(v=z_crit, col="red", lty=2)  # 임계값 표시
+abline(v=z_stat, col="blue", lwd=2)  # 검정통계량 표시
+legend("topright", 
+       legend=c("임계값", "검정통계량"), 
+       col=c("red", "blue"), 
+       lty=c(2, 1))
+
 ```
 </details>
 
