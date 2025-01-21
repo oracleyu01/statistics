@@ -51,7 +51,7 @@ $$Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}$$
 ```
 </details>
 
-## 3️⃣ 단측검정
+## 3️⃣ 단측검정 (좌측검정)
 
 <details>
 <summary><b>🎯 문제</b></summary>
