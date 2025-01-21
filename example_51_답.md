@@ -35,7 +35,7 @@ $$Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}$$
    - H₀: μ ≥ μ₀
    - H₁: μ < μ₀
 
-## 2️⃣ R코드 실습 예제
+## 2️⃣ 양측검정정
 
 <details>
 <summary><b>📝 예제: 제품 품질 관리</b></summary>
@@ -86,7 +86,7 @@ legend("topright",
 ```
 </details>
 
-## 3️⃣ 연습문제
+## 3️⃣ 단측검정
 
 <details>
 <summary><b>🎯 문제</b></summary>
