@@ -55,19 +55,15 @@ n <- 36         # 표본크기
 alpha <- 0.05   # 유의수준
 
 # 검정통계량 Z 계산
-z_stat <- (xbar - mu0)/(sigma/sqrt(n))
+z_stat <- (xbar - mu0) / (sigma / sqrt(n))
 print(paste("Z 통계량:", round(z_stat, 3)))
 
 # 양측검정의 임계값
-z_crit <- qnorm(1-alpha/2)
+z_crit <- qnorm(1 - alpha/2)
 print(paste("임계값: ±", round(z_crit, 3)))
 
-# p-value 계산 (양측검정)
-p_value <- 2 * (1 - pnorm(abs(z_stat)))
-print(paste("p-value:", round(p_value, 4)))
-
-# 결과 해석
-if(p_value < alpha) {
+# 결과 해석 (Z 통계량과 임계값 비교)
+if(abs(z_stat) > z_crit) {
   print("귀무가설을 기각합니다.")
   print("새로운 생산 방식이 제품의 평균 무게를 변화시켰다고 할 수 있습니다.")
 } else {
@@ -77,12 +73,14 @@ if(p_value < alpha) {
 # 시각화
 curve(dnorm, from=-4, to=4, main="표준정규분포와 검정통계량",
       ylab="밀도", xlab="Z")
-abline(v=c(-z_crit, z_crit), col="red", lty=2)
-abline(v=z_stat, col="blue", lwd=2)
+abline(v=c(-z_crit, z_crit), col="red", lty=2)  # 임계값 표시
+abline(v=z_stat, col="blue", lwd=2)  # 검정통계량 표시
 legend("topright", 
        legend=c("임계값", "검정통계량"), 
        col=c("red", "blue"), 
        lty=c(2, 1))
+
+
 ```
 </details>
 
