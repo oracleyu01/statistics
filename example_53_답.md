@@ -220,7 +220,7 @@ legend("topright",
        col=c("red", "blue"), 
        lty=c(2, 1))
 
-
+```
 
 
 > 💡 **핵심 포인트**
