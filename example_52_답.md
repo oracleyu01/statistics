@@ -123,6 +123,7 @@ legend("topright",
 
 4) R코드
 ```r
+# 데이터 설정
 mu0 <- 70       # 귀무가설의 평균
 xbar <- 68      # 표본평균
 s <- 5          # 표본표준편차
@@ -131,20 +132,111 @@ alpha <- 0.05   # 유의수준
 df <- n - 1     # 자유도
 
 # t 통계량 계산
-t_stat <- (xbar - mu0)/(s/sqrt(n))
+t_stat <- (xbar - mu0) / (s / sqrt(n))
+print(paste("t 통계량:", round(t_stat, 3)))
 
 # 좌측검정의 임계값
 t_crit <- qt(alpha, df)
-
-# p-value 계산 (좌측검정)
-p_value <- pt(t_stat, df)
-
-# 결과 출력
-print(paste("t 통계량:", round(t_stat, 3)))
 print(paste("임계값:", round(t_crit, 3)))
-print(paste("p-value:", round(p_value, 4)))
+
+# 결과 해석 (t 통계량과 임계값 비교)
+if (t_stat < t_crit) {
+  print("귀무가설을 기각합니다.")
+  print("표본평균이 유의하게 작다고 할 수 있습니다.")
+} else {
+  print("귀무가설을 기각할 수 없습니다.")
+}
+
+# 시각화
+curve(dt(x, df), from=-4, to=4, 
+      main="t분포와 검정통계량",
+      ylab="밀도", xlab="t")
+abline(v=t_crit, col="red", lty=2)  # 임계값 표시
+abline(v=t_stat, col="blue", lwd=2)  # 검정통계량 표시
+legend("topright", 
+       legend=c("임계값", "검정통계량"), 
+       col=c("red", "blue"), 
+       lty=c(2, 1))
+
 ```
 </details>
+
+## 3️⃣ 단측검정 (우측검정)
+
+<details>
+<summary><b>🎯 문제</b></summary>
+
+어떤 제약회사는 새로운 혈압약이 기존 혈압 조절제보다 더 효과적이라고 주장하고 있다.  
+이를 검증하기 위해 **16명의 환자를 무작위로 선발**하여 새로운 혈압약을 투여한 후 혈압을 측정한 결과,  
+**평균 혈압이 130mmHg**, 표본 표준편차는 **5mmHg**로 나타났다.  
+과거 연구에서 혈압 조절제 복용자의 **평균 혈압은 125mmHg**였다.  
+
+유의수준 5%에서 **새로운 혈압약이 혈압을 증가시키는 효과가 있는지** 우측검정을 수행하라.
+
+1) 가설을 설정하시오  
+2) 검정통계량을 계산하시오  
+3) 결론을 내리시오  
+4) R코드로 분석하시오  
+
+</details>
+
+<details>
+<summary><b>✍️ 정답</b></summary>
+  
+## 3️⃣ 단측검정 (우측검정)
+
+1) **가설 설정 (우측검정)**  
+   - 귀무가설 (H₀): 새로운 혈압약이 기존 약과 차이가 없다. (평균 혈압 ≤ 125)  
+   - 대립가설 (H₁): 새로운 혈압약이 혈압을 증가시킨다. (평균 혈압 > 125)  
+
+2) **검정통계량 계산**  
+   - t = (130 - 125) / (5 / sqrt(16)) = 4.00  
+
+3) **임계값 계산 (자유도 15, 유의수준 5%)**  
+   - t 임계값 = qt(0.95, 15) = 1.753  
+   - 검정통계량 4.00 > 임계값 1.753이므로 **귀무가설을 기각**  
+   - **결론**: 새로운 혈압약이 **혈압을 증가시킨다고 할 수 있다.**  
+
+4) **R코드**
+
+```r
+# 데이터 설정
+mu0 <- 125      # 귀무가설의 평균 혈압
+xbar <- 130     # 표본평균 혈압
+s <- 5          # 표본표준편차
+n <- 16         # 표본크기
+alpha <- 0.05   # 유의수준
+df <- n - 1     # 자유도
+
+# t 통계량 계산
+t_stat <- (xbar - mu0) / (s / sqrt(n))
+print(paste("t 통계량:", round(t_stat, 3)))
+
+# 우측검정의 임계값
+t_crit <- qt(1 - alpha, df)
+print(paste("임계값:", round(t_crit, 3)))
+
+# 결과 해석 (t 통계량과 임계값 비교)
+if (t_stat > t_crit) {
+  print("귀무가설을 기각합니다.")
+  print("새로운 혈압약이 혈압을 증가시킨다고 할 수 있습니다.")
+} else {
+  print("귀무가설을 기각할 수 없습니다.")
+}
+
+# 시각화
+curve(dt(x, df), from=-4, to=4, 
+      main="t분포와 검정통계량",
+      ylab="밀도", xlab="t")
+abline(v=t_crit, col="red", lty=2)  # 임계값 표시
+abline(v=t_stat, col="blue", lwd=2)  # 검정통계량 표시
+legend("topright", 
+       legend=c("임계값", "검정통계량"), 
+       col=c("red", "blue"), 
+       lty=c(2, 1))
+
+```
+
 
 > 💡 **핵심 포인트**
 > - t 검정은 모분산을 모를 때 사용합니다
