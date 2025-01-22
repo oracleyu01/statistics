@@ -27,9 +27,7 @@
 <img src="kai.png" width="60%">
 
 ### 2.4 카이제곱 검정 통계량 계산
-카이제곱 값은 다음과 같이 계산됩니다.
-
-<img src="kai2.png" width="60%">  
+카이제곱 값은 다음과 같이 계산됩니다.  
 
 <img src="kai3.png" width="60%">  
 
