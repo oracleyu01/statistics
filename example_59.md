@@ -77,6 +77,7 @@ p-value = **0.004**로, 유의수준 5%(0.05)보다 작으므로 귀무가설을
 #### 3.2 R 코드
 ```r
 emp$comm_accept <- ifelse(is.na(emp$comm), 0, 1)
+
 CrossTable(emp$job, emp$comm_accept, chisq=TRUE)
 ```
 
