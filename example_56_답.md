@@ -54,61 +54,88 @@ H₁: μᵢ ≠ μⱼ for some i,j (적어도 한 쌍의 교수법 간에 차이
 ```r
 # 🎯 문제: 세 가지 교수법(A, B, C)의 시험 성적 효과 비교 (유의수준 5%)
 
-# 0. 가설 설정
-# H₀: 세 교수법(A, B, C) 간 평균 시험 성적에 차이가 없다.
-# H₁: 적어도 한 교수법의 평균 시험 성적이 다른 교수법과 다르다.
+# 1. 가설 설정 
 
-# 1. 데이터 입력
-method_A <- c(75, 82, 78, 80, 85, 81, 82, 77, 79, 83, 81, 80, 77, 82, 84)  # 교수법 A
-method_B <- c(70, 75, 72, 74, 77, 75, 76, 73, 71, 76, 75, 73, 72, 74, 76)  # 교수법 B
-method_C <- c(85, 88, 82, 84, 90, 86, 87, 83, 85, 88, 86, 84, 83, 87, 89)  # 교수법 C
+H₀: 세 운동 프로그램(X, Y, Z) 간 평균 체중 감량에 차이가 없다.
+H₁: 적어도 한 운동 프로그램의 평균 체중 감량이 다른 프로그램과 다르다.
 
-# 2. 데이터프레임 생성
-scores <- data.frame(
-  score = c(method_A, method_B, method_C),
-  method = factor(rep(c("A", "B", "C"), each = 15))
+# 2. 데이터 입력 
+
+program_X <- c(3.5, 4.2, 3.8, 4.0, 3.9, 4.1, 3.7, 4.3, 3.6, 4.0)  # 프로그램 X
+program_Y <- c(2.8, 3.1, 2.9, 3.0, 3.2, 2.7, 3.0, 2.8, 3.1, 2.9)  # 프로그램 Y
+program_Z <- c(4.5, 4.8, 4.6, 4.7, 4.9, 4.5, 4.8, 4.6, 4.7, 4.4)  # 프로그램 Z
+
+# 3. 기술 통계량 계산 
+
+weight_loss <- data.frame( 
+   loss = c(program_X, program_Y, program_Z),
+   program = factor(rep(c('X','Y','Z'), each=10)) 
 )
 
-# 3. 기술통계량 계산
-tapply(scores$score, scores$method, function(x) {
-  c(mean = mean(x), sd = sd(x))
-})
+weight_loss
 
-# 4. ANOVA 분석
-anova_result <- aov(score ~ method, data = scores)
+attach(weight_loss)
+tapply(loss, program, mean)
+
+# Z 프로그램 > X 프로그램 > Y 프로그램
+
+# 4. ANOVA 분석 
+anova_result <- aov(loss ~ program, data=weight_loss)
 summary(anova_result)
 
-# 5. 사후검정 (Tukey's HSD)
+# 유의수준이 0.05 이므로 귀무가설은 기각 !
+# 운동 프로그램에 따라 평균 체중 감량에 유의미한 차이가 존재함 !
+
+# 5. 사후검정 (그룹 간의 구체적 비교 분석)
 TukeyHSD(anova_result)
 
-# 6. 정규성 및 등분산성 검정
-# (1) 정규성 검정 (Q-Q plot)
-par(mfrow = c(1, 2))  # 1행 2열 레이아웃 설정
+# Z > X > Y
+# 
+# 프로그램 Z가 가장 효과적이고 프로그램 Y가 가장 효과가 낮음이
+# 통계적으로 유의미한 결과를 보이고 있습니다. 
+
+# 6. 정규성 검정 (Q-Q plot)
+par(mfrow=c(1,2))
 qqnorm(residuals(anova_result))
 qqline(residuals(anova_result))
 
-# (2) 등분산성 검정
-bartlett.test(score ~ method, data = scores)
+shapiro.test(residuals(anova_result))
 
-# 7. 데이터 시각화
-# (1) 교수법별 시험 성적 비교 (Boxplot)
-boxplot(score ~ method, data = scores,
-        main = "교수법별 시험 성적 비교",
-        ylab = "시험 점수",
-        xlab = "교수법")
+# 귀무가설: 데이터(잔차)가 정규성을 따른다 
+# 대립가설: 데이터(잔차)가 정규성을 따르지 않는다. 
 
-# 8. 결과 해석
-p_value <- summary(anova_result)[[1]][["Pr(>F)"]][1]  # p-value 추출
+# p-value 가 0.7645 이므로 귀무가설을 기각할 수 없다. 
+
+# 해석 : 대부분의 점들이 대각선에 가깝게 위치하고 있으므로
+# 정규성을 만족하는 것으로 보입니다. 
+
+# 7. 등분산성 검정 
+
+bartlett.test(loss ~ program, data=weight_loss)
+
+# 귀무가설: 세 그룹의 분산이 같다
+# 대립가설: 세 그룹의 분산이 다르다 
+# 
+# p-value 가 0.3176로 0.05 보다 크므로
+# 귀무가설을 기각할 수 없고 세 그룹의 분산이 유사하다고
+# 볼 수 있습니다. 
+
+# 8. 데이터 시각화 
+boxplot(loss ~ program, data=weight_loss, 
+        main = "운동 프로그램별 체중 감량 비교",
+        ylab = "체중 감량 (kg)",
+        xlab = "운동 프로그램")
+
+# 9. 결과 해석 
+
+result <- summary(anova_result)
+p_value <- result[[1]][["Pr(>F)"]][1]
+p_value
 if (p_value < 0.05) {
-  print("✅ 유의수준 5%에서 세 교수법 간 시험 성적 차이가 유의미함")
+  print('유의수준 5% 에서 세 운동 프로그램 간의 체중 감량 차이가 유의미함')
 } else {
-  print("❌ 유의미한 차이가 없음. 즉, 교수법 효과 차이가 없을 가능성이 높음")
+  print('운동 프로그램 간의 유의미한 차이가 없음')
 }
-
-# 9. 최종 결론
-# ANOVA 결과 p-value < 0.05 이므로 교수법 간 차이가 유의미함.
-# 사후검정 결과, 모든 교수법 쌍 간에 유의한 차이가 있으며
-# 시험 성적은 C > A > B 순으로 나타남.
 
 ```
 
