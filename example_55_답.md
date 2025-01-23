@@ -48,47 +48,63 @@ H₁: μD > 0 (프로그램 후 체중이 감소했다)
 ```
 
 2. R코드로 분석
+   
 ```r
-# 데이터 입력
-before <- c(68, 72, 65, 70, 75, 67, 71, 69, 73, 74)
-after <- c(65, 68, 62, 67, 71, 65, 69, 66, 70, 72)
 
-# 차이 계산
+#0. 가설설정 
+# H₀: μD = 0 (프로그램 전후 체중 차이가 없다)
+# H₁: μD > 0 (프로그램 후 체중이 감소했다)
+
+#1 . 데이터 입력
+
+before <- c( 68, 72, 65, 70, 75, 67, 71, 69, 73, 74)
+after <- c( 65, 68, 62, 67, 71, 65, 69, 66, 70, 72 )
+
+#2.  차이계산 
 diff <- before - after
 n <- length(diff)
 
-# 기초 통계량 계산
+#3.  t 통계량 계산 
 d_bar <- mean(diff)
 sd_d <- sd(diff)
-alpha <- 0.05
 
-# t 통계량 계산
-t_stat <- d_bar/(sd_d/sqrt(n))
-print(paste("t 통계량:", round(t_stat, 3)))
-
-# 자유도와 임계값
-df <- n - 1
-t_crit <- qt(1-alpha, df)
-print(paste("임계값:", round(t_crit, 3)))
-
-# p-value 계산 (우측검정)
+t_stat <- d_bar / (sd_d/sqrt(n))
+t_stat
+#4.  임계값 계산 
+# H₀: μD = 0 (프로그램 전후 체중 차이가 없다)
+# H₁: μD > 0 (프로그램 후 체중이 감소했다)  # 크다 이니까 우측 검정 
+df <- n -1
+t_crit <- qt(0.95, df)  # 우측검정 문제가 맞습니다. 
+t_crit
+#5.  p_value 계산 
 p_value <- pt(t_stat, df, lower.tail=FALSE)
-print(paste("p-value:", round(p_value, 4)))
+# 좌측검정 : pt(t_stat, df, lower.tail=TRUE)
+# 우측검정 : pt(t_stat, df, lower.tail=FALSE)
+# 양측검정 : 2*pt(abs(t_stat), df, lower.tail=FALSE)
+options(scipen=999)
+p_value
 
-# R의 내장 함수 사용
-t.test(before, after, 
-       paired=TRUE,        # 대응표본 검정
-       alternative="greater")
+t.test( before, after, paired=TRUE, alternative = 'greater')
+# alternative = 'greater' 우측검정 
+# alternative = 'less' 좌측검정
+# alternative = 'two.sided' 양측검정
 
-# 결과 시각화
+#6.  결과 시각화 
 par(mfrow=c(1,2))
-# 1. 전후 비교 boxplot
-boxplot(before, after, names=c("전", "후"),
-        main="체중 변화 boxplot")
+boxplot(before, after, names=c("전","후"),
+        main="체중변화 boxplot")
 
-# 2. 차이의 분포
-hist(diff, main="차이의 분포", 
-     xlab="체중 감소량(kg)")
+hist(diff,main="차이의 분포",
+     xlab="체중감소량")
+
+#7.결과해석 
+
+if (t_stat > t_crit) {
+  print("귀무가설을 기각합니다.")
+  print('다이어트 프로그램이 체중감소에 유의한 효과가 있다고 할 수 있습니다. ')
+} else { print('귀무가설을 기각할 수 없습니다.')}
+
+
 ```
 
 3. 결론 도출
@@ -119,52 +135,66 @@ hist(diff, main="차이의 분포",
 <details>
 <summary><b>✍️ 정답</b></summary>
 
-1) 가설 설정 (우측검정)
-   - H₀: μD ≤ 0 (학습법 적용 후 점수가 증가하지 않았다)
-   - H₁: μD > 0 (학습법 적용 후 점수가 증가했다)
+1) 가설 설정 
+   - H₀: μD = 0 (학습법 적용 전후 점수 차이가 없다)
+   - H₁: μD < 0 (학습법 적용 후 점수가 증가했다)  # 증가했으므로 좌측검정
 
 2) R코드 분석
 ```r
-# 데이터 입력
-before <- c(65, 70, 75, 68, 72, 69, 71, 73)
-after <- c(70, 75, 80, 72, 78, 73, 76, 77)
+# 0. 가설 설정
+# H₀: μD = 0 (학습법 적용 전후 점수 차이가 없다)
+# H₁: μD < 0 (학습법 적용 후 점수가 증가했다)  # 증가했으므로 좌측검정
 
-# 차이 계산
-diff <- before - after
-n <- length(diff)
+# 1. 데이터 입력
+before <- c(65, 70, 75, 68, 72, 69, 71, 73)  # 적용 전 시험 점수
+after  <- c(70, 75, 80, 72, 78, 73, 76, 77)  # 적용 후 시험 점수
 
-# 기초 통계량 계산
-d_bar <- mean(diff)
-sd_d <- sd(diff)
-alpha <- 0.05
+# 2. 차이 계산
+diff <- before - after  # 전 - 후 (차이)
+n <- length(diff)  # 표본 크기 (n = 8)
 
-# t 통계량 계산
+# 3. t 통계량 계산
+d_bar <- mean(diff)  # 평균 차이
+sd_d <- sd(diff)  # 표본 표준편차
+
 t_stat <- d_bar / (sd_d / sqrt(n))
-print(paste("t 통계량:", round(t_stat, 3)))
+t_stat
 
-# 자유도와 임계값
+# 4. 임계값 계산 (좌측검정)
 df <- n - 1
-t_crit <- qt(1 - alpha, df)
-print(paste("임계값:", round(t_crit, 3)))
+t_crit <- qt(0.05, df)  # 유의수준 5%, 좌측검정
+t_crit
 
-# p-value 계산 (우측검정)
-p_value <- pt(t_stat, df, lower.tail=FALSE)
-print(paste("p-value:", round(p_value, 4)))
+# 5. p-value 계산
+p_value <- pt(t_stat, df, lower.tail = TRUE)  # 좌측검정
+options(scipen = 999)  # 지수 표기 방지
+p_value
 
-# R의 내장 함수 사용
-t_test_result <- t.test(after, before, 
-                        paired=TRUE, 
-                        alternative="greater")
-print(t_test_result)
+t.test(before, after, paired = TRUE, alternative = 'less')
+# alternative = 'greater' → 우측검정
+# alternative = 'less' → 좌측검정 (현재 문제)
+# alternative = 'two.sided' → 양측검정
 
-# 결과 시각화
-par(mfrow=c(1,2))
-# 1. 전후 비교 boxplot
-boxplot(before, after, names=c("전", "후"),
-        main="체중 변화 boxplot")
-# 2. 차이의 분포
-hist(diff, main="차이의 분포", 
-     xlab="체중 변화량(kg)")
+# 6. 결과 시각화
+par(mfrow = c(1,2))
+
+# (1) 학습 전후 점수 비교 Boxplot
+boxplot(before, after, names = c("전", "후"),
+        main = "시험 점수 변화 Boxplot")
+
+# (2) 점수 차이의 분포 (히스토그램)
+hist(diff, main = "점수 차이의 분포", 
+     xlab = "점수 변화량")
+
+# 7. 결과 해석
+if (t_stat < t_crit) {
+  print("귀무가설을 기각합니다.")
+  print("✅ 새로운 학습법이 성적 향상에 유의한 효과가 있다고 할 수 있습니다.")
+} else { 
+  print("❌ 귀무가설을 기각할 수 없습니다.")
+  print("학습법이 성적 향상에 효과가 있다고 보기 어렵습니다.")
+}
+
 
 ```
 
