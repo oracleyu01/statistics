@@ -9,10 +9,10 @@
 
 ## 독립표본 t-검정의 유래
 
-**독립표본 t-검정(Independent Samples t-test)**은  
+**독립표본 t-검정(Independent Samples t-test)** 은  
 **두 개의 독립된 집단의 평균을 비교하는 통계적 검정 방법**입니다.  
 
-이 검정은 **영국의 통계학자 윌리엄 고셋(William Sealy Gosset)**이  
+이 검정은 **영국의 통계학자 윌리엄 고셋(William Sealy Gosset)** 이  
 1908년에 `"Student"`라는 필명으로 발표한 **스튜던트 t-검정(Student's t-test)**에서 유래했습니다.  
 
 ## 유래와 역사적 배경
@@ -53,11 +53,11 @@
 현대 통계 분석에서 **광범위하게 사용되는 기본적인 검정법** 중 하나로 자리 잡았습니다.  
 # 독립표본 t-검정의 유래
 
-**독립표본 t-검정(Independent Samples t-test)**은  
+**독립표본 t-검정(Independent Samples t-test)** 은  
 **두 개의 독립된 집단의 평균을 비교하는 통계적 검정 방법**입니다.  
 
-이 검정은 **영국의 통계학자 윌리엄 고셋(William Sealy Gosset)**이  
-1908년에 `"Student"`라는 필명으로 발표한 **스튜던트 t-검정(Student's t-test)**에서 유래했습니다.  
+이 검정은 **영국의 통계학자 윌리엄 고셋(William Sealy Gosset)** 이  
+1908년에 `"Student"` 라는 필명으로 발표한 **스튜던트 t-검정(Student's t-test)** 에서 유래했습니다.  
 
 ## 유래와 역사적 배경
 
