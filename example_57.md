@@ -213,10 +213,8 @@ method_B <- c(75, 72, 68, 80, 76, 70, 74, 18)
 | **프리드만 검정** (Friedman Test) | 반복측정 분산분석 (Repeated Measures ANOVA) | 동일한 피험자 집단의 반복 측정 비교 |  
 
 
-#### 크루스칼-왈리스 검정(Kruskal-Wallis Test) vs 윌콕슨 부호순위검정(Wilcoxon Signed-Rank Test) vs 만-휘트니 U검정(Mann-Whitney U Test)
 
-비모수 검정(non-parametric test) 중 **크루스칼-왈리스 검정**, **윌콕슨 부호순위검정**, **만-휘트니 U검정**은 각각 다른 상황에서 활용됩니다.  
-이들의 차이를 비교해보겠습니다.
+비모수 검정(non-parametric test) 중 **크루스칼-왈리스 검정**, **윌콕슨 부호순위검정**, **만-휘트니 U검정**은 각각 다른 상황에서 활용됩니다.  이들의 차이를 비교해보겠습니다.
 
 ---
 
