@@ -200,23 +200,49 @@ boxplot( list(A=method_A,B=method_B),
 
 #### **코드 예시**
 ```r
-# 데이터 준비
-program_A <- c(5.2, 4.8, 5.5, 4.9, 5.1)
-program_B <- c(4.8, 4.5, 5.9, 4.6, 4.7)
-program_C <- c(5.5, 5.8, 5.6, 5.7, 5.9)
+# 1. 가설 설정
 
-# 데이터프레임 생성
-data <- data.frame(
-  effect = c(program_A, program_B, program_C),
-  program = factor(rep(c("A", "B", "C"), each=5))
-)
+# 귀무가설 (H₀): "세 운동 프로그램 간 성취도 차이는 없다." (운동 프로그램 간 성취도 차이가 없다.)
+# 대립가설 (H₁): "세 운동 프로그램 간 성취도 차이가 있다." (운동 프로그램 간 성취도에 차이가 있다.)
 
-# 크루스칼-왈리스 검정
-kruskal.test(effect ~ program, data=data)
+# 2. 데이터 불러오기
 
-# 시각화
-boxplot(effect ~ program, data=data,
-        main="프로그램별 효과 비교")
+program_A <- c(5.2, 4.8, 1.5, 4.9, 7.0)
+program_B <- c(4.8, 4.5, 8.0, 4.6, 2.0)
+program_C <- c(5.5, 10.0, 5.6, 3.0, 5.9)
+
+# 3. 정규성 검정 하기
+
+shapiro.test(program_A)
+# 귀무가설: 정규성을 따른다.
+# 대립가설: 정규성을 따르지 않는다.
+
+shapiro.test(program_B)
+# 귀무가설: 정규성을 따른다.
+# 대립가설: 정규성을 따르지 않는다.
+
+shapiro.test(program_C)
+# 귀무가설: 정규성을 따른다.
+# 대립가설: 정규성을 따르지 않는다.
+
+# 모든 그룹에서 p-value 값이 0.05보다 작으면, 정규성을 따르지 않는다고 판단함.
+# 따라서 정규성을 가정하는 ANOVA 대신 크루스칼-왈리스 검정을 수행해야 함.
+
+# 4. 크루스칼-왈리스 검정 (비모수 검정)
+kruskal.test(list(program_A, program_B, program_C))
+
+# 귀무가설 (H₀): "세 운동 프로그램 간 성취도 차이는 없다." (운동 프로그램 간 성취도 차이가 없다.)
+# 대립가설 (H₁): "세 운동 프로그램 간 성취도 차이가 있다." (운동 프로그램 간 성취도에 차이가 있다.)
+
+# p-value가 0.05보다 작으면 귀무가설을 기각하고, 운동 프로그램 간 성취도 차이가 있다고 판단.
+
+# 5. 시각화 하기
+
+boxplot( list(A=program_A, B=program_B, C=program_C),
+         main="운동 프로그램별 성취도 비교 (정규성을 따르지 않는 데이터)",
+         col=c("lightblue","lightcoral","lightgreen"),
+         ylab="성취도")
+
 
 ```
 
