@@ -52,44 +52,59 @@ H₁: μᵢ ≠ μⱼ for some i,j (적어도 한 쌍의 교수법 간에 차이
 
 2. R코드로 분석
 ```r
-# 데이터 준비
-method_A <- c(75, 82, 78, 80, 85, 81, 82, 77, 79, 83, 81, 80, 77, 82, 84)
-method_B <- c(70, 75, 72, 74, 77, 75, 76, 73, 71, 76, 75, 73, 72, 74, 76)
-method_C <- c(85, 88, 82, 84, 90, 86, 87, 83, 85, 88, 86, 84, 83, 87, 89)
+# 🎯 문제: 세 가지 운동 프로그램(X, Y, Z)의 체중 감량 효과 비교 (유의수준 5%)
 
-# 데이터프레임 생성
-scores <- data.frame(
-  score = c(method_A, method_B, method_C),
-  method = factor(rep(c("A", "B", "C"), each = 15))
+# 0. 가설 설정
+# H₀: 세 운동 프로그램(X, Y, Z) 간 평균 체중 감량에 차이가 없다.
+# H₁: 적어도 한 그룹의 평균 체중 감량이 다른 그룹과 다르다.
+
+# 1. 데이터 입력
+program_X <- c(3.5, 4.2, 3.8, 4.0, 3.9, 4.1, 3.7, 4.3, 3.6, 4.0)  # 프로그램 X
+program_Y <- c(2.8, 3.1, 2.9, 3.0, 3.2, 2.7, 3.0, 2.8, 3.1, 2.9)  # 프로그램 Y
+program_Z <- c(4.5, 4.8, 4.6, 4.7, 4.9, 4.5, 4.8, 4.6, 4.7, 4.4)  # 프로그램 Z
+
+# 2. 데이터프레임 생성
+weight_loss <- data.frame(
+  loss = c(program_X, program_Y, program_Z),
+  program = factor(rep(c("X", "Y", "Z"), each = 10))
 )
 
-# 기술통계량
-tapply(scores$score, scores$method, function(x) {
+# 3. 기술통계량 계산
+tapply(weight_loss$loss, weight_loss$program, function(x) {
   c(mean = mean(x), sd = sd(x))
 })
 
-# ANOVA 실시
-result <- aov(score ~ method, data = scores)
-summary(result)
+# 4. ANOVA 분석
+anova_result <- aov(loss ~ program, data = weight_loss)
+summary(anova_result)
 
-# 사후검정 (Tukey's HSD)
-TukeyHSD(result)
+# 5. 사후검정 (Tukey's HSD)
+TukeyHSD(anova_result)
 
-# 시각화
-par(mfrow=c(1,2))
+# 6. 정규성 및 등분산성 검정
+# (1) 정규성 검정 (Q-Q plot)
+par(mfrow = c(1, 2))  # 1행 2열 레이아웃 설정
+qqnorm(residuals(anova_result))
+qqline(residuals(anova_result))
 
-# 1. 상자그림
-boxplot(score ~ method, data = scores,
-        main = "교수법별 시험 점수",
-        ylab = "점수",
-        xlab = "교수법")
+# (2) 등분산성 검정
+bartlett.test(loss ~ program, data = weight_loss)
 
-# 2. 정규성 검정을 위한 Q-Q plot
-qqnorm(residuals(result))
-qqline(residuals(result))
+# 7. 데이터 시각화
+# (1) 운동 프로그램별 체중 감량 비교 (Boxplot)
+boxplot(loss ~ program, data = weight_loss,
+        main = "운동 프로그램별 체중 감량 비교",
+        ylab = "체중 감량 (kg)",
+        xlab = "운동 프로그램")
 
-# 등분산성 검정
-bartlett.test(score ~ method, data = scores)
+# 8. 결과 해석
+p_value <- summary(anova_result)[[1]][["Pr(>F)"]][1]  # p-value 추출
+if (p_value < 0.05) {
+  print("✅ 유의수준 5%에서 세 프로그램 간 체중 감량 차이가 유의미함")
+} else {
+  print("❌ 유의미한 차이가 없음. 즉, 운동 프로그램 효과 차이가 없을 가능성이 높음")
+}
+
 ```
 
 3. 결론 도출
