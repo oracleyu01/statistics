@@ -244,6 +244,7 @@ diesel <- rnorm(30, mean=15, sd=2)
 # 전기차 연비 (km/kWh 변환 후 가정)
 electric <- rnorm(30, mean=25, sd=3)  
 
+```
 
 ### 📌 예제 4: 프리드만 검정 (Friedman Test)    
 
