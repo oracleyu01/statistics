@@ -118,6 +118,7 @@
 - **예제57. 가설검정7.정규분포를 따르지 않는 경우 - 비모수적 가설 검정**:  📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_57.md)
 - **예제58. 가설검정8. 카이제곱 검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_58.md)
 - **예제59. A/B 테스트와 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_59.pdf)
+- **중간 총정리 문제(모의고사). 가설검정**: 📄[노트]()
 
 
 ---   
