@@ -24,7 +24,7 @@
 | 정상체중 | 20   | 60   | 80   |
 | 전체 | 25   | 75   | 100  |
 
-<img src="kai.png" width="60%">
+<img src="kai.png" width="80%">
 
 ### 2.4 카이제곱 검정 통계량 계산
 카이제곱 값은 다음과 같이 계산됩니다.  
@@ -61,7 +61,8 @@
 ### 2.6 p-value 계산
 R을 사용하여 p-value 계산:
 ```r
-1 - pchisq(8.33, df = 1, lower.tail=TRUE)
+
+
 ```
 결과: **0.003899566**
 
@@ -76,9 +77,9 @@ p-value = **0.004**로, 유의수준 5%(0.05)보다 작으므로 귀무가설을
 
 #### 3.2 R 코드
 ```r
-emp$comm_accept <- ifelse(is.na(emp$comm), 0, 1)
 
-CrossTable(emp$job, emp$comm_accept, chisq=TRUE)
+
+
 ```
 
 #### 3.3 결과
@@ -108,15 +109,16 @@ data <- data.frame(
 
 ### 4.2 카이제곱 검정 수행
 ```r
-CrossTable(data$Genre, data$Snack, chisq=TRUE)
+
+
 ```
 
 ### 4.3 결과
+```r
+
+
 ```
-Pearson's Chi-squared test
-------------------------------------------------------------
-Chi^2 =  9.775641     d.f. =  2     p =  0.007537833
-```
+
 
 ### 4.4 결과 해석
 - p-value = **0.0075** < 0.05 → 귀무가설 기각
