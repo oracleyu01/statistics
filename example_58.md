@@ -143,4 +143,17 @@ data <- data.frame(
 4. 자유도를 구합니다.
 5. p-value를 구하고 가설을 검정합니다.
 
-**R 코드로 해결해 보세요!**
+**R 코드로 해결해 보세요!**   
+
+## 6. 문제: 구매여부 데이터 활용    
+
+[Download skin.csv](skin.csv)
+
+
+
+## 7. 문제: 지방간 여부 데이터 활용   
+
+[Download fatliver2.csv](fatliver2.csv)   
+
+
+
