@@ -162,7 +162,7 @@
 ### **초보자도 쉽게 배우는 SQL200제**
 
 <a href="https://www.inflearn.com/course/데이터-분석가-실무-sql" target="_blank" rel="noopener noreferrer">
-    <img src="SQL200.png" alt="SQL200" style="width:300px;">
+    <img src="https://github.com/oracleyu01/statistics/blob/main/yys/SQL200.png" alt="SQL200" style="width:300px;">
 </a>
 
 
