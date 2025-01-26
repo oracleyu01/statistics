@@ -105,7 +105,7 @@
 ---
 
 ### 통계 분석 기법
-- **예제47. 회귀분석1.상관관계 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_47.R)  
+- **예제47. 회귀분석1.상관관계 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_47_1.R)  
 - **예제48. 회귀분석2.단순선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_48.R) 
 - **예제49. 회귀분석3.다중선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_49.R)   🔗[관련 이론설명](https://cafe.daum.net/oracleoracle/Sotv/641)
 - **예제50. 가설검정0.가설검정 용어 이해하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_50_update1.md)  
