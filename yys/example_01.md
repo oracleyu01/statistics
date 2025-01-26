@@ -17,4 +17,5 @@
 
 통계학을 배우는 것은 단순히 데이터를 분석하는 기술을 익히는 것을 넘어, 데이터를 바라보는 사고방식을 바꾸고, 데이터에서 숨겨진 인사이트를 발견하는 능력을 길러줍니다. 🌟😊
 
-[다음 수업 ](https://github.com/oracleyu01/statistics/blob/main/r_install.md)
+[다음 수업 ](https://github.com/oracleyu01/statistics/blob/main/yys/example_02.md)   
+
