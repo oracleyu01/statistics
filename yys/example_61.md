@@ -128,3 +128,58 @@ fig <- plot_ly(accuracies, x = ~k, y = ~accuracy, type = 'scatter', mode = 'line
 fig <- fig %>% layout(title = "K 값에 따른 정확도", xaxis = list(title = "K 값"), yaxis = list(title = "정확도"))
 fig
 ```
+
+## 🍷 문제. 와인의 품종을 분류하는  knn  머신러닝 모델을 생성하시오 !  🍷
+
+### 📊 1단계: 데이터 수집
+```{r}
+wine <- read.csv("c:\\data\\wine2.csv", stringsAsFactors=TRUE)
+nrow(wine)  # 177
+ncol(wine)  # 14
+```
+
+### 🔍 2단계: 데이터 탐색
+```{r}
+# 결측치 확인
+colSums(is.na(wine))
+
+# 종속변수의 데이터 비율
+table(wine$Type)
+prop.table(table(wine$Type))
+
+# 데이터 스케일링 (최대최소 정규화)
+wine2 <- wine[, -1]  # 정답 컬럼 Type 제외
+wine2_n <- as.data.frame(lapply(wine2, normalize))
+summary(wine2_n)
+```
+
+### 🎯 3단계: 모델 훈련
+```{r}
+set.seed(10)
+library(caret)
+train_indx <- createDataPartition(wine$Type, p=0.9, list=FALSE)
+wine_train <- wine2_n[train_indx, ]
+wine_test <- wine2_n[-train_indx, ]
+wine_train_label <- wine$Type[train_indx]
+wine_test_label <- wine$Type[-train_indx]
+```
+
+### 📊 4단계: 모델 성능 평가
+```{r}
+accuracies <- data.frame(k = integer(), accuracy = numeric())
+set.seed(10)
+for (i in seq(1, 57, 2)) {
+  result1 <- knn(train=wine_train, test=wine_test, cl=wine_train_label, k=i)
+  accuracy <- sum(result1 == wine_test_label) / length(wine_test_label) * 100
+  accuracies <- rbind(accuracies, data.frame(k = i, accuracy = accuracy))
+  print(paste(i, '개 일때 정확도 ', accuracy))
+}
+```
+
+### 📉 K 값에 따른 정확도 시각화
+```{r}
+library(plotly)
+fig <- plot_ly(accuracies, x = ~k, y = ~accuracy, type = 'scatter', mode = 'lines+markers', line = list(color = 'red'))
+fig <- fig %>% layout(title = "K 값에 따른 정확도", xaxis = list(title = "K 값"), yaxis = list(title = "정확도"))
+fig
+```
