@@ -6,7 +6,7 @@
 
 이 자료가 여러분의 데이터 분석 여정에 든든한 밑거름이 되길 바랍니다. 😊  
 
-<img src="https://github.com/oracleyu01/statistics/blob/main/statistics.png" width="600" height="400">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/statistics.png" width="600" height="400">
 
 &nbsp;  
 💻**강의 제목**: 통계로 시작하는 데이터 문해력 키우기 ! 실무에서 통하는 통계 마스터 비법 공개 💡📈 📊    
@@ -35,91 +35,91 @@
 ## 통계학 학습 가이드 📊
 
 ### 기초 다지기
-- **예제1. 통계학을 배워야하는 이유?**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/statistics.md)
-- **예제2. 통계 소프트웨어 준비하기: R 설치하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/r_install.md)
-- **예제3. SQL과 통계 소프트웨어의 차이점은 무엇인가요?**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_03.md)
-- **예제4. 통계에서 사용하는 데이터 구조 5가지**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_04_q.md)
-- **예제5. 데이터를 효과적으로 검색하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_05_q.md)
+- **예제1. 통계학을 배워야하는 이유?**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_01.md)
+- **예제2. 통계 소프트웨어 준비하기: R 설치하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_02.md)
+- **예제3. SQL과 통계 소프트웨어의 차이점은 무엇인가요?**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_03.md)
+- **예제4. 통계에서 사용하는 데이터 구조 5가지**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_04.md)
+- **예제5. 데이터를 효과적으로 검색하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_05.md)
 
 ---
 
 ### 기본 연산과 데이터 탐색
-- **예제6. 통계 소프트웨어에서 활용하는 주요 연산자**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_06_q.md)
-- **예제7. 데이터 결합을 위한 연결 연산자 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_07_q.md)
-- **예제8. 여러 데이터를 검색할 때 사용하는 %in% 연산자**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_08_q.md)
-- **예제9. 결측치 데이터를 탐색하는 is.na 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_09_q.md)
-- **예제10. 범위 데이터를 검색하는 방법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_10.R)
-- **예제11. 특정 단어나 철자를 포함한 데이터 검색법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_11.R)
-- **예제12. 데이터에서 중복 제거하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_12.R)
-- **예제13. 데이터를 정렬하여 출력하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_13.R)
-- **예제14. 대소문자 변환 함수 활용하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_14.R)
+- **예제6. 통계 소프트웨어에서 활용하는 주요 연산자**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_06.md)
+- **예제7. 데이터 결합을 위한 연결 연산자 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_07.md)
+- **예제8. 여러 데이터를 검색할 때 사용하는 %in% 연산자**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_08_q.md)
+- **예제9. 결측치 데이터를 탐색하는 is.na 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_09.md)
+- **예제10. 범위 데이터를 검색하는 방법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_10.md)
+- **예제11. 특정 단어나 철자를 포함한 데이터 검색법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_11.md)
+- **예제12. 데이터에서 중복 제거하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_12.md)
+- **예제13. 데이터를 정렬하여 출력하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_13.md)
+- **예제14. 대소문자 변환 함수 활용하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_14.md)
 
 ---
 
 ### 데이터 가공과 처리
-- **예제15. SQL의 substr 함수 구현 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_15.R)
-- **예제16. SQL의 replace 함수 구현 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_16.R)
-- **예제17. 숫자 반올림 시 주의해야 할 점**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_17.R)
-- **예제18. trunc 함수의 소수점 처리 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_18.R)
-- **예제19. 날짜 연산을 위한 데이터 타입 변환**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_19.R)
-- **예제20. 데이터 변환 함수의 이해와 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_20.R)
-- **예제21. 통계 분석에서 자주 쓰이는 일반 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_21.R)
+- **예제15. SQL의 substr 함수 구현 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_15.md)
+- **예제16. SQL의 replace 함수 구현 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_16.md)
+- **예제17. 숫자 반올림 시 주의해야 할 점**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_17.md)
+- **예제18. trunc 함수의 소수점 처리 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_18.md)
+- **예제19. 날짜 연산을 위한 데이터 타입 변환**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_19.md)
+- **예제20. 데이터 변환 함수의 이해와 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_20.md)
+- **예제21. 통계 분석에서 자주 쓰이는 일반 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_21.md)
 
 ---
 
 ### 그룹 분석과 데이터 집합 연산
-- **예제22. 그룹 분석 함수 max 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_22.R)
-- **예제23. 그룹 분석 함수 min 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_23.R)
-- **예제24. 데이터의 길이를 계산하는 length 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_24.R)
-- **예제25. 합계를 구하는 sum 함수 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_25.R)
-- **예제26. 평균을 계산하는 mean 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_26.R)
-- **예제27. 두 개의 컬럼을 활용한 그룹 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_27.R)
-- **예제28. 데이터 조인: equi join의 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_28.R)
-- **예제29. outer join의 이해와 실습**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_29.R)
-- **예제30. self join의 개념과 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_30.R)
-- **예제31. 집합 연산자 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_31.R)
-- **예제32. 서브쿼리 작성법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_32.R)    💻[영상](https://drive.google.com/file/d/1HGFZo_MlW78oS1F7pniDw_UufVgMiqWF/view?usp=drive_link)
-- **예제33. 데이터 순위 출력하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_33.R)    💻[영상](https://drive.google.com/file/d/1eyvLkg1MSqRB-WfLjXND1kDepy9v0AV3/view?usp=sharing)
+- **예제22. 그룹 분석 함수 max 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_22.md)
+- **예제23. 그룹 분석 함수 min 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_23.md)
+- **예제24. 데이터의 길이를 계산하는 length 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_24.md)
+- **예제25. 합계를 구하는 sum 함수 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_25.md)
+- **예제26. 평균을 계산하는 mean 함수**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_26.md)
+- **예제27. 두 개의 컬럼을 활용한 그룹 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_27.md)
+- **예제28. 데이터 조인: equi join의 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_28.md)
+- **예제29. outer join의 이해와 실습**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_29.md)
+- **예제30. self join의 개념과 활용**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_30.md)
+- **예제31. 집합 연산자 이해하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_31.md)
+- **예제32. 서브쿼리 작성법 배우기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_32.md)    💻[영상](https://drive.google.com/file/d/1HGFZo_MlW78oS1F7pniDw_UufVgMiqWF/view?usp=drive_link)
+- **예제33. 데이터 순위 출력하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_33.md)    💻[영상](https://drive.google.com/file/d/1eyvLkg1MSqRB-WfLjXND1kDepy9v0AV3/view?usp=sharing)
 
 ---
 
 ### 프로그래밍과 반복문
-- **예제34. 함수를 생성하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_34.R)    💻[영상1](https://drive.google.com/file/d/1jEvUFtz2wYvkv9SoyDNWP_gsXrKF1OkW/view?usp=sharing)      💻[영상2](https://drive.google.com/file/d/1GTwm01ATRv-LPlDUtV7NiuazJxMOTy2Z/view?usp=sharing)  
-- **예제35. 조건문(if)의 작성법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_35.R)  💻[영상](https://drive.google.com/file/d/1G8erhxYhLXt0EoKMiAwK_RnfWi8X-XKU/view?usp=sharing)
-- **예제36. 반복문(loop)의 활용법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_36.R)  💻[영상](https://drive.google.com/file/d/1vCulgKzqzaGQ6AwAIQ5-jUyrg9baNPD0/view?usp=sharing)  
+- **예제34. 함수를 생성하는 방법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_34.md)    💻[영상1](https://drive.google.com/file/d/1jEvUFtz2wYvkv9SoyDNWP_gsXrKF1OkW/view?usp=sharing)      💻[영상2](https://drive.google.com/file/d/1GTwm01ATRv-LPlDUtV7NiuazJxMOTy2Z/view?usp=sharing)  
+- **예제35. 조건문(if)의 작성법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_35.md)  💻[영상](https://drive.google.com/file/d/1G8erhxYhLXt0EoKMiAwK_RnfWi8X-XKU/view?usp=sharing)
+- **예제36. 반복문(loop)의 활용법**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_36.md)  💻[영상](https://drive.google.com/file/d/1vCulgKzqzaGQ6AwAIQ5-jUyrg9baNPD0/view?usp=sharing)  
 
 ---
 
 ### 데이터 시각화
-- **예제37. 시각화 기법 1: 막대 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_37.R)
-- **예제38. 시각화 기법 2: 원형 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_38.R)  💻[영상](https://drive.google.com/file/d/1mxEoAhUeNILlGjf-osI0EWnFCj6v5vEP/view?usp=sharing)
-- **예제39. 시각화 기법 3: 산포도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_39.R)  💻[영상](https://drive.google.com/file/d/1MtcUQIELjzdQFRiRe03GxxTZ1dkoXVda/view?usp=sharing)
-- **예제40. 시각화 기법 4: 라인 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_40.R)
-- **예제41. 시각화 기법 5: 히스토그램**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_41.R)
-- **예제42. 시각화 기법 6: 박스 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_42.R)
-- **예제43. 시각화 기법 7: 워드 클라우드 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_43.R)
-- **예제44. 시각화 기법 8: 지도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_44.R)
-- **예제45. 시각화 기법 9: 소리 데이터의 시각화**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_45.R)  📄[이론1](https://github.com/oracleyu01/statistics/blob/main/example_45_음성_데이터의_이해1.pdf)  📄[이론2](https://github.com/oracleyu01/statistics/blob/main/example_45_음성_데이터의_이해2.pdf)
-- **예제46. 시각화 기법 10: 사회 연결망 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_46.R)
+- **예제37. 시각화 기법 1: 막대 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_37.md)
+- **예제38. 시각화 기법 2: 원형 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_38.md)  💻[영상](https://drive.google.com/file/d/1mxEoAhUeNILlGjf-osI0EWnFCj6v5vEP/view?usp=sharing)
+- **예제39. 시각화 기법 3: 산포도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_39.md)  💻[영상](https://drive.google.com/file/d/1MtcUQIELjzdQFRiRe03GxxTZ1dkoXVda/view?usp=sharing)
+- **예제40. 시각화 기법 4: 라인 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_40.md)
+- **예제41. 시각화 기법 5: 히스토그램**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_41.md)
+- **예제42. 시각화 기법 6: 박스 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_42.md)
+- **예제43. 시각화 기법 7: 워드 클라우드 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_43.md)
+- **예제44. 시각화 기법 8: 지도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_44.md)
+- **예제45. 시각화 기법 9: 소리 데이터의 시각화**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_45.md)  📄[이론1](https://github.com/oracleyu01/statistics/blob/main/yys/example_45_1.pdf)  📄[이론2](https://github.com/oracleyu01/statistics/blob/main/yys/example_45_2.pdf)
+- **예제46. 시각화 기법 10: 사회 연결망 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_46.md)
 
 ---
 
 ### 통계 분석 기법
-- **예제47. 회귀분석1.상관관계 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_47.R)  
-- **예제48. 회귀분석2.단순선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_48.R) 
-- **예제49. 회귀분석3.다중선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_49.R)   🔗[관련 이론설명](https://cafe.daum.net/oracleoracle/Sotv/641)
-- **예제50. 가설검정0.가설검정 용어 이해하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_50_update1.md)  
-- **예제51. 가설검정1.단일 모집단의 모평균 검정: 분산을 아는 경우(Z 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_51.md)
-- **예제52. 가설검정2.단일 모집단의 모평균 검정: 분산을 모르는 경우 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_52.md)
-- **예제53. 가설검정3.두 모집단의 모평균 차이 검정: 독립표본, 동분산 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_53.md)
-- **예제54. 가설검정4.두 모집단의 모평균 차이 검정: 독립표본, 분산이 다른 경우 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_54.md)
-- **예제55. 가설검정5.두 모집단의 모평균 차이 검정: 대응표본 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_55.md)
-- **예제56. 가설검정6.세 모집단 이상의 모평균 차이 검정 (ANOVA)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_56.md)
-- **예제57. 가설검정7.정규분포를 따르지 않는 경우 - 비모수적 가설 검정**:  📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_57.md)
-- **예제58. 가설검정8. 카이제곱 검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_58.md)
-- **예제59. 가설검정9. 오라클과 R 을 연동하여 db의 데이터로 가설검정**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_59.md)   
-- **예제60. A/B 테스트와 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_59.pdf)
-- **중간 총정리 문제(이수자 평가 모의고사). 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/example_59_%EC%B4%9D%EC%A0%95%EB%A6%AC.md)
+- **예제47. 회귀분석1.상관관계 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_47.md)  
+- **예제48. 회귀분석2.단순선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_48.md) 
+- **예제49. 회귀분석3.다중선형회귀 분석**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_49.md)   🔗[관련 이론설명](https://cafe.daum.net/oracleoracle/Sotv/641)
+- **예제50. 가설검정0.가설검정 용어 이해하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_50_update1.md)  
+- **예제51. 가설검정1.단일 모집단의 모평균 검정: 분산을 아는 경우(Z 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_51.md)
+- **예제52. 가설검정2.단일 모집단의 모평균 검정: 분산을 모르는 경우 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_52.md)
+- **예제53. 가설검정3.두 모집단의 모평균 차이 검정: 독립표본, 동분산 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_53.md)
+- **예제54. 가설검정4.두 모집단의 모평균 차이 검정: 독립표본, 분산이 다른 경우 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_54.md)
+- **예제55. 가설검정5.두 모집단의 모평균 차이 검정: 대응표본 (t 검정)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_55.md)
+- **예제56. 가설검정6.세 모집단 이상의 모평균 차이 검정 (ANOVA)**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_56.md)
+- **예제57. 가설검정7.정규분포를 따르지 않는 경우 - 비모수적 가설 검정**:  📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_57.md)
+- **예제58. 가설검정8. 카이제곱 검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_58.md)
+- **예제59. 가설검정9. 오라클과 R 을 연동하여 db의 데이터로 가설검정**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_59.md)   
+- **예제60. A/B 테스트와 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_59.pdf)
+- **중간 총정리 문제(이수자 평가 모의고사). 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_59_%EC%B4%9D%EC%A0%95%EB%A6%AC.md)
 
 
 ---   
