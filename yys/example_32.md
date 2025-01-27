@@ -25,8 +25,9 @@ WHERE sal > (SELECT sal FROM emp WHERE ename='JONES');
 
 ✅ **R 코드**
 ```r
-threshold <- emp$sal[emp$ename == "JONES"]
-result <- subset(emp, sal > threshold, select=c("ename", "sal"))
+
+
+
 ```
 
 ---
@@ -44,8 +45,9 @@ WHERE sal = (SELECT MAX(sal) FROM emp);
 
 ✅ **R 코드**
 ```r
-max_sal <- max(emp$sal)
-result <- subset(emp, sal == max_sal, select=c("ename", "sal"))
+
+
+
 ```
 
 ✅ **예제 2**: 아래의 SQL을 R 코드로 구현하시오.
@@ -59,8 +61,9 @@ WHERE deptno IN (SELECT deptno FROM emp WHERE job='SALESMAN');
 
 ✅ **R 코드**
 ```r
-valid_dept <- unique(emp$deptno[emp$job == "SALESMAN"])
-result <- subset(emp, deptno %in% valid_dept, select=c("ename", "sal", "deptno"))
+
+
+
 ```
 
 ✅ **문제 2**: 아래의 SQL을 R 코드로 구현하시오. (관리자인 사원의 이름 출력)
@@ -74,8 +77,9 @@ WHERE empno IN (SELECT mgr FROM emp);
 
 ✅ **R 코드**
 ```r
-managers <- unique(emp$mgr[!is.na(emp$mgr)])
-result <- subset(emp, empno %in% managers, select="ename")
+
+
+
 ```
 
 ✅ **문제 3**: 전국에서 등록금이 가장 비싼 학교의 이름과 등록금을 출력하시오.
@@ -84,9 +88,9 @@ result <- subset(emp, empno %in% managers, select="ename")
 
 ✅ **R 코드**
 ```r
-fees <- read.csv("fees.csv", header=TRUE)
-max_fees <- max(fees$등록금)
-result <- subset(fees, 등록금 == max_fees, select=c("학교명", "등록금"))
+
+
+
 ```
 
 ---
@@ -103,9 +107,9 @@ AND job IN (SELECT job FROM emp WHERE comm IS NOT NULL);
 
 ✅ **R 코드**
 ```r
-valid_dept <- unique(emp$deptno[!is.na(emp$comm)])
-valid_job <- unique(emp$job[!is.na(emp$comm)])
-result <- subset(emp, deptno %in% valid_dept & job %in% valid_job, select=c("ename", "sal", "job"))
+
+
+
 ```
 
 ✅ **문제 4**: 아래의 SQL을 R 코드로 구현하시오. (관리자가 아닌 사원의 이름과 월급 출력)
@@ -119,6 +123,7 @@ WHERE empno NOT IN (SELECT mgr FROM emp WHERE mgr IS NOT NULL);
 
 ✅ **R 코드**
 ```r
-non_managers <- setdiff(emp$empno, unique(emp$mgr[!is.na(emp$mgr)]))
-result <- subset(emp, empno %in% non_managers, select=c("ename", "sal"))
+
+
+
 ```
