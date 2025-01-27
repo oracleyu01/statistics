@@ -15,8 +15,9 @@ WHERE 사원.mgr = 관리자.empno;
 
 ✅ **R 코드**
 ```r
-x <- merge(emp, emp, by.x="mgr", by.y="empno", suffixes=c(".사원", ".관리자"))
-x[, c("ename.사원", "ename.관리자")]
+
+
+
 ```
 
 ---
@@ -34,9 +35,9 @@ WHERE 사원.mgr = 관리자.empno AND 사원.sal > 관리자.sal;
 
 ✅ **R 코드**
 ```r
-x <- merge(emp, emp, by.x="mgr", by.y="empno", suffixes=c(".사원", ".관리자"))
-x <- x[x$sal.사원 > x$sal.관리자, ]
-x[, c("ename.사원", "ename.관리자")]
+
+
+
 ```
 
 **문제 2**: 위의 결과 데이터를 조직도로 시각화하시오.
