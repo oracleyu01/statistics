@@ -35,10 +35,9 @@ WHERE deptno = 20;
 
 ✅ **R 코드**
 ```r
-result <- rbind(
-  subset(emp, deptno %in% c(10, 20)),
-  subset(emp, deptno == 20)
-)
+
+
+
 ```
 
 ✅ **설명**: `rbind(x1, x2)`는 두 데이터프레임을 위아래로 결합하는 함수입니다.
@@ -90,10 +89,9 @@ WHERE deptno = 10;
 
 ✅ **R 코드**
 ```r
-result <- unique(rbind(
-  subset(emp, deptno %in% c(10, 20)),
-  subset(emp, deptno == 10)
-))
+
+
+
 ```
 
 ✅ **설명**: `unique()`를 추가하여 중복을 제거함
@@ -115,11 +113,9 @@ WHERE deptno = 10;
 
 ✅ **R 코드**
 ```r
-library(dplyr)
-result <- setdiff(
-  subset(emp, deptno %in% c(10, 20)),
-  subset(emp, deptno == 10)
-)
+
+
+
 ```
 
 ✅ **설명**: `setdiff()`는 `dplyr` 패키지를 사용해야 함
@@ -130,8 +126,9 @@ result <- setdiff(
 
 ✅ **R 코드**
 ```r
-emp2 <- read.csv("emp2.csv", header=TRUE)
-result <- setdiff(emp2, emp)  # 'jack'이 나옵니다.
+
+
+
 ```
 
 ✅ **예제 4**: 아래의 SQL을 R 코드로 구현하시오.
@@ -149,10 +146,9 @@ WHERE deptno = 10;
 
 ✅ **R 코드**
 ```r
-result <- intersect(
-  subset(emp, deptno %in% c(10, 20)),
-  subset(emp, deptno == 10)
-)
+
+
+
 ```
 
 ✅ **설명**: `intersect()`를 사용하여 교집합을 구함
@@ -163,12 +159,14 @@ result <- intersect(
 
 **문제 4**: `emp.csv`와 `emp2.csv` 파일의 교집합 데이터를 찾으시오.
 ```r
-result <- intersect(emp, emp2)
+
+
 ```
 
 **문제 5**: `emp.csv`와 `emp2.csv` 파일의 교집합 개수를 출력하시오.
 ```r
-nrow(intersect(emp, emp2))
+
+
 ```
 
 📌 **설명**:
