@@ -1,5 +1,3 @@
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 # KNN 머신러닝
 
