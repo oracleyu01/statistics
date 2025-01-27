@@ -99,7 +99,7 @@
 - **예제42. 시각화 기법 6: 박스 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_42.md)
 - **예제43. 시각화 기법 7: 워드 클라우드 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_43.md)
 - **예제44. 시각화 기법 8: 지도 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_44.md)
-- **예제45. 시각화 기법 9: 소리 데이터의 시각화**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_45.md)  📄[이론1](https://github.com/oracleyu01/statistics/blob/main/yys/example_45_1.pdf)  📄[이론2](https://github.com/oracleyu01/statistics/blob/main/yys/example_45_2.pdf)
+- **예제45. 시각화 기법 9: 소리 데이터의 시각화**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_45_1.md)  📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_45_2.pdf)  📄[이론1](https://github.com/oracleyu01/statistics/blob/main/yys/example_45_3.pdf)  📄[이론2]
 - **예제46. 시각화 기법 10: 사회 연결망 그래프**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_46.md)
 
 ---
