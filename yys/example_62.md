@@ -87,13 +87,8 @@ P(햄) = 0.002 / (0.012 + 0.002) = 0.143 (14.3%)
 - **💰 금융 사기 탐지**
 - **🎬 영화 추천 시스템**
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 # 🎥 나이브 베이즈 확률 실습
 
@@ -105,46 +100,44 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 📌 1. 데이터 불러오기
 ```{r}
-library(readr)
-movie <- read.csv("c:\\data\\movie2.csv", stringsAsFactors=TRUE)
-View(movie)
-dim(movie)  # 39행 6열
+
+
+
 ```
 
 ---
 
 ## 🔍 2. 결측치 확인
 ```{r}
-colSums(is.na(movie))
+
+
 ```
 
 ---
 
 ## 📊 3. 데이터 탐색
 ```{r}
-str(movie)
+
+
 ```
 
 ---
 
 ## ✂ 4. 훈련 데이터와 테스트 데이터로 분리
 ```{r}
-library(caret)
-set.seed(1)
-k <- createDataPartition(movie$장르, p=0.8, list=FALSE)
-train_data <- movie[k, ]
-test_data <- movie[-k, ]
-nrow(train_data)  # 훈련 데이터 개수
-nrow(test_data)   # 테스트 데이터 개수
+
+
+
+
 ```
 
 ---
 
 ## 🏗 5. 나이브 베이즈 모델 생성
 ```{r}
-library(e1071)
-model <- naiveBayes(장르 ~ ., data=train_data)
-model
+
+
+
 ```
 
 **📌 해석:**
@@ -155,25 +148,27 @@ model
 
 ## 🎯 6. 모델로 테스트 데이터 예측
 ```{r}
-result <- predict(model, test_data[, -6])  # 정답(장르) 컬럼 제외
-result
+
+
+
 ```
 
 ---
 
 ## 📈 7. 모델 성능 평가
 ```{r}
-accuracy <- sum(result == test_data[, 6]) / length(test_data[, 6]) * 100
-accuracy  # 정확도 출력
+
+
+
 ```
 
 ---
 
 ## 📊 8. 이원 교차표 (Confusion Matrix)
 ```{r}
-library(gmodels)
-a <- CrossTable(test_data[, 6], result)
-a$t  # 이원 교차표 출력
+
+
+
 ```
 
 ---
@@ -184,9 +179,9 @@ a$t  # 이원 교차표 출력
 - 20대 남성, 학생, 결혼 안 함, 이성친구 없음 → 선호 영화 장르 예측
 
 ```{r}
-test_data2 <- data.frame(나이='20대', 성별='남', 직업='학생', 결혼여부='NO', 이성친구='NO')
-result <- predict(model, test_data2)
-result  # 예측 결과
+
+
+
 ```
 
 ---
@@ -195,15 +190,17 @@ result  # 예측 결과
 
 🔄 **확률까지 출력하는 모델 생성**
 ```{r}
-library(naivebayes)
-new_model <- naive_bayes(장르 ~ ., data=train_data)
+
+
+
 ```
 
 🎭 **예측 예제 2:**
 - 20대 남성, 학생, 결혼 안 함, 이성친구 없음 → 선호 영화 장르 확률 예측
 ```{r}
-result2 <- predict(new_model, test_data2, type='prob')
-result2  # 확률 출력
+
+
+
 ```
 
 ---
@@ -213,17 +210,17 @@ result2  # 확률 출력
 ### 📝 문제 1
 **40대 남성, 언론 직업, 결혼, 이성친구 없음 → 공포 영화 선호 확률?**
 ```{r}
-test_data3 <- data.frame(나이='40대', 성별='남', 직업='언론', 결혼여부='YES', 이성친구='NO')
-result3 <- predict(new_model, test_data3, type='prob')
-result3  # 공포 영화 확률 출력
+
+
+
 ```
 
 ### 📝 문제 2
 **20대 여성, 학생, 결혼 안 함, 이성친구 있음 → 선호 영화 장르 예측?**
 ```{r}
-test_data4 <- data.frame(나이='20대', 성별='여', 직업='학생', 결혼여부='NO', 이성친구='YES')
-result4 <- predict(new_model, test_data4, type='prob')
-result4  # 확률 출력
+
+
+
 ```
 
 
