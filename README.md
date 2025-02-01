@@ -118,8 +118,8 @@
 - **예제57. 가설검정7.정규분포를 따르지 않는 경우 - 비모수적 가설 검정**:  📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_57.md)
 - **예제58. 가설검정8. 카이제곱 검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_58.md)
 - **예제59. 가설검정9. 오라클과 R 을 연동하여 db의 데이터로 가설검정**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_59.md)   
-- **예제60. A/B 테스트와 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_59.pdf)
-- **중간 총정리 문제(이수자 평가 모의고사). 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_59_%EC%B4%9D%EC%A0%95%EB%A6%AC.md)
+- **예제60. A/B 테스트와 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_60.pdf)
+- **중간 총정리 문제(이수자 평가 모의고사). 가설검정**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_60_총정리.md)
 
 
 ---   
