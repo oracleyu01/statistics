@@ -158,3 +158,102 @@ for (i in 1:10) {
 }
 
 ```
+### 🎯 (의사결정트리 실습예제: 은행 대출 불이행자 예측 모델)
+
+## 📌 1. 데이터 불러오기
+```r
+credit <- read.csv("credit.csv", stringsAsFactors=T)
+head(credit)
+```
+
+## 🔍 2. 데이터 탐색
+```r
+str(credit)
+```
+
+### 📑 데이터 설명
+- `checking_balance`: 예금계좌
+- `saving_balance`: 적금계좌
+- `amount`: 대출금액
+- `default`: 채무불이행 여부 (종속변수)
+
+## 📊 3. 대출금액 분포 확인 (히스토그램)
+```r
+hist(credit$amount)
+summary(credit$amount)
+```
+
+## 🔍 4. 정답 컬럼 확인
+```r
+prop.table(table(credit$default))
+```
+
+## 🔍 5. 결측치 확인
+```r
+colSums(is.na(credit))
+```
+
+## ✂ 6. 훈련 데이터와 테스트 데이터 분리
+```r
+library(caret)
+set.seed(1)
+train_num <- createDataPartition(credit$default, p=0.9, list=F)
+train_data <- credit[train_num, ]
+test_data <- credit[-train_num, ]
+nrow(train_data)   # 900
+nrow(test_data)    # 100
+```
+
+## 🏗 7. 모델 생성
+```r
+library(C50)
+credit_model <- C5.0(train_data[, -17], train_data[, 17])
+```
+
+## 📊 8. 모델 확인
+```r
+summary(credit_model)
+```
+
+## 🎯 9. 모델 예측
+```r
+train_result <- predict(credit_model, train_data[, -17])
+test_result <- predict(credit_model, test_data[, -17])
+```
+
+## 📈 10. 모델 평가
+```r
+# 훈련 정확도
+sum(train_result == train_data[, 17]) / 900 * 100  # 83.33 %
+
+# 테스트 정확도
+sum(test_result == test_data[, 17]) / 100 * 100   # 67%
+```
+
+## 🚀 11. 모델 개선 (trials 파라미터 적용)
+```r
+y <- 1
+jumpby <- 1
+options(scipen=999)  
+for (i in 1:20) {
+  credit_model2 <- C5.0(train_data[, -17], train_data[, 17], trials=y)
+  test_result2 <- predict(credit_model2, test_data[, -17])
+  accuracy <- sum(test_result2 == test_data[, 17]) / 100 * 100
+  y <- y + jumpby
+  print(paste(i, '일때', accuracy))
+}
+```
+
+## 🛠 12. 최적 모델 평가
+```r
+library(gmodels)
+credit_model2 <- C5.0(train_data[, -17], train_data[, 17], trials=6)
+test_result2 <- predict(credit_model2, test_data[, -17])
+x <- CrossTable(test_data[, 17], test_result2)
+x$t
+```
+
+## 🏆 13. 최종 문제
+```r
+# 와인 데이터 (wine2.csv)를 활용하여 와인의 종류를 분류하는 
+# 의사 결정 트리 모델을 생성하고 정확도를 올려보세요!
