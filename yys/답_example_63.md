@@ -100,3 +100,59 @@ for (i in 1:10) {
   
   print(paste(y, '일때 FN 값', fn_value, '정확도는', accuracy))
 }
+
+### 🎯 문제 1: 독감 데이터로 나이브 베이즈 모델 생성
+
+### 📌 1. 데이터 로드
+```r
+flu <- read.csv("c:\\data\\flu.csv", stringsAsFactors=TRUE)
+str(flu)
+```
+
+**📌 데이터 소개:**
+- `patient_id` : 환자번호
+- `chills` : 오한 여부 (`Y/N`)
+- `runny_nose` : 콧물 여부 (`Y/N`)
+- `headache` : 두통 정도 (`MILD/SEVERE`)
+- `fever` : 열 여부 (`Y/N`)
+- `flue` : 독감 여부 (`Y/N`)
+
+---
+
+### 📌 2. 나이브 베이즈 모델 생성
+```r
+library(e1071)
+
+# 독감 여부 예측을 위한 모델 생성
+model_flu <- naiveBayes(flu[, -6], flu[, 6], laplace=0.0001)
+model_flu
+```
+
+---
+
+### ✏ 3. 예측 수행 (쪽지시험)
+```r
+test_data2 <- data.frame(chills='Y', runny_nose='N', headache='MILD', fever='Y')
+
+result2 <- predict(model_flu, test_data2)
+result2  # 독감 여부 예측
+```
+✅ **결과:** 독감환자 예측됨
+
+---
+
+### 📌 4. 확률 출력 (라플라스 적용)
+```r
+library(naivebayes)
+
+# 확률을 함께 예측하는 모델 생성
+new_model <- naive_bayes(flue ~ ., data=flu[, -1], laplace=0.00001)
+new_model
+
+test_data2 <- data.frame(chills='Y', runny_nose='N', headache='MILD', fever='Y')
+result3 <- predict(new_model, test_data2, type='prob')
+result3  # 예측 확률 출력
+```
+
+✅ **결과:** 독감일 확률과 아닐 확률 출력됨
+
