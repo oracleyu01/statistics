@@ -150,6 +150,108 @@ fviz_cluster(km, data=wisc2, stand=F)
 iris <- read.csv("c:\\data\\iris2.csv", header=T)
 ```
 
-> **💡 라인별 시각화된 결과 확인 후 검사받고 점심시간!** 🍽️
+
+## ■ 실습1. 간단한 k-means 실습
+
+### 1️⃣ 기본 데이터셋 생성
+```r
+c <- c(3,4,1,5,7,9,5,4,6,8,4,5,9,8,7,8,6,7,2,1)
+row <- c('A','B','C','D','E','F','G','H','I','J')
+col <- c('X','Y')
+data <- matrix(c, nrow=10, ncol=2, byrow=TRUE, dimnames=list(row, col))
+data
+```
+
+### 2️⃣ 데이터 시각화
+```r
+plot(data)
+```
+
+### 3️⃣ k-means 모델 생성 및 군집화 (k=2)
+```r
+km <- kmeans(data, 2)
+km
+```
+
+### 4️⃣ 군집화된 결과와 기존 데이터를 합치기
+```r
+cbind(data, km$cluster)
+```
+
+### 5️⃣ 중심점 시각화
+```r
+plot(round(km$center), col=c("red", "blue"), pch=22, bg="dark blue", 
+     xlim=range(0:10), ylim=range(0:10))
+```
+
+### 6️⃣ 원래 데이터와 중심점 함께 시각화
+```r
+plot(round(km$center), col=c("red", "blue"), pch=22, bg="dark blue", 
+     xlim=range(0:10), ylim=range(0:10))
+par(new=T)
+plot(data, col=c("red","blue"), xlim=range(0:10), ylim=range(0:10))
+```
+
+### 7️⃣ 경계를 포함한 시각화
+```r
+install.packages("factoextra")
+library(factoextra)
+km <- kmeans(data, 2)
+fviz_cluster(km, data=data, stand=F)
+```
+
+---
+
+
+## 🔹 텍스트를 분석하여 성향이 비슷한 텍스트 분류하기
+
+🔗 [관련 링크](https://cafe.daum.net/oracleoracle/Sotv/824)
+
+### ✅ 특성
+1. **전자제품**에 관심이 있는 사람들의 글
+2. **맛집**에 관심이 있는 사람들의 글
+
+### 1️⃣ 필요한 패키지 설치 및 로드
+```r
+install.packages("tm")
+install.packages("SnowballC")
+install.packages("cluster")
+install.packages("factoextra")
+
+library(tm)
+library(SnowballC)
+library(cluster)
+library(factoextra)
+```
+
+### 2️⃣ 텍스트 데이터 생성 및 처리
+```r
+texts <- c(
+  "I just bought a new smartphone and it's amazing!",
+  "The battery life of this laptop is incredible.",
+  "Check out this new wireless earbuds, they are fantastic.",
+  "This tablet has a stunning display quality.",
+  "This smartwatch has excellent features.",
+  "I love exploring new restaurants in the city.",
+  "The food at this restaurant is delicious.",
+  "Just tried a new cafe, and their coffee is great.",
+  "You should try the sushi at this place, it's top-notch.",
+  "I had the best pizza at this new Italian restaurant."
+)
+
+# 텍스트 전처리 및 TF-IDF 변환
+...
+
+### 3️⃣ K-means 클러스터링 및 시각화
+```r
+set.seed(123)
+kmeans_result <- kmeans(pca_data, centers = 2, nstart = 20)
+fviz_cluster(list(data = pca_data, cluster = cluster))
+```
+
+> **💡 실습 문제**
+> 한글 데이터도 비지도 학습으로 분류가 되는지 확인하시오!
+
+
 
 
