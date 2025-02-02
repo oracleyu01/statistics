@@ -150,5 +150,124 @@ accuracy
 
 ---
 
-📌 **추가 학습을 원하면 서포트 벡터 머신(SVM) 또는 랜덤 포레스트(Random Forest) 모델을 활용해보세요!** 🚀
+📌 **추가 학습을 원하면 서포트 벡터 머신(SVM) 또는 랜덤 포레스트(Random Forest) 모델을 활용해보세요!** 🚀   
+
+---
+
+## 📌 랜덤 포레스트 모델로 종속변수 예측 (문제)
+
+### 📌 문제 정의
+**랜덤 포레스트 모델을 사용하여 독립변수 3개(mpg, wt, hp)로 종속변수(am)를 예측하고 훈련 데이터의 정확도를 계산합니다.**
+
+### 📌 코드 구현
+```r
+library(randomForest) 
+set.seed(123)
+
+# 랜덤 포레스트 모델 생성
+model_rf <- randomForest(as.factor(am) ~ mpg + wt + hp, data=mtcars, ntree=500)
+
+# 예측값 계산
+result <- predict(model_rf, mtcars)
+
+# 예측값 확인
+head(result)
+
+# 혼동 행렬(confusion matrix) 계산
+table(Predicted = result, Actual = mtcars$am)
+
+# 모델 성능 평가 (정확도 계산)
+accuracy <- mean(result == mtcars$am)
+accuracy
+```
+
+---
+
+## 📌 로지스틱 회귀 모델 (문제)
+
+### 📌 문제 정의
+**binary.csv 데이터를 사용하여 `admit`을 종속변수로 하는 로지스틱 회귀 모델을 생성합니다. 독립변수는 `gpa`와 `rank`입니다.**
+
+### 📌 코드 구현
+```r
+# 데이터 불러오기
+mydata <- read.csv("c:\\data\\binary.csv", header=T)
+head(mydata)
+
+# 훈련과 테스트 데이터 분할 (8:2 비율)
+library(caret)
+set.seed(123)
+k <- createDataPartition(mydata$admit, p=0.8, list=FALSE)
+train_data <- mydata[k, ]
+test_data <- mydata[-k, ]
+nrow(train_data)   # 320
+nrow(test_data)    # 80
+
+# 로지스틱 회귀 모델 생성
+model <- glm(admit ~ gpa + rank, data=train_data, family=binomial)
+summary(model)
+coef(model)
+
+# 훈련 데이터 예측
+train_pred <- predict(model, train_data, type="response")
+train_pred_class <- ifelse(train_pred > 0.5, 1, 0)
+head(train_pred_class)
+
+# 테스트 데이터 예측
+test_pred <- predict(model, test_data, type="response")
+test_pred_class <- ifelse(test_pred > 0.5, 1, 0)
+
+# 정확도 계산
+train_accuracy <- mean(train_pred_class == train_data$admit)
+test_accuracy <- mean(test_pred_class == test_data$admit)
+
+train_accuracy  # 0.728125
+test_accuracy   # 0.7125
+```
+
+---
+
+## 📌 독립변수 추가하여 성능 확인 (문제 190)
+
+### 📌 문제 정의
+**로지스틱 회귀 모델에 독립변수 `gre`를 추가하여 모델 성능이 향상되는지 확인합니다.**
+
+### 📌 코드 구현
+```r
+# 데이터 불러오기
+mydata <- read.csv("c:\\data\\binary.csv", header=T)
+head(mydata)
+
+# 훈련과 테스트 데이터 분할 (8:2 비율)
+library(caret)
+set.seed(123)
+k <- createDataPartition(mydata$admit, p=0.8, list=FALSE)
+train_data <- mydata[k, ]
+test_data <- mydata[-k, ]
+
+# 로지스틱 회귀 모델 생성 (독립변수 추가)
+model2 <- glm(admit ~ gpa + gre + rank, data=train_data, family=binomial)
+summary(model2)
+coef(model2)
+
+# 훈련 데이터 예측
+train_pred2 <- predict(model2, train_data, type="response")
+train_pred_class2 <- ifelse(train_pred2 > 0.5, 1, 0)
+head(train_pred_class2)
+
+# 테스트 데이터 예측
+test_pred2 <- predict(model2, test_data, type="response")
+test_pred_class2 <- ifelse(test_pred2 > 0.5, 1, 0)
+
+# 정확도 계산
+train_accuracy <- mean(train_pred_class2 == train_data$admit)
+test_accuracy <- mean(test_pred_class2 == test_data$admit)
+
+train_accuracy
+test_accuracy
+```
+
+---
+
+
 
