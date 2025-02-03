@@ -1,6 +1,6 @@
 ### 📌 예제65. 의사결정트리
 
-수업자료: [바로가기](https://github.com/oracleyu01/statistics/blob/main/yys/의사결정트.pdf)
+수업자료: [바로가기](https://github.com/oracleyu01/statistics/blob/main/yys/의사결정트리.pdf)
 
 ### 🌳 의사결정트리란?
 - 불순도를 줄이는 질문을 계속 던지면서 데이터를 분류하는 알고리즘
