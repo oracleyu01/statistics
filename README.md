@@ -129,17 +129,20 @@
 - **예제61. 기계학습1. knn 으로 데이터 분류하기**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_61.md)    
 - **예제62. 기계학습2. naivebayes 로 데이터 분류하기1**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_62.md)
 - **예제63. 기계학습2. naivebayes 로 데이터 분류하기2**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_63.md)   
-- **예제64. 기계학습3. decision Tree 로 데이터 분류하기**:📄[노트]()   
-- **예제65. 기계학습4. regression tree 로 데이터 분류하기**:📄[노트]()  
-- **예제64. 기계학습5. 신경망으로 데이터 분류하기**:📄[노트]()  
-- **예제65. 기계학습6. 신경망으로 데이터 분류하기**:📄[노트]()  
-- **예제66. 기계학습7. 비지도 학습 연관분석**:📄[노트]()  
-- **예제67. 기계학습8. 비지도 학습 k-means**:📄[노트]()  
-- **예제68. 기계학습9. 서포토 백터 머신으로 데이터 분류하기**:📄[노트]()  
-- **예제69. 기계학습10. 모델 평가**:📄[노트]()  
-- **예제70. 기계학습11. 모델 성능 개선**:📄[노트]()  
-- **예제71. 한국형 케글 데이콘 상위권 도전하기**:📄[노트]()
-
+- **예제64. 기계학습3. 규칙기반 알고리즘으로 데이터 분류하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_64.md)   
+- **예제65. 기계학습4. 의사결정트리로 데이터 분류하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_65.md)  
+- **예제66. 기계학습5. 회귀트리로 수치예측하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_66.md)  
+- **예제67. 기계학습6. 로지스틱 회귀 데이터 분류하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_67.md)  
+- **예제68. 기계학습7. 서포트 백터 머신으로 데이터 분류하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_68.md)  
+- **예제69. 기계학습8. 신경망으로 데이터 분류하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_69.md)  
+- **예제70. 기계학습9. 비지도 학습- 연관분석**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_70.md)  
+- **예제71. 기계학습10. 비지도 학습- k-means 클러스터링**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_71.md)  
+- **예제72. 기계학습11. 모델 평가1**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_72.md)  
+- **예제73. 기계학습12. 모델 평가2**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_73.md)   
+- **예제74. 기계학습13. 모델 평가3**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_74.md)
+- **예제75. 기계학습14. 성능개선**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_75.md)
+- **예제76. 총정리 및 이수자 평가 예상문제 풀이**
+  
     
 ## 강의 안내
 
