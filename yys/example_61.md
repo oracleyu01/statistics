@@ -5,7 +5,7 @@
 
 거리를 계산할 때 사용하는 수학식은 **유클리드 거리 공식**입니다.   
 
-설명자료:  [바로가기](https://github.com/oracleyu01/statistics/blob/main/yys/knn 알고리즘.pdf)
+설명자료:  [바로가기](https://github.com/oracleyu01/statistics/blob/main/yys/knn_알고리즘.pdf)
 
 ## 🧠 머신러닝의 종류
 1. **📘 지도학습**: 정답이 있는 데이터를 기계가 학습하는 방식
