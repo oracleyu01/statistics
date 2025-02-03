@@ -1,4 +1,4 @@
-## ▣ 예제70. 연관 분석  p415
+## ▣ 예제70. 연관 분석
 
 ### 1. 이론:
 - [연관 분석 이론](https://cafe.daum.net/oracleoracle/Sotv/777)
