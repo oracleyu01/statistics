@@ -29,6 +29,9 @@ laplace 값을 0.001 ~ 0.1 사이의 작은 값으로 설정하여 모델의 성
 
 ### 🎯 나이브 베이즈 머신러닝을 이용하여 버섯 종류 분류
 
+데이터: [바로가기](https://github.com/oracleyu01/statistics/blob/main/yys/mushrooms.csv)   
+
+
 #### 1. 데이터 불러오기
 ```{r}
 mush <- read.csv("c:\\data\\mushrooms.csv", stringsAsFactors=TRUE)
