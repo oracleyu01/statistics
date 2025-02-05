@@ -14,7 +14,6 @@
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt6.png" alt="회귀트리6" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt7.png" alt="회귀트리7" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt8.png" alt="회귀트리8" width="70%">
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt9.png" alt="회귀트리9" width="70%">
 
 
 ---
