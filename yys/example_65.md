@@ -15,6 +15,10 @@
 2. **엔트로피** 
 3. **카이제곱**
 
+---    
+![정보획득량1](https://github.com/oracleyu01/statistics/blob/main/yys/information.png)
+
+
 #### 문제1. **구매여부에 가장 영향이 큰 독립변수 찾기**
 ```r
 # 데이터 생성
