@@ -8,6 +8,9 @@
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree2.png" alt="회귀트리2" width="80%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree3.png" alt="회귀트리3" width="80%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree4.png" alt="회귀트리4" width="80%">  
+
+[회귀트리](https://github.com/oracleyu01/statistics/blob/main/yys/RegressionTree.pdf)  
+
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree5.png" alt="회귀트리5" width="80%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree6.png" alt="회귀트리6" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree7.png" alt="회귀트리7" width="70%">  
