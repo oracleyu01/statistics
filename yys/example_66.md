@@ -12,13 +12,11 @@
 [회귀트리 설명 ppt ](https://github.com/oracleyu01/statistics/blob/main/yys/RegressionTree.pdf)  
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree5.png" alt="회귀트리5" width="80%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree6.png" alt="회귀트리6" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree6.png" alt="회귀트리6" width="100%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree7.png" alt="회귀트리7" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree8.png" alt="회귀트리8" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리9" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree10.png" alt="회귀트리11" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree11.png" alt="회귀트리11" width="80%"> 
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree12.png" alt="회귀트리12" width="80%"> 
+
 
 #### 🎯 R을 이용한 회귀트리 모델 생성 (p339)
 #### ✅ 목표: 와인의 품질(수치형 데이터)을 예측하는 회귀트리 모델 생성
