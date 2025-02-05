@@ -20,7 +20,7 @@
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/information1.png" alt="정보획득량2" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/information2.png" alt="정보획득량3" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/information3.png" alt="정보획득량4" width="70%">   
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/information4.png" alt="정보획득량4" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/information4.png" alt="정보획득량4" width="80%">  
 
 #### 문제1. **구매여부에 가장 영향이 큰 독립변수 찾기**
 ```r
