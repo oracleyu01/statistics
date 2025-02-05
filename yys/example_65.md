@@ -125,6 +125,8 @@ iris <- read.csv("iris2.csv", stringsAsFactors=TRUE)
 ```
 ### 🎯 (의사결정트리 실습예제: 은행 대출 불이행자 예측 모델)
 
+[데이터](https://cafe.daum.net/oracleoracle/Sq3w/33)
+
 ## 📌 1. 데이터 불러오기
 ```r
 
