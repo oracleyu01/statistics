@@ -68,6 +68,44 @@ print(sdr_sorted)
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree18.png" alt="회귀트리18" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree19.png" alt="회귀트리19" width="70%">
 
+r```
+install.packages("data.table")  # 패키지 설치 (최초 1회 실행)
+library(data.table)
+
+# 데이터 생성
+df <- data.table(
+  Index = 1:7,
+  Alcohol = c(10.5, 10.7, 10.2, 11.0, 11.5, 11.3, 12.0),
+  Volatile = c(0.310, 0.290, 0.250, 0.200, 0.400, 0.480, 0.500),
+  Free_Sulfur = c(12.0, 15.0, 18.0, 8.0, 11.0, 14.0, 9.0),
+  Quality = c(3, 4, 5, 5, 6, 7, 8)
+)
+
+# 전체 Quality의 표준편차 계산
+sd_root <- sd(df$Quality)
+print(paste("전체 Quality의 표준편차:", sd_root))
+
+# 표준편차 축소(SDR) 계산 함수 정의
+compute_sdr <- function(var) {
+  group_stats <- df[, .(sd = sd(Quality), n = .N), by = var]  # 변수별 그룹 나누기 후 표준편차 및 개수 계산
+  weighted_sd <- sum((group_stats$n / sum(group_stats$n)) * group_stats$sd, na.rm = TRUE)  # 가중 표준편차
+  sdr_value <- sd_root - weighted_sd  # SDR 계산
+  return(sdr_value)
+}
+
+# 각 독립변수에 대해 SDR 계산
+sdr_values <- sapply(c("Alcohol", "Volatile", "Free_Sulfur"), compute_sdr)
+
+# SDR이 작은 순서대로 정렬
+sdr_sorted <- sort(sdr_values)
+
+# 결과 출력
+print("SDR이 작은 순서대로 정렬된 변수:")
+print(sdr_sorted)
+
+```
+
+
 
 [회귀트리 설명 ppt ](https://github.com/oracleyu01/statistics/blob/main/yys/RegressionTree.pdf) 
 
