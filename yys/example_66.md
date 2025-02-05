@@ -15,6 +15,46 @@
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree8.png" alt="회귀트리8" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리9" width="70%"> 
 
+```r
+
+install.packages("data.table")  # 패키지 설치 (최초 1회)
+library(data.table)
+
+# 데이터 생성
+df <- data.table(
+  Pattern = c("수직", "수직", "대각선", "수평", "수평", "수평", "수직", "수직", "대각선", "수평", "수직", "대각선", "대각선", "수평"),
+  Outline = c("점선", "점선", "점선", "점선", "실선", "실선", "실선", "점선", "실선", "실선", "실선", "점선", "실선", "점선"),
+  Dot = c("무", "유", "무", "무", "무", "유", "무", "무", "유", "무", "유", "유", "무", "유"),
+  Area = c(25, 30, 46, 45, 52, 23, 43, 35, 38, 46, 48, 52, 44, 30)
+)
+
+# 전체 표준편차
+sd_root <- sd(df$Area)
+print(paste("전체 Area의 표준편차:", sd_root))
+
+# 표준편차 축소(SDR) 계산 함수 정의
+compute_sdr <- function(var) {
+  group_stats <- df[, .(sd = sd(Area), n = .N), by = var]  # 그룹별 표준편차 및 개수 계산
+  weighted_sd <- sum((group_stats$n / sum(group_stats$n)) * group_stats$sd, na.rm = TRUE)  # 가중 표준편차
+  sdr_value <- sd_root - weighted_sd  # SDR 계산
+  return(sdr_value)
+}
+
+# 각 독립변수에 대해 SDR 계산
+sdr_values <- sapply(c("Pattern", "Outline", "Dot"), compute_sdr)
+
+# SDR이 작은 순서대로 정렬
+sdr_sorted <- sort(sdr_values)
+
+# 결과 출력
+print("SDR이 작은 순서대로 정렬된 변수:")
+print(sdr_sorted)
+
+```
+
+---
+
+
 #### 📌 2. 독립변수가 숫자로 이루어져 있을때 회귀트리   
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree10.png" alt="회귀트리10" width="70%">  
