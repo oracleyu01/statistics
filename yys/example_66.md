@@ -4,16 +4,16 @@
 #### 수치를 예측하는 트리(tree)
 #### 회귀트리 = 회귀 모델 + 의사결정트리 모델
 
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree1.png" alt="회귀트리1" width="80%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree1.png" alt="회귀트리1" width="100%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree2.png" alt="회귀트리2" width="80%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree3.png" alt="회귀트리3" width="80%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree4.png" alt="회귀트리4" width="80%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree5.png" alt="회귀트리5" width="80%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree6.png" alt="회귀트리6" width="80%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree7.png" alt="회귀트리7" width="80%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree8.png" alt="회귀트리8" width="80%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리9" width="80%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree10.png" alt="회귀트리11" width="80%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree6.png" alt="회귀트리6" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree7.png" alt="회귀트리7" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree8.png" alt="회귀트리8" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리9" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree10.png" alt="회귀트리11" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree11.png" alt="회귀트리11" width="80%"> 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree12.png" alt="회귀트리12" width="80%"> 
 
