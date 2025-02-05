@@ -12,9 +12,22 @@
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree6.png" alt="회귀트리6" width="120%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree7.png" alt="회귀트리7" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree8.png" alt="회귀트리8" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리9" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리9" width="70%"> 
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리10" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리11" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리12" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리13" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리14" width="70%"> 
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리15" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리16" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리17" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리18" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리19" width="70%">
+
 
 [회귀트리 설명 ppt ](https://github.com/oracleyu01/statistics/blob/main/yys/RegressionTree.pdf) 
+
+
 
 #### 🎯 R을 이용한 회귀트리 모델 생성 (p339)
 #### ✅ 목표: 와인의 품질(수치형 데이터)을 예측하는 회귀트리 모델 생성
