@@ -16,7 +16,10 @@
 3. **카이제곱**
 
 ---    
-![정보획득량1](https://github.com/oracleyu01/statistics/blob/main/yys/information.png)
+![정보획득량1](https://github.com/oracleyu01/statistics/blob/main/yys/information.png)   
+![정보획득량2](https://github.com/oracleyu01/statistics/blob/main/yys/information1.png)  
+![정보획득량3](https://github.com/oracleyu01/statistics/blob/main/yys/information2.png)   
+![정보획득량4](https://github.com/oracleyu01/statistics/blob/main/yys/information3.png)    
 
 
 #### 문제1. **구매여부에 가장 영향이 큰 독립변수 찾기**
