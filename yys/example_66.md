@@ -3,6 +3,7 @@
 #### 📌 회귀트리란?
 #### 수치를 예측하는 트리(tree)
 #### 회귀트리 = 회귀 모델 + 의사결정트리 모델
+#### 📌 1. 독립변수가 문자로 이루어져 있을때 회귀트리   
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree1.png" alt="회귀트리1" width="100%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree2.png" alt="회귀트리2" width="80%">  
@@ -13,6 +14,9 @@
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree7.png" alt="회귀트리7" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree8.png" alt="회귀트리8" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree9.png" alt="회귀트리9" width="70%"> 
+
+#### 📌 2. 독립변수가 숫자로 이루어져 있을때 회귀트리   
+
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree10.png" alt="회귀트리10" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree11.png" alt="회귀트리11" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree12.png" alt="회귀트리12" width="70%">  
