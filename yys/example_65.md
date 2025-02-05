@@ -16,7 +16,7 @@
 3. **카이제곱**
 
 ---    
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/information.png" alt="정보획득량1" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/information.png" alt="정보획득량1" width="90%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/information1.png" alt="정보획득량2" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/information2.png" alt="정보획득량3" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/information3.png" alt="정보획득량4" width="70%">   
