@@ -3,8 +3,18 @@
 ## 📌 회귀트리란?
 ### 수치를 예측하는 트리(tree)
 ### 회귀트리 = 회귀 모델 + 의사결정트리 모델
-## 📌 1. 표준편차 축소가 왜 필요한지?
+## 📌 1. 표준편차 축소가 왜 필요한지?  
 
+
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt1.png" alt="회귀트리1" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt2.png" alt="회귀트리2" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt3.png" alt="회귀트리3" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt4.png" alt="회귀트리4" width="70%"> 
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt5.png" alt="회귀트리5" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt6.png" alt="회귀트리6" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt7.png" alt="회귀트리7" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt8.png" alt="회귀트리8" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt9.png" alt="회귀트리9" width="70%">
 
 
 ---
