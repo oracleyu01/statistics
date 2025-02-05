@@ -68,7 +68,8 @@ print(sdr_sorted)
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree18.png" alt="회귀트리18" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree19.png" alt="회귀트리19" width="70%">
 
-r```
+```r
+
 install.packages("data.table")  # 패키지 설치 (최초 1회 실행)
 library(data.table)
 
