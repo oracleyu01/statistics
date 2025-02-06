@@ -123,7 +123,7 @@ skin <- read.csv("skin.csv", stringsAsFactors=TRUE, fileEncoding = "euc-kr")
 
 ### 🎯 (의사결정트리 실습예제: 은행 대출 불이행자 예측 모델)
 
-[데이터](https://cafe.daum.net/oracleoracle/Sq3w/33)
+📌 **데이터 다운로드**: [독일은행 데이터](https://cafe.daum.net/oracleoracle/Sq3w/33)
 
 #### 📌 1. 데이터 불러오기
 ```r
