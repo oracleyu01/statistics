@@ -64,7 +64,7 @@ COMMIT;
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree11.png" alt="회귀트리11" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree12.png" alt="회귀트리12" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree13.png" alt="회귀트리13" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree14.png" alt="회귀트리14" width="70%"> 
+
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree15.png" alt="회귀트리15" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree16.png" alt="회귀트리16" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree17.png" alt="회귀트리17" width="70%">
