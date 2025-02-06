@@ -114,15 +114,11 @@ skin <- read.csv("skin.csv", stringsAsFactors=TRUE, fileEncoding = "euc-kr")
 
 ---
 
-#### 🌼 **문제1: `iris` 데이터셋을 이용한 의사결정트리 모델 생성**
-```r
-iris <- read.csv("iris2.csv", stringsAsFactors=TRUE)
+#### 🌼 **문제: `iris` 데이터셋을 이용한 의사결정트리 모델 생성**
+
+📌 **데이터 다운로드**: [아이리스 데이터](https://github.com/oracleyu01/statistics/blob/main/yys/iris2.csv)   
 
 
-
-
-
-```
 ### 🎯 (의사결정트리 실습예제: 은행 대출 불이행자 예측 모델)
 
 [데이터](https://cafe.daum.net/oracleoracle/Sq3w/33)
