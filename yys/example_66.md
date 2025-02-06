@@ -13,7 +13,6 @@
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte5.png" alt="회귀트리5" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte6.png" alt="회귀트리6" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte7.png" alt="회귀트리7" width="70%">
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte8.png" alt="회귀트리8" width="70%">
 
 
 ---
