@@ -223,8 +223,5 @@ iris <- read.csv("iris2.csv", stringsAsFactors=TRUE)
 
 📌 **데이터 다운로드**: [와인 데이터](https://github.com/oracleyu01/statistics/blob/main/yys/wine2.csv)
 
-✅ **R 코드**
-```r
 
-```
 
