@@ -198,3 +198,33 @@ print(sdr_sorted)
 ```   
 
 #### ✅ 결론: 랜덤포레스트가 가장 높은 예측 성능을 보임
+
+
+**문제 1**: `콘크리트 강도`를 예측하기 위해 수치 예측 모델을 생성하시오 ! 
+
+📌 **데이터 다운로드**: [콘크리트 데이터](https://github.com/oracleyu01/statistics/blob/main/yys/concrete.csv)
+
+✅ **R 코드**
+```r
+
+```
+
+📌 **콘크리트 데이터 설명**:
+`cement` :  시멘트  
+`slag` : 슬래그(철광석에서 철을 분리하고 남은 물질)  
+`ash` : 분(시멘트)  
+`water` : 물  
+`superplastic` : 고성능 감수제(콘크리트의 강도를 높이는 첨가제)  
+`coarseagg` : 굵은 자갈  
+`fineagg`  : 잔자갈  
+`age`  :  숙성시간  
+
+
+✅ **문제 2**: `중고차 가격` 을 예측하는 머신러닝 모델을 생성하세요. 
+
+📌 **데이터 다운로드**: [중고차 데이터](https://github.com/oracleyu01/statistics/blob/main/yys/usedcars.csv)
+
+✅ **R 코드**
+```r
+
+```
