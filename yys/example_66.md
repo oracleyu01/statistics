@@ -16,7 +16,7 @@
 
 ---
 
-## 📌 2. 점수를 예측하는데 있어서  중요한 변수가 무엇인가?   
+### 📌 2. 점수를 예측하는데 있어서  중요한 변수가 무엇인가?   
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte8.png" alt="회귀트리8" width="70%">   
 
