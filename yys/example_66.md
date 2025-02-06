@@ -6,7 +6,7 @@
 ## 📌 1. 표준편차 축소가 왜 필요한지?  
 
 
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte1.png" alt="회귀트리1" width="50%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte1.png" alt="회귀트리1" width="20%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte2.png" alt="회귀트리2" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte3.png" alt="회귀트리3" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte4.png" alt="회귀트리4" width="70%"> 
