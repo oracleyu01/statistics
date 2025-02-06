@@ -6,14 +6,14 @@
 ## 📌 1. 표준편차 축소가 왜 필요한지?  
 
 
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt1.png" alt="회귀트리1" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt2.png" alt="회귀트리2" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt3.png" alt="회귀트리3" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt4.png" alt="회귀트리4" width="70%"> 
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt5.png" alt="회귀트리5" width="70%">
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt6.png" alt="회귀트리6" width="70%">
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt7.png" alt="회귀트리7" width="70%">
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regt8.png" alt="회귀트리8" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte1.png" alt="회귀트리1" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte2.png" alt="회귀트리2" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte3.png" alt="회귀트리3" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte4.png" alt="회귀트리4" width="70%"> 
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte5.png" alt="회귀트리5" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte6.png" alt="회귀트리6" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte7.png" alt="회귀트리7" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte8.png" alt="회귀트리8" width="70%">
 
 
 ---
