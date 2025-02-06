@@ -64,7 +64,11 @@ buy <- data.frame(
 
 ---
 
-### 🛠 **코드 구현**
+### 🛠 **코드 구현**   
+
+📌 **데이터 다운로드**: [skin.csv 데이터](https://github.com/oracleyu01/statistics/blob/main/yys/skin.csv)
+
+
 #### 1️⃣ 데이터 불러오기
 ```r
 setwd("c:\\data")
