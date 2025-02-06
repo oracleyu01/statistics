@@ -18,7 +18,42 @@
 
 ## 📌 2. 점수를 예측하는데 있어서  중요한 변수가 무엇인가?   
 
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte8.png" alt="회귀트리8" width="70%">
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte8.png" alt="회귀트리8" width="70%">   
+
+#### 2-1. 오라클 테이블 생성 및 데이터 삽입   
+
+```r
+
+-- 1. 테이블 생성
+CREATE TABLE STUDY_SCORES (
+    번호 NUMBER PRIMARY KEY,
+    공부시간 NUMBER NOT NULL,
+    공부방법 VARCHAR2(10) NOT NULL,
+    점수 NUMBER NOT NULL
+);
+
+-- 2. 데이터 삽입
+INSERT INTO STUDY_SCORES VALUES (1, 5, '독학', 52);
+INSERT INTO STUDY_SCORES VALUES (2, 3, '학원', 57);
+INSERT INTO STUDY_SCORES VALUES (3, 8, '독학', 55);
+INSERT INTO STUDY_SCORES VALUES (4, 1, '학원', 59);
+INSERT INTO STUDY_SCORES VALUES (5, 10, '독학', 50);
+INSERT INTO STUDY_SCORES VALUES (6, 92, '학원', 94);
+INSERT INTO STUDY_SCORES VALUES (7, 95, '독학', 98);
+INSERT INTO STUDY_SCORES VALUES (8, 90, '학원', 96);
+INSERT INTO STUDY_SCORES VALUES (9, 100, '독학', 92);
+INSERT INTO STUDY_SCORES VALUES (10, 98, '학원', 99);
+
+-- 변경사항 저장 (커밋)
+COMMIT;
+
+```
+#### 2-2.전체 점수의 표준편차 계산  
+#### 2-3.공부시간을 기준으로 그룹 나누기  
+#### 2-4.공부방법을 기준으로 그룹 나누기   
+#### 2-5.가중 평균 표준편차 계산 (공부시간 vs. 공부방법)   
+#### 2-6.표준편차 축소(SDR) 계산   
+#### 2-7.결론    
 
 ---
 
