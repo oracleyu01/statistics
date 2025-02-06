@@ -14,11 +14,16 @@
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte6.png" alt="회귀트리6" width="70%">
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte7.png" alt="회귀트리7" width="70%">
 
+---
+
+## 📌 2. 점수를 예측하는데 있어서  중요한 변수가 무엇인가?   
+
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/regte8.png" alt="회귀트리8" width="70%">
 
 ---
 
 
-## 📌 2. 간단한 와인 데이터 품질을 예측하기 위해 중요한 변수가 무엇인지? 
+## 📌 3. 간단한 와인 데이터 품질을 예측하기 위해 중요한 변수가 무엇인지? 
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree10.png" alt="회귀트리10" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/regtree11.png" alt="회귀트리11" width="70%">  
