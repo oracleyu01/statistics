@@ -1,7 +1,8 @@
 ## 📌 **예제68. 서포트 벡터 머신**
 
-[서포트 벡터 머신 이론 설명](https://cafe.daum.net/oracleoracle/Sq3w/61)
+[서포트 벡터 머신 이론 설명 문제들과 그림](https://cafe.daum.net/oracleoracle/Sq3w/61)
 
+답:
 
 🔎 **이론설명1. 서포트 벡터 머신이란 무엇인가요?**
 
