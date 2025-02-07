@@ -42,9 +42,6 @@ gamma 는 결정경계를 얼마나 유연하게 그을것인지를 정해주는
 
 https://cafe.daum.net/oracleoracle/Sotv/716
 
-📖 **서포트 벡터 머신 수행 원리**
-
-https://cafe.daum.net/oracleoracle/Sotv/715  <-- PDF 파일
 
 🛠 **서포트 벡터 머신 실습**
 
