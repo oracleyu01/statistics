@@ -185,3 +185,23 @@ y_values <- sigmoid(x_values)
 plot(x_values, y_values, type = "l", col = "red")
 ```
 
+##### ✨  소프트 맥스 함수 만들기 
+
+softmax 함수의 의미는 그냥 최대값을 출력하는 max 가 아니라
+좀 부드러운 최대값을 출력한다는 의미로 softmax 함수로 이름을 지었습니다.
+
+입력값 ( 98,  73 )  ---->  softmax ---->  (  0.8, 0.2 )  -------->  (  1,  0 )
+                      
+```r
+
+softmax <- function(x) {
+                     exp_x <- exp( x - max(x) )  # 너무 큰값이 들어오면
+                     exp_x / sum(exp_x)           # 계산이 안되서 빼줌
+                       }
+values <- c(2, 1)
+softmax( values )   #  0.7310586 0.2689414
+
+```
+
+
+
