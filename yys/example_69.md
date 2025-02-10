@@ -202,6 +202,33 @@ values <- c(2, 1)
 softmax( values )   #  0.7310586 0.2689414
 
 ```
+##### ✨  간단한 3층 신경망 만들기 !
 
+```r
 
+# 입력 벡터
+x <- c(1, 2)
+
+# 첫번째 은닉층의 가중치
+W1 <- matrix( c(1,3,5,2,4,6),  nrow=2, ncol=3, byrow=TRUE)
+
+# 첫번째 은닉층의 출력
+h1 <-  sigmoid( x  %*% W1 )
+print(h1)  
+
+# 두번째 은닉층의 가중치
+W2 <- matrix( c(3, 4, 5, 6, 7, 8) , nrow=3, ncol=2, byrow=TRUE)
+
+# 두번째층의 입력
+z2 <-  sigmoid(h1 %*% W2)
+print(z2) 
+
+# 출력층의 가중치
+W3 <- matrix( c(0.4, 0.2, 0.3, 0.2) , nrow=2, ncol=2, byrow=TRUE)
+
+# 출력층의 입력
+z3 <-  softmax(z2 %*% W3)
+print(z3)  #  0.5744425   0.4255575
+
+```
 
