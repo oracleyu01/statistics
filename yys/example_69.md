@@ -16,7 +16,7 @@
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/n1.png" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/n2.png" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/neq2.png" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/netq2.png" width="70%">  
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/n4.png" width="70%">  
 
 
