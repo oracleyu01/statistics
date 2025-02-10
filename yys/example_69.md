@@ -15,10 +15,12 @@
 
 #### 1️⃣ 신경망 설명 큰 그림  
 📌 참고 이미지:  
-- ![n1](https://github.com/oracleyu01/statistics/blob/main/yys/n1.png)  
-- ![n2](https://github.com/oracleyu01/statistics/blob/main/yys/n2.png)  
-- ![n3](https://github.com/oracleyu01/statistics/blob/main/yys/n3.png)  
-- ![n4](https://github.com/oracleyu01/statistics/blob/main/yys/n4.png)  
+
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/n1.png" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/n2.png" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/n3.png" width="70%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/n4.png" width="70%">  
+
 
 ---
 
