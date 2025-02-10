@@ -132,6 +132,29 @@ data <- data.frame(
 주어진 데이터에서 월세, 보증금, 근저당설정금액을 독립변수로 사용하여  
 부동산 허위매물 여부를 예측하는 신경망 모델을 구축하세요.  
 
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/netq1.png" width="70%">  
+
+```r
+# 데이터 생성 (컬럼명 변경)
+set.seed(8)
+n <- 100
+mu1 <- c(2, 2)    
+mu2 <- c(-2, -2)  
+sigma <- matrix(c(1, 0, 0, 1), 2, 2)
+
+x1 <- mvrnorm(n, mu1, sigma)  
+x2 <- mvrnorm(n, mu2, sigma)
+
+data <- data.frame(
+  월세 = c(x1[, 1], x2[, 1]),
+  보증금 = c(x1[, 2], x2[, 2]),
+  근저당설정금액 = c(x1[, 2] * 1.5, x2[, 2] * 1.5),  # 변형된 값 추가
+  부동산허위매물여부 = as.factor(c(rep(0, n), rep(1, n)))
+)
+
+
+```
+
 ---
 
 #### 4️⃣ 관련 이론  
