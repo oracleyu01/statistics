@@ -1,6 +1,6 @@
 ## ▣ 예제74. 앙상블
 
-## 🔹 K-폴드 교차검증 (10-폴드)
+## 1. K-폴드 교차검증 (10-폴드)
 
 [이론ppt](https://gamma.app/docs/k--ighwhjes460otkm?mode=doc)
 
@@ -33,7 +33,7 @@ mean(unlist(cv_results))  # 카파 지수 평균값
 
 ---
 
-## 🔹 앙상블 학습 (배깅 & 부스팅)   
+## 2. 앙상블 학습 (배깅 & 부스팅)   
 
 [이론ppt](https://gamma.app/docs/-2t95d86mazbklxl) 
 
