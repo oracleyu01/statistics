@@ -219,6 +219,8 @@ softmax( values )   #  0.7310586 0.2689414
 ```
 ##### ✨  간단한 3층 신경망 만들기 !
 
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/sig4.png" width="40%">  
+
 ```r
 
 # 입력 벡터
@@ -239,7 +241,7 @@ z2 <-  sigmoid(h1 %*% W2)
 print(z2) 
 
 # 출력층의 가중치
-W3 <- matrix( c(0.4, 0.2, 0.3, 0.2) , nrow=2, ncol=2, byrow=TRUE)
+W3 <- matrix( c(4, 2, 3, 2) , nrow=2, ncol=2, byrow=TRUE)
 
 # 출력층의 입력
 z3 <-  softmax(z2 %*% W3)
