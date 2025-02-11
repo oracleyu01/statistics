@@ -108,6 +108,8 @@ gplot(b3, displaylabel = TRUE, vertex.cex = sqrt(diag(b2)), vertex.col = "green"
 
 건물 20개를 조사하여 업종별 입점 여부를 분석하는 데이터 (`building.csv`).
 
+[building.csv 다운로드](https://github.com/oracleyu01/statistics/blob/main/yys/building.csv)
+
 ```r
 # 1. 데이터 불러오기 
 bd <- read.csv("c:\\data\\building.csv", header=T)
