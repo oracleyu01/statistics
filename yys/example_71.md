@@ -194,6 +194,13 @@ texts <- c(
 # K-means 클러스터링 및 시각화
 
 
+
+
+
+
+```
+
+
 ### 문제.당신은 소셜 미디어 분석가입니다. 사용자들이 작성한 리뷰를 분석하여 주요 토픽을 파악하는 과제를 받았습니다. 아래의 15개 리뷰를 분석하여 3개의 주요 토픽으로 분류해주세요.
 
 ```r
@@ -220,16 +227,6 @@ reviews <- c(
     "Beautiful hiking trails in this area.",
     "The cultural experience was unforgettable."
 )
-
-```
-
-
-
-
-
-```
-
-
 
 
 
