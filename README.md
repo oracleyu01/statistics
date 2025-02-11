@@ -138,10 +138,9 @@
 - **예제70. 기계학습9. 비지도 학습- 연관분석**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_70.md)  
 - **예제71. 기계학습10. 비지도 학습- k-means 클러스터링**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_71.md)  
 - **예제72. 기계학습11. 모델 평가1**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_72.md)  
-- **예제73. 기계학습12. 모델 평가2**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_73.md)   
-- **예제74. 기계학습13. 모델 평가3**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_74.md)
-- **예제75. 기계학습14. 성능개선**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_75.md)
-- **예제76. 총정리 및 이수자 평가 예상문제 풀이**
+- **예제73. 기계학습12. 모델 평가2**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_74.md)
+- **예제74. 기계학습13. 성능개선**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_75.md)
+- **예제75. 총정리 및 이수자 평가 예상문제 풀이**
   
     
 ## 강의 안내
