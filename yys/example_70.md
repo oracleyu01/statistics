@@ -193,20 +193,5 @@ data <- list(
 
 ---
 
-## ◼ Groceries 데이터를 활용한 연관 분석 실습
-
-```r
-if (!require("arules")) {
-  install.packages("arules")
-  library(arules)
-}
-
-data("Groceries")
-
-
-
-```
-
-**연관 분석이 마트 판매 데이터뿐만 아니라 다양한 분야에서 활용 가능함을 확인**
 
 
