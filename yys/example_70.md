@@ -193,6 +193,9 @@ View(data)
 
 ```r
 
+
+# 보이스 피싱범의 문장의 패턴을 연관분석으로 확인  
+
 # 필요한 패키지 설치 및 로드
 if (!requireNamespace("arules", quietly = TRUE)) {
   install.packages("arules")
@@ -224,9 +227,21 @@ data <- list(
   # 추가 문장을 단어로 분리하여 추가
 )
 
+# 문장에서 단어를 추출 
+# 문장에서 제거해야할 단어들을 제외하고 나머지 결과를 출력 
+data2 <- lapply(data,remove_stop_words, stop_words)
 
+# 추출된 단어들로 희소 행렬 
+result <- as(data2, "transactions")
+summary(result)
+# 연관 분석 
+library(arules)
+b_rule <- apriori(result,parameter=list(supp=0.1,conf=0.1))
 
+b_rule2 <- subset(b_rule, !(lhs %in% "아시는" | lhs %in% "지인분"
+                             | lhs %in% '분'))
 
+inspect(head(sort(b_rule2,by='lift'),20))
 
 ```
 
