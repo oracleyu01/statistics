@@ -168,7 +168,7 @@ data <- data.frame(
 #### 4️⃣ 관련 이론  
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/netq2.png" width="60%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/sig1.png" width="60%">   
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/sig1.png" width="40%">   
 
 ##### ✨ Sigmoid 함수 만들기  
 
