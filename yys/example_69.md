@@ -167,8 +167,8 @@ data <- data.frame(
 
 #### 4️⃣ 관련 이론  
 
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/netq2.png" width="70%">  
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/sig1.png" width="70%">   
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/netq2.png" width="60%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/sig1.png" width="60%">   
 
 ##### ✨ Sigmoid 함수 만들기  
 
@@ -198,9 +198,9 @@ plot(x_values, y_values, type = "l", col = "red")
 ##### ✨  소프트 맥스 함수 만들기 
 
 <img src="https://github.com/oracleyu01/statistics/blob/main/yys/netq2.png" width="70%">   
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/soft1.png" width="70%">   
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/soft2.png" width="70%">   
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/soft3.png" width="70%">   
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/soft1.png" width="60%">   
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/soft2.png" width="60%">   
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/soft3.png" width="60%">   
 
 softmax 함수의 의미는 그냥 최대값을 출력하는 max 가 아니라
 좀 부드러운 최대값을 출력한다는 의미로 softmax 함수로 이름을 지었습니다.
