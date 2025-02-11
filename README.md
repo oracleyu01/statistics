@@ -137,9 +137,9 @@
 - **예제69. 기계학습8. 신경망으로 데이터 분류하기**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_69.md)  
 - **예제70. 기계학습9. 비지도 학습- 연관분석**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_70.md)  
 - **예제71. 기계학습10. 비지도 학습- k-means 클러스터링**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_71.md)  
-- **예제72. 기계학습11. 모델 평가**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_72.md)
-- **예제73. 기계학습12. 모델 평가 실습1**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_73.md)  
-- **예제74. 기계학습13. 모델 평가 실습2**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_74.md)
+- **예제72. 기계학습11. 모델 평가 이론**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_72.md)
+- **예제73. 기계학습12. 모델 평가 실습**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_73.md)  
+- **예제74. 기계학습13. 모델 성능 개선**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_74.md)
 - **예제76. 총정리 및 이수자 평가 예상문제 풀이**
   
     
