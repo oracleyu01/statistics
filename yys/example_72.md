@@ -117,10 +117,4 @@ mush <- read.csv("c:\\data\\mushrooms.csv", stringsAsFactors=TRUE)
 
 ---
 
-> **💡 추가 과제:** ROC 곡선과 앙상블 학습은 다음 주 머신러닝 수업에서 진행합니다. 
-
-**📌 자유 시간:**
-- 자습 및 스터디
-- 취업 상담
-- 목요일 제출 예정인 K-means 문제 풀이 준비
 
