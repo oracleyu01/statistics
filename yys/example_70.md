@@ -88,8 +88,11 @@ x <- data.frame(
 ## ◼ 연관 규칙 시각화
 ```r
 
+# 앞의 코드들 작성..
 
-
+gplot(b3, displaylabel = TRUE, vertex.cex = sqrt(diag(b2)), vertex.col = "green",
+      edge.col = "blue", boxed.labels = FALSE, arrowhead.cex = .3, 
+      label.pos = 3, edge.lwd = b3 * 2)
 ```
 
 ### ◼ 그래프 해석
@@ -106,7 +109,8 @@ x <- data.frame(
 건물 20개를 조사하여 업종별 입점 여부를 분석하는 데이터 (`building.csv`).
 
 ```r
-
+# 1. 데이터 불러오기 
+bd <- read.csv("c:\\data\\building.csv", header=T)
 
 
 
@@ -129,7 +133,9 @@ x <- data.frame(
 ### 연관 분석 시각화
 ```r
 
-
+gplot(bd4 , displaylabel=T , vertex.cex=sqrt(diag(bd3)) , vertex.col = "green" ,
+             edge.col="blue" , boxed.labels=F , arrowhead.cex = .3 , 
+             label.pos = 3 , edge.lwd = bd4*2) 
 
 ```
 
@@ -145,19 +151,29 @@ x <- data.frame(
 등기부 등본 및 전세 시세 데이터를 기반으로 연관 분석을 수행.
 
 ```r
+
+# 필요한 패키지 설치 및 로드
 if (!require("arules")) {
   install.packages("arules")
   library(arules)
 }
 
-set.seed(123)
+# 가상의 데이터 생성
+set.seed(123) # 결과 재현을 위해 시드 설정
 data <- data.frame(
   contract_id = paste0("전세방", 1:94),
   무자본_갭투자 = factor(sample(c(0, 1), 94, replace = TRUE, prob = c(0.6, 0.4))),
   시세보다_저렴한_전세가 = factor(sample(c(0, 1), 94, replace = TRUE, prob = c(0.4, 0.6))),
   근저당권_설정_금액_비율 = factor(sample(c("낮음", "중간", "높음"), 94, replace = TRUE, prob = c(0.2, 0.3, 0.5))),
+  가압류_가처분_권리_제한 = factor(sample(c(0, 1), 94, replace = TRUE, prob = c(0.7, 0.3))),
+  다수의_전세권_설정 = factor(sample(c(0, 1), 94, replace = TRUE, prob = c(0.7, 0.3))),
+  압류_경매_절차_진행 = factor(sample(c(0, 1), 94, replace = TRUE, prob = c(0.7, 0.3))),
+  신탁_등기 = factor(sample(c(0, 1), 94, replace = TRUE, prob = c(0.9, 0.1))),
+  건물_용도 = factor(sample(c("주거용", "비주거용"), 94, replace = TRUE, prob = c(0.8, 0.2))),
   전세_사기_발생 = factor(sample(c(0, 1), 94, replace = TRUE, prob = c(0.5, 0.5)))
 )
+
+View(data)
 
 
 
@@ -174,24 +190,43 @@ data <- data.frame(
 보이스 피싱 사기 패턴을 분석하여 연관 규칙을 도출.
 
 ```r
+
+# 필요한 패키지 설치 및 로드
 if (!requireNamespace("arules", quietly = TRUE)) {
   install.packages("arules")
 }
 library(arules)
 
+# 불필요한 단어들을 제거하는 함수 정의
+remove_stop_words <- function(text, stop_words) {
+  text <- unlist(strsplit(text, " "))
+  text <- text[!(text %in% stop_words)]
+  return(text)
+}
+
+# Stop words 리스트
+stop_words <- c("있습니까", "입니다", "에", "는", "이", "이요", "있고", "라고", "의", "와", "과", "로", "에", "를", "과", "다", "가", "은", "는", "의", "들", "것", "입니다", "이요",
+                "괜찮으실까요", "우선", "전", "네", "지금", "제가", "저희", "좀", "한", "이번", "있는", "없는", "대해서", "들", "이런", "하게", "해서", "아니면", "어떤", "또는",
+                "사건", "이유", "말씀드리기", "말씀", "드릴", "드렸는데요", "텐데요", "건", "내용", "제", "저", "안", "말씀을", "부탁드립니다", "답변", "관해서", "부탁", "합니다", "문의")
+
+# 보이스 피싱 텍스트 데이터를 리스트로 준비합니다.
 data <- list(
   "서울중앙지검에 이주화 수사관 다름 아니라 명의도용 고소 고발 몇 확인차 전화",
-  "통화 괜찮으실까요 우선 사건 내용 말씀드리기 전 명의 도용한 주범 대해 말씀드릴 텐데요"
+  "통화 괜찮으실까요 우선 사건 내용 말씀드리기 전 명의 도용한 주범 대해 말씀드릴 텐데요",
+  "지인분 아시는 분 바로 말씀 주세요",
+  "전라도 광주 태생 40대 남성 김성우 사람 알고",
+  "일면식 없고 전혀 모르는 사람 김성호 사람 대해 여쭤보는 이유 저희 지검 이번 김성호 주범 금융범죄 사기단 검거",
+  "문 안 대량 대포통장 신용카드 개인 정보 들어 파일 증거 물품 압수",
+  "명의 농협 하나은행 통장 발견 연락",
+  "농협 하나은행 통장"
+  # 추가 문장을 단어로 분리하여 추가
 )
 
 
 
 
+
 ```
-
-**금융 사기 탐지, 전세 사기, 보이스 피싱 예방 등에 활용 가능**
-
----
 
 
 
