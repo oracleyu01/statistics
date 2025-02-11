@@ -219,6 +219,10 @@ F1 스코어는 정밀도와 재현율 간의 균형을 평가하는 지표로, 
 
 </details>
 
----
+---   
+
+[총정리 ppt](https://devoted-bird-d5y35gq.gamma.site)
+
+
 
    
