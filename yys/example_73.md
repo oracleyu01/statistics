@@ -1,78 +1,89 @@
-## ▣ 예제73. 모델평가 실습1   
+## ▣ 예제72. 모델 평가: 이론
 
+## 1. 성능 평가 지표 설명
 
-### 예제. 유방암 데이터를 분류하는 머신러인 모델의 정확도와 다른 성능 척도들을 모두 출력하시오
+| 지표 | 설명 |
+|------|------|
+| 정확도 | 전체 예측 중 올바른 예측의 비율 |
+| 카파 통계량 | 우연에 의한 정확도를 보정한 지표 |
+| 민감도 | 실제 양성 중 정확히 예측된 비율 |
+| 특이도 | 실제 음성 중 정확히 예측된 비율 |
+| 정밀도 | 양성 예측 중 실제 양성의 비율 |
+| 재현율 | 민감도와 동일 |
+| F1-score | 정밀도와 재현율의 조화평균 |
 
-### ✅ 단계1: 데이터 로드 및 전처리
+**참고 자료**: [모델 평가 이론](https://cafe.daum.net/oracleoracle/Sotv/818)
+
+---
+
+## 2. 실습: 카파 통계량 계산
+
+### 📌 문제
+다음 혼동 행렬에 대한 카파 통계량을 구하시오:
+
+| 실제 \ 예측 | False | True | 합계 |
+|------------|-------|------|------|
+| False      | 70    | 30   | 100  |
+| True       | 40    | 60   | 100  |
+| 합계       | 110   | 90   | 200  |
+
+### 💻 코드
 ```r
-data <- read.csv("c:\\data\\wisc_bc_data.csv", stringsAsFactors=TRUE)
-data <- data[, -1]
-data$diagnosis <- as.factor(data$diagnosis)
+# 혼동 행렬 생성
+a <- as.table(matrix(c(70, 30, 40, 60), 
+                     byrow=TRUE, 
+                     nrow=2, 
+                     ncol=2))
 ```
 
-### ✅ 단계2: 데이터 분할
+## 3. 머신러닝 모델 평가
+
+### 📌 데이터셋: Wisconsin Breast Cancer Data
+
+#### 단계 1: 데이터 준비
 ```r
-set.seed(1)
-k <- createDataPartition(data$diagnosis, p=0.9, list=F)
-train_data <- data[k, ]
-test_data <- data[-k, ]
+setwd("c:\\data")
+wbcd <- read.csv("wisc_bc_data.csv", header=TRUE, stringsAsFactors=FALSE)
 ```
 
-### ✅ 단계3: 모델 생성 및 훈련
+#### 단계 2: 데이터 정규화 및 분할
 ```r
-library(C50)
-wisc_model <- C5.0(train_data[, -1], train_data[, 1])
+# 코드 위치
 ```
 
-### ✅ 단계4: 모델 예측
+#### 단계 3: KNN 모델링
 ```r
-result <- predict(wisc_model, test_data[, -1])
+# 코드 위치
 ```
 
-### ✅ 단계5: 모델 평가
+#### 단계 4: 성능 평가
+| 평가 지표    | 값        |
+|-------------|-----------|
+| 정확도      | 0.9122807 |
+| 카파 통계량 | 0.8224    |
+| 민감도      | 0.8148148 |
+| 특이도      | 1.0000000 |
+| 정밀도      | 1.0000000 |
+| 재현율      | 0.8148148 |
+| F1-score    | 0.8979592 |
+
+## 4. 독버섯 데이터 분류
+
+### 📌 나이브 베이즈 분류기 적용
+
+#### 단계 1: 데이터 로드
 ```r
-accuracy <- sum(result == test_data[, 1]) / nrow(test_data)
-accuracy   # 0.98
+mush <- read.csv("c:\\data\\mushrooms.csv", stringsAsFactors=TRUE)
 ```
 
-### ✅ 단계6: ROC 곡선 그리기 및 AUC 계산
+#### 단계 2: 모델링
 ```r
-wisc_test_prob <- predict(wisc_model, test_data[, -1], type="prob")
-wisc_results <- data.frame(
-  actual_type = test_data[, 1],
-  predict_type = result,
-  prob_M = round(wisc_test_prob[, 2], 5),
-  prob_B = round(wisc_test_prob[, 1], 5)
-)
-pred <- prediction(predictions = wisc_results$prob_M, labels = wisc_results$actual_type)
-perf <- performance(pred, measure = "tpr", x.measure = "fpr")
-plot(perf, main = "ROC 커브", col = "blue", lwd = 2)
-abline(a = 0, b = 1, lwd = 2, lty = 2)
-value <- performance(pred, measure = "auc")
-auc <- unlist(value@y.values)
-auc  # 0.9748299
+# 코드 위치
 ```
 
-문제.독일 은행 대출금 불이행자 예측 모델을 생성하고 단계별로 코드를 작성하세요.
-
-✅ 단계1: 데이터 로드 및 전처리
-
-```r
-credit <- read.csv("c:\\data\\credit.csv", stringsAsFactors=TRUE)
-colSums(is.na(credit))  # 결측치 확인
-credit$default <- as.factor(credit$default)
-
-``` 
-
-✅ 단계2: 데이터 분할  
-
-✅ 단계3: 모델 생성 및 훈련  
-
-✅ 단계4: 모델 예측  
-
-✅ 단계5: 모델 평가  
-
-✅ 단계6: ROC 곡선 그리기 및 AUC 계산  
-
-
-
+#### 단계 3: Laplace 평활화에 따른 성능 비교
+| Laplace | 정확도 | 카파 | 민감도 | 특이도 | 정밀도 | 재현율 | F1-score |
+|---------|--------|------|--------|--------|--------|--------|-----------|
+| 0.0001  |        |      |        |        |        |        |           |
+| 0.0002  |        |      |        |        |        |        |           |
+| 0.0003  |        |      |        |        |        |        |           |
