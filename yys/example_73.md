@@ -83,7 +83,7 @@ text(optimal_fpr, optimal_tpr, labels = round(optimal_cutoff, 2), pos = 4, col =
 
 ---
 
-## 🔹 빅분기 실기 문제
+## 문제. 유방암 데이터를 분류하는 머신러인 모델의 정확도와 다른 성능 척도들을 모두 출력하시오
 
 ### ✅ 문제 1: 데이터 로드 및 전처리
 ```r
