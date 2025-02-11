@@ -71,7 +71,10 @@ data
 
 ## 🔹 국영수 성적 데이터 군집화 (Segmentation)
 
-### 1️⃣ 데이터 불러오기
+[데이터 다운로드](https://github.com/oracleyu01/statistics/blob/main/yys/academy.csv)   
+
+
+### 1️⃣ 데이터 불러오기  
 ```r
 academy <- read.csv("c:\\data\\academy.csv")
 academy
