@@ -219,7 +219,7 @@ softmax( values )   #  0.7310586 0.2689414
 ```
 ##### ✨  간단한 3층 신경망 만들기 !
 
-<img src="https://github.com/oracleyu01/statistics/blob/main/yys/sig4.png" width="40%">  
+<img src="https://github.com/oracleyu01/statistics/blob/main/yys/sig4.png" width="70%">  
 
 ```r
 
