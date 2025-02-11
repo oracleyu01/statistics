@@ -194,6 +194,35 @@ texts <- c(
 # K-means 클러스터링 및 시각화
 
 
+### 문제.당신은 소셜 미디어 분석가입니다. 사용자들이 작성한 리뷰를 분석하여 주요 토픽을 파악하는 과제를 받았습니다. 아래의 15개 리뷰를 분석하여 3개의 주요 토픽으로 분류해주세요.
+
+```r
+
+reviews <- c(
+    # 영화 관련 리뷰
+    "The special effects in this movie were amazing!",
+    "Great acting performance by the lead actor.",
+    "The plot twist at the end was unexpected.",
+    "This movie's cinematography is breathtaking.",
+    "The soundtrack really enhanced the movie experience.",
+    
+    # 게임 관련 리뷰
+    "This game has incredible graphics.",
+    "The multiplayer mode is really fun.",
+    "Character customization options are extensive.",
+    "The game's storyline is very engaging.",
+    "Smooth gameplay and responsive controls.",
+    
+    # 여행 관련 리뷰
+    "The beach resort had stunning views.",
+    "Local food was absolutely delicious.",
+    "Hotel service exceeded my expectations.",
+    "Beautiful hiking trails in this area.",
+    "The cultural experience was unforgettable."
+)
+
+```
+
 
 
 
