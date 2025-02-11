@@ -79,36 +79,6 @@ x <- sum(g$prop.tbl * diag(2))
 
 ---
 
-## 🔹 K-폴드 교차검증 (10-폴드)
-
-### 1️⃣ 데이터 불러오기
-```r
-credit <- read.csv("c:\\data\\credit.csv", stringsAsFactors=TRUE)
-```
-
-### 2️⃣ 10-폴드 교차검증 설정
-```r
-library(caret)
-folds <- createFolds(credit$default, k=10)
-```
-
-### 3️⃣ 교차검증 수행 및 카파 지수 출력
-```r
-library(C50)
-library(irr)
-cv_results <- lapply(folds, function(x) {  
-  credit_train <- credit[-x, ]
-  credit_test  <- credit[x, ]
-  credit_model <- C5.0(default ~ ., data=credit_train, trials=100)
-  credit_pred <- predict(credit_model, credit_test)
-  credit_actual <- credit_test$default
-  kappa <- kappa2(data.frame(credit_actual, credit_pred))$value
-  return (kappa)
-})
-mean(unlist(cv_results))  # 카파 지수 평균값
-```
-
----
 
 #### ✅ 문제: 독일 은행 데이터로 성능 척도 계산하기
 
