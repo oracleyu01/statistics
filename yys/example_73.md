@@ -40,20 +40,56 @@ a <- as.table(matrix(c(70, 30, 40, 60),
 
 ### 📌 데이터셋: Wisconsin Breast Cancer Data
 
-#### 단계 1: 데이터 준비
+#### 전체 코드: 
 ```r
 setwd("c:\\data")
-wbcd <- read.csv("wisc_bc_data.csv", header=TRUE, stringsAsFactors=FALSE)
-```
+wbcd <-  read.csv("wisc_bc_data.csv", header=T, stringsAsFactors=FALSE)
 
-#### 단계 2: 데이터 정규화 및 분할
-```r
-# 코드 위치
-```
+# 2. 종속변수를 팩터로 변환하기
+wbcd$diagnosis <- factor( wbcd$diagnosis,
+                          levels= c("B","M"),
+                          labels=c("Benign", "Maliganant") ) 
+str(wbcd)
+nrow(wbcd) #569
 
-#### 단계 3: KNN 모델링
-```r
-# 코드 위치
+#2. sample 함수를 이용해서 데이터를 섞습니다. 
+set.seed(2) 
+sample(10) # 1부터 10까지의 숫자를 랜덤으로 섞어서 출력하는 코드
+wbcd_shuffle <- wbcd[ sample(569),    ] # 설명:  wbcd[  행,  열 ]
+wbcd_shuffle
+
+#3. 최대 최소 정규화 
+wbcd2 <-  wbcd_shuffle[ , -1 ] #id삭제
+str(wbcd2) 
+
+normalize <-  function(x) {
+    return  ( (x-min(x)) / ( max(x) - min(x) ) )
+}
+
+wbcd_n <- as.data.frame( lapply( wbcd2[ , 2:31], normalize)  )
+nrow( wbcd_n ) # 569 
+
+#4. 훈련 데이터와 테스트 데이터를 9대 1로 분리합니다.
+train_num <- round( 0.9 * nrow(wbcd_n), 0 ) #데이터를 9:1로 나눈다
+train_num  # 512 
+
+wbcd_train <- wbcd_n[ 1:train_num,  ]      # 훈련 데이터 구성
+wbcd_test  <- wbcd_n[ (train_num+1) : nrow(wbcd_n),  ]   # 테스트 데이터 구성
+nrow(wbcd_test)   # 57
+
+wbcd_train_label <-  wbcd2[ 1:train_num,  1 ]     # 훈련 데이터의 정답
+wbcd_test_label <- wbcd2[ (train_num+1) : nrow(wbcd_n), 1  ]  # 테스트 데이터 정답
+wbcd_test_label
+
+#5.  knn 모델을 생성합니다. 
+# install.packages("class")
+library(class)
+
+result1 <- knn(train=wbcd_train, test=wbcd_test,   cl=wbcd_train_label, k=21)
+result1
+
+## 여기서 부터 실습 시작 
+
 ```
 
 #### 단계 4: 성능 평가
