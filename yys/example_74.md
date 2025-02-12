@@ -182,23 +182,54 @@ for(j in 1:60) {
 ## 2. 단일 의사결정트리 모델
 
 ```R
-# 데이터 로드 및 전처리
+
+# 필요한 패키지 설치 및 로드
+install.packages("C50")
+install.packages("caret")
+library(C50)
+library(caret)
+
+# 데이터 불러오기
 iris <- read.csv("c:\\data\\iris2.csv", stringsAsFactors = TRUE)
 
-# 데이터 분할
-library(caret)
-set.seed(1)
-in_train <- createDataPartition(iris$Species, p = 0.9, list = FALSE)
-iris_train <- iris[in_train, ]
-iris_test  <- iris[-in_train, ]
+# 80:20으로 훈련(train) / 테스트(test) 세트 분할
+set.seed(123)  # 재현성을 위한 시드 설정
+train_idx <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+train_data <- iris[train_idx, ]
+test_data  <- iris[-train_idx, ]  # 테스트 데이터 (20%)
+dim(train_data)
+dim(test_data)
 
-# 모델 생성 및 예측
-library(C50)
-model <- C5.0(Species ~ ., data = iris_train)
-result <- predict(model, iris_test)
+# 10-Fold 교차 검정 설정 (훈련 데이터에서 수행)
+control <- trainControl(method = "cv", number = 10)  # 10-Fold Cross Validation
 
-# 정확도 평가
-accuracy <- sum(iris_test$Species == result) / length(iris_test$Species)
+
+# C5.0 모델 학습 (훈련 데이터만 사용)
+model <- train(Species ~ ., data = train_data, 
+               method = "C5.0", 
+               trControl = control,
+               tuneGrid=expand.grid(trials=3, model='tree',
+                                    winnow=FALSE))
+# 모든 변수를 다 사용해서 학습하겠다. 
+# 불필요한 변수를 제거해서 학습하려면 winnow=TRUE 
+
+
+# 모델 성능 평가 (테스트 데이터에서 예측)
+test_data[ ,-5]
+predictions <- predict(model, test_data[ ,-5])
+predictions
+# 성능 지표 출력
+conf_mat <- confusionMatrix(predictions, test_data$Species)
+print(conf_mat)  # 0.9
+
+# 훈련 데이틔 정확도 
+
+predictions2 <- predict(model, train_data[ ,-5])
+predictions2
+# 성능 지표 출력
+conf_mat2 <- confusionMatrix(predictions2, train_data$Species)
+print(conf_mat2)
+
 ```
 
 ## 3. 배깅(Bagging) 모델
