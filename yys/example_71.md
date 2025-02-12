@@ -228,6 +228,8 @@ reviews <- c(
     "The cultural experience was unforgettable."
 )
 
+```
+
 
 데이터 분석 기사 기출문제 모음 - 군집분석
 2024년 40회 기출문제
