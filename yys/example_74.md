@@ -347,6 +347,62 @@ plot(varImp(model))
 
 ```
 
+## 4. 랜덤 포레스트 모델
+
+```r
+# 필요한 패키지 설치 및 로드
+install.packages("randomForest")
+install.packages("caret")
+library(randomForest)
+library(caret)
+
+# 데이터 불러오기
+iris <- read.csv("c:\\data\\iris2.csv", stringsAsFactors = TRUE)
+
+# 80:20으로 훈련(train) / 테스트(test) 세트 분할
+set.seed(123)  # 재현성을 위한 시드 설정
+train_idx <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+train_data <- iris[train_idx, ]
+test_data  <- iris[-train_idx, ]
+dim(train_data)
+dim(test_data)
+
+# 10-Fold 교차 검증 설정
+control <- trainControl(method = "cv", 
+                       number = 10)  # 10-Fold Cross Validation
+
+# 랜덤 포레스트 튜닝 파라미터 설정
+grid <- expand.grid(mtry = c(2, 3, 4))  # 각 분할에서 사용할 변수 개수
+
+# 랜덤 포레스트 모델 학습
+model <- train(Species ~ ., 
+              data = train_data,
+              method = "rf",  # Random Forest
+              trControl = control,
+              tuneGrid = grid,
+              ntree = 500)    # 생성할 트리의 개수
+
+# 테스트 데이터 예측
+predictions <- predict(model, test_data[,-5])
+
+# 테스트 데이터 성능 지표 출력
+conf_mat <- confusionMatrix(predictions, test_data$Species)
+print(conf_mat)
+
+# 훈련 데이터 예측
+predictions2 <- predict(model, train_data[,-5])
+
+# 훈련 데이터 성능 지표 출력
+conf_mat2 <- confusionMatrix(predictions2, train_data$Species)
+print(conf_mat2)
+
+# 최적의 모델 파라미터와 성능 확인
+print(model)
+
+# 변수 중요도 확인
+plot(varImp(model))
+
+```
 
 
 ## XGBoost와 LightGBM 설명 및 실습
