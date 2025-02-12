@@ -619,3 +619,66 @@ cat("LightGBM Accuracy:", accuracy, "\n")
 3. **모델 안정성에 따른 선택**
    - 안정적인 성능이 필요한 경우: XGBoost 권장
    - 성능 최적화가 중요한 경우: LightGBM 권장
+  
+## 📌 LightGBM & XGBoost 기출문제  
+
+### **📅 2024년 상반기 기출문제**  
+#### **Q1. LightGBM의 특징으로 옳지 않은 것은?**  
+
+1. Leaf-wise 방식으로 트리를 생성한다  
+2. XGBoost에 비해 상대적으로 학습 속도가 빠르다  
+3. 메모리 사용량이 적은 편이다  
+4. 적은 데이터셋에서 더 좋은 성능을 보인다  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 4번. 적은 데이터셋에서 더 좋은 성능을 보인다**  
+LightGBM은 **대량의 데이터에서 성능이 뛰어난** 알고리즘으로, 작은 데이터셋에서는 과적합이 발생할 가능성이 높습니다.  
+또한, **Leaf-wise 성장 방식**을 사용하여 불균형한 트리를 만들기 때문에 훈련 속도가 빠르지만,  
+적은 데이터에서는 오버피팅의 위험이 커질 수 있습니다.
+
+</details>
+
+---
+
+### **📅 2023년 하반기 기출문제**  
+#### **Q2. XGBoost에 대한 설명으로 가장 적절한 것은?**  
+
+1. Level-wise 방식으로 트리를 생성한다  
+2. 과적합을 방지하기 위한 정규화 항이 없다  
+3. CPU 멀티스레딩을 지원하지 않는다  
+4. 결측치 처리가 불가능하다  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 1번. Level-wise 방식으로 트리를 생성한다**  
+XGBoost는 **Level-wise 방식**을 사용하여 균형 잡힌 트리를 성장시키므로,  
+Leaf-wise 방식을 사용하는 LightGBM보다 과적합 위험이 적습니다.  
+또한 **L1/L2 정규화 항을 포함**하여 과적합을 방지하고,  
+CPU 멀티스레딩을 지원하며, 결측치를 자동으로 처리하는 기능도 갖추고 있습니다.
+
+</details>
+
+---
+
+### **📅 2023년 상반기 기출문제**  
+#### **Q3. LightGBM과 XGBoost의 차이점으로 옳은 것은?**  
+
+1. LightGBM은 Level-wise, XGBoost는 Leaf-wise 방식을 사용한다  
+2. LightGBM은 Leaf-wise, XGBoost는 Level-wise 방식을 사용한다  
+3. 두 알고리즘 모두 동일한 트리 생성 방식을 사용한다  
+4. 두 알고리즘 모두 결측치 처리가 불가능하다  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 2번. LightGBM은 Leaf-wise, XGBoost는 Level-wise 방식을 사용한다**  
+LightGBM은 **Leaf-wise 방식**으로 트리를 생성하여 깊이가 깊어질 수 있지만 빠른 학습 속도를 제공합니다.  
+반면, XGBoost는 **Level-wise 방식**을 사용하여 트리를 균형 있게 성장시키며 과적합을 방지하는 효과가 있습니다.
+
+</details>
+
+---
+
