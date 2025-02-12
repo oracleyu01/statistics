@@ -289,24 +289,64 @@ print(model)
 ## 3. 부스팅(Boosting) 모델
 
 ```R
-# 기본 부스팅 모델
-library(adabag)
-m_adaboost <- boosting(Species ~ ., data = iris_train)
-p_adaboost <- predict(m_adaboost, iris_test[, -5])
+# 필요한 패키지 설치 및 로드
+install.packages("gbm")
+install.packages("caret")
+library(gbm)
+library(caret)
+
+# 데이터 불러오기
+iris <- read.csv("d:\\data\\iris2.csv", stringsAsFactors = TRUE)
+
+# 80:20으로 훈련(train) / 테스트(test) 세트 분할
+set.seed(123)  # 재현성을 위한 시드 설정
+train_idx <- createDataPartition(iris$Species, p = 0.9, list = FALSE)
+train_data <- iris[train_idx, ]
+test_data  <- iris[-train_idx, ]
+dim(train_data)
+dim(test_data)
+
+# 10-Fold 교차 검증 설정
+control <- trainControl(method = "cv", 
+                        number = 10)  # 10-Fold Cross Validation
+
+# 부스팅 모델의 튜닝 파라미터 그리드 설정
+grid <- expand.grid(n.trees = c(100, 150),           # 트리의 개수
+                    interaction.depth = c(3, 4),       # 트리의 깊이
+                    shrinkage = c(0.1),               # 학습률
+                    n.minobsinnode = c(10))           # 말단 노드의 최소 관측치 수
+
+# 부스팅 모델 학습
+model <- train(Species ~ ., 
+               data = train_data,
+               method = "gbm",  # Gradient Boosting Machine
+               trControl = control,
+               tuneGrid = grid,
+               verbose = FALSE)  # 학습 과정 출력 억제
+
+# 테스트 데이터 예측
+predictions <- predict(model, test_data[,-5])
+
+# 테스트 데이터 성능 지표 출력
+conf_mat <- confusionMatrix(predictions, test_data$Species)
+print(conf_mat)
+
+# 훈련 데이터 예측
+predictions2 <- predict(model, train_data[,-5])
+
+# 훈련 데이터 성능 지표 출력
+conf_mat2 <- confusionMatrix(predictions2, train_data$Species)
+print(conf_mat2)
+
+# 최적의 모델 파라미터와 성능 확인
+print(model)
+
+# 변수 중요도 확인
+plot(varImp(model))
+
+
 ```
 
-### 하이퍼파라미터 튜닝 예시
-```R
-# mfinal 파라미터 조정
-m_adaboost <- boosting(Species ~ ., data = iris_train, mfinal=50)
-```
-
-
-### 주요 앙상블 기법 비교
-| 기법 | 특징 | 대표 알고리즘 |
-|------|------|--------------|
-| 배깅 | 복원 추출, 병렬 학습 | Random Forest |
-| 부스팅 | 순차적 학습, 가중치 조정 | AdaBoost, GBM |
 
 
 ## XGBoost와 LightGBM 설명 및 실습
