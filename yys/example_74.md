@@ -4,32 +4,146 @@
 
 [이론ppt](https://gamma.app/docs/k--ighwhjes460otkm?mode=doc)
 
+### 예제1. iris 데이터를 분류하는 의사결정 트리 모델을 생성
+
 ### 1️⃣ 데이터 불러오기
 ```r
-credit <- read.csv("c:\\data\\credit.csv", stringsAsFactors=TRUE)
-```
+# 예제1. iris 데이터를 분류하는 의사결정 트리 모델을 생성하는데
+#  훈련과 테스트를 미리 9대 1로 나누고 
+#  훈련 데이터만 가지고 K-holdout 교차 검정을 해서 모델을 만들고
+#  평가하시오 !
 
-### 2️⃣ 10-폴드 교차검증 설정
-```r
-library(caret)
-folds <- createFolds(credit$default, k=10)
-```
 
-### 3️⃣ 교차검증 수행 및 카파 지수 출력
-```r
+# 필요한 패키지 설치 및 로드
+install.packages("C50")
+install.packages("caret")
 library(C50)
-library(irr)
-cv_results <- lapply(folds, function(x) {  
-  credit_train <- credit[-x, ]
-  credit_test  <- credit[x, ]
-  credit_model <- C5.0(default ~ ., data=credit_train, trials=100)
-  credit_pred <- predict(credit_model, credit_test)
-  credit_actual <- credit_test$default
-  kappa <- kappa2(data.frame(credit_actual, credit_pred))$value
-  return (kappa)
-})
-mean(unlist(cv_results))  # 카파 지수 평균값
+library(caret)
+
+# 데이터 불러오기
+iris <- read.csv("c:\\data\\iris2.csv", stringsAsFactors = TRUE)
+
+# 80:20으로 훈련(train) / 테스트(test) 세트 분할
+set.seed(123)  # 재현성을 위한 시드 설정
+train_idx <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+train_data <- iris[train_idx, ]
+test_data  <- iris[-train_idx, ]  # 테스트 데이터 (20%)
+dim(train_data)
+dim(test_data)
+
+# 10-Fold 교차 검정 설정 (훈련 데이터에서 수행)
+control <- trainControl(method = "cv", number = 10)  # 10-Fold Cross Validation
+
+
+# C5.0 모델 학습 (훈련 데이터만 사용)
+model <- train(Species ~ ., data = train_data, 
+               method = "C5.0", 
+               trControl = control,
+               tuneGrid=expand.grid(trials=3, model='tree',
+                                    winnow=FALSE))
+# 모든 변수를 다 사용해서 학습하겠다. 
+# 불필요한 변수를 제거해서 학습하려면 winnow=TRUE 
+
+
+# 모델 성능 평가 (테스트 데이터에서 예측)
+test_data[ ,-5]
+predictions <- predict(model, test_data[ ,-5])
+predictions
+# 성능 지표 출력
+conf_mat <- confusionMatrix(predictions, test_data$Species)
+print(conf_mat)  # 0.9
+
+# 훈련 데이틔 정확도 
+
+predictions2 <- predict(model, train_data[ ,-5])
+predictions2
+# 성능 지표 출력
+conf_mat2 <- confusionMatrix(predictions2, train_data$Species)
+print(conf_mat2)
+
 ```
+
+#### 문제. k-holdout 교차검정을 해서 wine 데이터를 분류하는 머신러닝 모델을 생성하시오 !
+
+```r
+
+wine <- read.csv("c:\\data\\wine2.csv", stringsAsFactors =T)
+head(wine)
+dim(wine)
+
+# C5.0 모델 학습 (훈련 데이터만 사용)
+model <- train(Species ~ ., data = train_data, 
+               method = "C5.0",   #<--- 다른 모델을 넣어서 학습 
+               trControl = control,
+               tuneGrid=expand.grid(trials=3, model='tree',
+                                    winnow=FALSE))
+
+# chatgpt 에게 method를 서포트 벡터머신으로 해서 스크립트 만들어줘
+
+method = 'svmRadial'
+
+```
+
+
+## 📌 머신러닝 모델 검증 및 평가 기출문제  
+
+### **📅 2024년 상반기 기출문제**  
+#### **Q1. 데이터를 학습용(Training set)과 검증용(Validation set), 평가용(Test set)으로 나누는 방법 중 가장 올바른 것은?**  
+
+1. 학습용 60%, 검증용 20%, 평가용 20%로 나눈다  
+2. 학습용 90%, 검증용 5%, 평가용 5%로 나눈다  
+3. 학습용 40%, 검증용 30%, 평가용 30%로 나눈다  
+4. 학습용 80%, 검증용 10%, 평가용 10%로 나눈다  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 1번. 학습용 60%, 검증용 20%, 평가용 20%로 나눈다**  
+일반적으로 데이터는 **훈련(Training) 60~80%, 검증(Validation) 10~20%, 평가(Test) 10~20%**의 비율로 나눕니다.  
+검증 데이터는 하이퍼파라미터 튜닝 및 모델 최적화를 위해 사용되며, 평가 데이터는 최종 성능 측정을 위해 사용됩니다.
+
+</details>
+
+---
+
+### **📅 2023년 하반기 기출문제**  
+#### **Q2. K-겹 교차검증(K-fold Cross Validation)에 대한 설명으로 옳지 않은 것은?**  
+
+1. 전체 데이터를 K개의 부분집합으로 나눈다  
+2. K-1개의 부분집합은 학습에 사용하고, 1개는 검증에 사용한다  
+3. 모든 데이터가 한 번씩 검증 데이터로 사용된다  
+4. K값이 작을수록 더 정확한 성능 평가가 가능하다  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 4번. K값이 작을수록 더 정확한 성능 평가가 가능하다**  
+K-겹 교차검증에서 K값이 너무 작으면 모델 평가의 신뢰도가 떨어질 수 있습니다.  
+보통 K=5 또는 K=10이 적절하며, K값이 클수록 모델 평가가 안정적이지만 계산량이 증가할 수 있습니다.
+
+</details>
+
+---
+
+### **📅 2023년 상반기 기출문제**  
+#### **Q3. Hold-out 방식의 특징으로 가장 적절하지 않은 것은?**  
+
+1. 데이터를 훈련용과 테스트용으로 분리한다  
+2. 데이터가 충분히 많을 때 사용하기 적합하다  
+3. 모든 데이터가 한 번씩 테스트 데이터로 사용된다  
+4. 한 번의 평가만으로 모델의 성능을 측정한다  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 3번. 모든 데이터가 한 번씩 테스트 데이터로 사용된다**  
+Hold-out 방식은 데이터를 훈련용과 테스트용으로 한 번만 분리하는 방식이며, 일부 데이터만 테스트 데이터로 사용됩니다.  
+모든 데이터가 테스트로 사용되는 것은 **K-겹 교차검증(K-fold Cross Validation)** 방식의 특징입니다.
+
+</details>
+
+---
+
 
 ---
 
