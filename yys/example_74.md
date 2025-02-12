@@ -179,9 +179,10 @@ for(j in 1:60) {
 
 **결론:** 60%의 정확도를 보이는 모델 50개를 앙상블하면 90% 이상의 정확도 달성 가능
 
-## 2. 단일 의사결정트리 모델
+## 1. 단일 의사결정트리 모델
 
 ```R
+
 
 # 필요한 패키지 설치 및 로드
 install.packages("C50")
@@ -190,11 +191,11 @@ library(C50)
 library(caret)
 
 # 데이터 불러오기
-iris <- read.csv("c:\\data\\iris2.csv", stringsAsFactors = TRUE)
+iris <- read.csv("d:\\data\\iris2.csv", stringsAsFactors = TRUE)
 
 # 80:20으로 훈련(train) / 테스트(test) 세트 분할
 set.seed(123)  # 재현성을 위한 시드 설정
-train_idx <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+train_idx <- createDataPartition(iris$Species, p = 0.9, list = FALSE)
 train_data <- iris[train_idx, ]
 test_data  <- iris[-train_idx, ]  # 테스트 데이터 (20%)
 dim(train_data)
@@ -220,7 +221,7 @@ predictions <- predict(model, test_data[ ,-5])
 predictions
 # 성능 지표 출력
 conf_mat <- confusionMatrix(predictions, test_data$Species)
-print(conf_mat)  # 0.9
+print(conf_mat)  
 
 # 훈련 데이틔 정확도 
 
@@ -230,32 +231,62 @@ predictions2
 conf_mat2 <- confusionMatrix(predictions2, train_data$Species)
 print(conf_mat2)
 
+
+
 ```
 
-## 3. 배깅(Bagging) 모델
+## 2. 배깅(Bagging) 모델
 
 ```R
-# 데이터 분할
-set.seed(1)
-in_train <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
-iris_train <- iris[in_train, ]
-iris_test  <- iris[-in_train, ]
-
-# 배깅 모델 생성
+# 필요한 패키지 설치 및 로드
+install.packages("ipred")
+install.packages("caret")
 library(ipred)
-my_bag <- bagging(Species ~ ., data = iris_train, nbagg = 25)
+library(caret)
 
-# 예측 및 평가
-p_bag <- predict(my_bag, iris_test[, -5])
-bagging_accuracy <- sum(iris_test$Species == p_bag) / length(iris_test$Species)
+# 데이터 불러오기
+iris <- read.csv("d:\\data\\iris2.csv", stringsAsFactors = TRUE)
+
+# 80:20으로 훈련(train) / 테스트(test) 세트 분할
+set.seed(123)  # 재현성을 위한 시드 설정
+train_idx <- createDataPartition(iris$Species, p = 0.9, list = FALSE)
+train_data <- iris[train_idx, ]
+test_data  <- iris[-train_idx, ]
+dim(train_data)
+dim(test_data)
+
+# 10-Fold 교차 검증 설정
+control <- trainControl(method = "cv", 
+                        number = 10)  # 10-Fold Cross Validation
+
+# 배깅 모델 학습 (caret의 treebag 메소드 사용)
+model <- train(Species ~ ., 
+               data = train_data,
+               method = "treebag",  # 배깅 메소드
+               trControl = control,
+               nbagg = 25)  # 25개의 의사결정나무 생성
+
+# 테스트 데이터 예측
+predictions <- predict(model, test_data[,-5])
+
+# 테스트 데이터 성능 지표 출력
+conf_mat <- confusionMatrix(predictions, test_data$Species)
+print(conf_mat)
+
+# 훈련 데이터 예측
+predictions2 <- predict(model, train_data[,-5])
+
+# 훈련 데이터 성능 지표 출력
+conf_mat2 <- confusionMatrix(predictions2, train_data$Species)
+print(conf_mat2)
+
+# 교차 검증 결과 확인
+print(model)
+
+
 ```
 
-**결과:** 정확도가 0.93에서 0.96으로 향상
-
-### 실습 문제
-- 배깅 모델의 `nbagg` 파라미터를 조정하여 정확도 변화 관찰
-
-## 4. 부스팅(Boosting) 모델
+## 3. 부스팅(Boosting) 모델
 
 ```R
 # 기본 부스팅 모델
