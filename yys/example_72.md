@@ -221,6 +221,77 @@ F1 스코어는 정밀도와 재현율 간의 균형을 평가하는 지표로, 
 
 ---   
 
+## 📌 머신러닝 모델 평가 지표 기출문제  
+
+### **📅 2024년 상반기 기출문제**  
+#### **Q1. 다음 중 모델의 성능 평가 지표인 Precision(정밀도)을 올바르게 설명한 것은?**  
+
+1. 전체 데이터 중에서 정확하게 분류된 데이터의 비율  
+2. 실제 Positive 중에서 정확하게 Positive로 예측한 비율  
+3. 예측한 Positive 중에서 실제 Positive인 비율  
+4. 실제 Negative 중에서 정확하게 Negative로 예측한 비율  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 3번. 예측한 Positive 중에서 실제 Positive인 비율**  
+Precision(정밀도)은 모델이 양성으로 예측한 샘플 중 실제로 양성인 샘플의 비율을 의미합니다.  
+공식:  
+\[
+\text{Precision} = \frac{TP}{TP + FP}
+\]
+
+</details>
+
+---
+
+### **📅 2023년 하반기 기출문제**  
+#### **Q2. 혼동행렬(Confusion Matrix)에서 Accuracy(정확도)를 계산하는 공식으로 올바른 것은?**  
+
+1. \( TP / (TP + FP) \)  
+2. \( TP / (TP + FN) \)  
+3. \( (TP + TN) / (TP + TN + FP + FN) \)  
+4. \( TN / (TN + FP) \)  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 3번. \( (TP + TN) / (TP + TN + FP + FN) \)**  
+정확도(Accuracy)는 전체 샘플 중에서 올바르게 예측한 샘플의 비율을 의미합니다.  
+공식:  
+\[
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+\]
+
+</details>
+
+---
+
+### **📅 2023년 상반기 기출문제**  
+#### **Q3. 다음 중 Sensitivity(민감도)와 Recall(재현율)이 의미하는 바로 가장 적절한 것은?**  
+
+1. 실제 음성 중 음성으로 예측한 비율  
+2. 예측한 양성 중 실제 양성인 비율  
+3. 실제 양성 중 양성으로 예측한 비율  
+4. 전체 예측 중 올바르게 예측한 비율  
+
+<details>
+<summary><b>정답 보기</b></summary>
+
+**정답: 3번. 실제 양성 중 양성으로 예측한 비율**  
+민감도(Sensitivity) 또는 재현율(Recall)은 실제 양성(Positive) 샘플 중에서 모델이 양성으로 올바르게 예측한 비율을 의미합니다.  
+공식:  
+\[
+\text{Recall} = \frac{TP}{TP + FN}
+\]
+
+</details>
+
+---
+
+각 문제는 혼동행렬의 주요 평가 지표들에 대한 이해를 측정하는 문제들로, 실제 데이터 분석 현장에서 자주 사용되는 중요한 개념들입니다.
+
+
 [총정리 ppt](https://devoted-bird-d5y35gq.gamma.site)
 
 
