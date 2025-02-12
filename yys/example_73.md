@@ -103,23 +103,53 @@ result1
 | 재현율      | 0.8148148 |
 | F1-score    | 0.8979592 |
 
-## 4. 독버섯 데이터 분류
+### 📌문제. 독버섯 머신러닝 모델의 정확도외에 다른 성능 지표를 출력하세요.
 
-### 📌 나이브 베이즈 분류기 적용
-
-#### 단계 1: 데이터 로드
+#### 모델 생성까지 수행하시고 그 이후부터는 예제의 스크립트를 활용해서 문제를 푸세요.
 ```r
+#1. 데이터 불러오기
 mush <- read.csv("c:\\data\\mushrooms.csv", stringsAsFactors=TRUE)
+
+#2. 데이터 관찰하기
+dim(mush)
+str(mush)
+
+#3. 훈련과 테스트 분할하기
+library(caret)
+set.seed(1)
+
+k <-  createDataPartition( mush$type, p=0.8, list=F) #  훈련 데이터 80%
+train_data  <- mush[ k,    ]
+test_data <- mush[ -k,    ]
+
+#4. 모델 훈련하기
+library(e1071)
+model <-  naiveBayes( type ~  . ,  data=train_data, laplace=0.0001 )
+
+#5. 테스트 데이터 예측하기
+result <-  predict( model,  test_data[    , -1] )  # 정답 빼고 넣어줍니다.
+
+#6. 모델 평가하기 
+library(gmodels)
+sum(result == test_data[  , 1] )  / length( test_data[  , 1 ]) * 100
+CrossTable(x=result, y=test_data[   , 1], chisq=TRUE )
+
+#■다른 성능 척도 구하기 
+
+actual_type <- test_data[  , 1]   #테스트 데이터의 실제값
+predict_type <- result   #테스트 데이터의 예측값
+positive_value <- 'poisonous' # 관심범주(yes)
+negative_value <- 'edible'  # 관심범주(no)
+
+#■ 정확도
+library(gmodels)
+g <- CrossTable( actual_type, predict_type )
+x <- sum(g$prop.tbl *diag(2)) #정확도 확인하는 코드
+x 
+
+
+
+
 ```
 
-#### 단계 2: 모델링
-```r
-# 코드 위치
-```
 
-#### 단계 3: Laplace 평활화에 따른 성능 비교
-| Laplace | 정확도 | 카파 | 민감도 | 특이도 | 정밀도 | 재현율 | F1-score |
-|---------|--------|------|--------|--------|--------|--------|-----------|
-| 0.0001  |        |      |        |        |        |        |           |
-| 0.0002  |        |      |        |        |        |        |           |
-| 0.0003  |        |      |        |        |        |        |           |
