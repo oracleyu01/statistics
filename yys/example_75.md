@@ -334,4 +334,243 @@
 
 따라서 A에서 2번째로 가까운 점은 C이고, 그 거리는 2이다.
 </div>
-</details>
+</details>     
+
+### 최종 실습 
+
+#### 1. 최적의 하이퍼 파라미터 찾기 전 xgboost 코드
+
+```r
+# 필요한 라이브러리 로드
+library(xgboost)
+library(caret)
+library(dplyr)
+library(pROC)
+
+setwd("d:\\data")
+
+# 데이터 준비
+credit <- read.csv("credit.csv", stringsAsFactors = TRUE)
+
+# 범주형 변수를 factor로 변환
+categorical_cols <- c("checking_balance", "credit_history", "purpose", 
+                     "savings_balance", "employment_duration", "other_credit",
+                     "housing", "job", "phone", "default")
+
+credit[categorical_cols] <- lapply(credit[categorical_cols], as.factor)
+
+# default 변수를 factor로 변환 (levels를 "No"와 "Yes"로 지정)
+credit$default <- factor(ifelse(credit$default == "yes", "Yes", "No"), levels = c("No", "Yes"))
+
+# 범주형 변수를 더미 변수로 변환
+dummy_cols <- c("checking_balance", "credit_history", "purpose", 
+                "savings_balance", "employment_duration", "other_credit",
+                "housing", "job", "phone")
+
+# 수치형 변수 선택
+numeric_cols <- c("months_loan_duration", "amount", "percent_of_income",
+                 "years_at_residence", "age", "existing_loans_count", "dependents")
+
+# 전체 데이터에 대한 더미 변수 생성
+credit_dummies <- model.matrix(~.-1, data = credit[dummy_cols])
+credit_final <- cbind(data.frame(credit_dummies), credit[numeric_cols], default = credit$default)
+
+# 데이터 분할
+set.seed(123)
+train_index <- createDataPartition(credit_final$default, p = 0.8, list = FALSE)
+train_data <- credit_final[train_index, ]
+test_data <- credit_final[-train_index, ]
+
+# XGBoost 모델 학습을 위한 기본 파라미터 설정
+xgb_params <- list(
+  objective = "binary:logistic",
+  eval_metric = "auc",
+  max_depth = 6,
+  eta = 0.3,
+  gamma = 0,
+  colsample_bytree = 0.8,
+  min_child_weight = 1,
+  subsample = 0.8
+)
+
+# 훈련 데이터 변환
+train_matrix <- xgb.DMatrix(
+  data = as.matrix(train_data[, !names(train_data) %in% "default"]),
+  label = as.numeric(train_data$default) - 1
+)
+
+# 테스트 데이터 변환
+test_matrix <- xgb.DMatrix(
+  data = as.matrix(test_data[, !names(test_data) %in% "default"]),
+  label = as.numeric(test_data$default) - 1
+)
+
+# 모델 학습
+xgb_model <- xgb.train(
+  params = xgb_params,
+  data = train_matrix,
+  nrounds = 100,
+  watchlist = list(train = train_matrix, test = test_matrix),
+  verbose = 1
+)
+
+# 변수 중요도 확인
+importance_matrix <- xgb.importance(model = xgb_model)
+print("Variable Importance:")
+print(importance_matrix)
+
+# 모델 예측
+predictions_prob <- predict(xgb_model, test_matrix)
+predictions_class <- factor(ifelse(predictions_prob > 0.5, "Yes", "No"), levels = c("No", "Yes"))
+
+# 혼동 행렬 생성
+confusion_matrix <- confusionMatrix(predictions_class, test_data$default)
+print("Confusion Matrix and Statistics:")
+print(confusion_matrix)
+
+# ROC 커브 그리기
+roc_obj <- roc(test_data$default, predictions_prob)
+plot(roc_obj, main = "ROC Curve")
+auc_value <- auc(roc_obj)
+cat("\nAUC:", auc_value, "\n")
+
+# 성능 메트릭 계산
+precision <- confusion_matrix$byClass["Pos Pred Value"]
+recall <- confusion_matrix$byClass["Sensitivity"]
+f1_score <- confusion_matrix$byClass["F1"]
+
+cat("\nModel Performance Metrics:\n")
+cat("Accuracy:", confusion_matrix$overall["Accuracy"], "\n")
+cat("Precision:", precision, "\n")
+cat("Recall:", recall, "\n")
+cat("F1 Score:", f1_score, "\n")
+cat("AUC:", auc_value, "\n")
+
+# 변수 중요도 시각화
+xgb.plot.importance(importance_matrix)
+
+```
+
+#### 2. 최적의 하이퍼 파라미터 찾는 xgboost 코드 (시간 오래걸림)    
+
+```r
+# 필요한 라이브러리 로드
+library(xgboost)
+library(caret)
+library(dplyr)
+
+setwd("d:\\data")
+# 데이터 준비
+credit <- read.csv("credit.csv", stringsAsFactors = TRUE)
+
+# 범주형 변수를 factor로 변환
+categorical_cols <- c("checking_balance", "credit_history", "purpose", 
+                      "savings_balance", "employment_duration", "other_credit",
+                      "housing", "job", "phone", "default")
+credit[categorical_cols] <- lapply(credit[categorical_cols], as.factor)
+
+# default 변수를 factor로 변환 (levels를 "No"와 "Yes"로 지정)
+credit$default <- factor(ifelse(credit$default == "yes", "Yes", "No"), levels = c("No", "Yes"))
+
+# 범주형 변수를 더미 변수로 변환
+dummy_cols <- c("checking_balance", "credit_history", "purpose", 
+                "savings_balance", "employment_duration", "other_credit",
+                "housing", "job", "phone")
+
+# 수치형 변수 선택
+numeric_cols <- c("months_loan_duration", "amount", "percent_of_income",
+                  "years_at_residence", "age", "existing_loans_count", "dependents")
+
+# 전체 데이터에 대한 더미 변수 생성
+credit_dummies <- model.matrix(~.-1, data = credit[dummy_cols])
+credit_final <- cbind(data.frame(credit_dummies), credit[numeric_cols], default = credit$default)
+
+# 교차 검증을 위한 trainControl 설정
+ctrl <- trainControl(
+  method = "cv",
+  number = 10,
+  verboseIter = TRUE,
+  classProbs = TRUE,
+  summaryFunction = twoClassSummary
+)
+
+# 튜닝할 하이퍼파라미터 그리드 설정 (규모를 좀 줄여서 실행 시간 단축)
+xgb_grid <- expand.grid(
+  nrounds = c(100, 200),
+  max_depth = c(3, 6),
+  eta = c(0.01, 0.1),
+  gamma = c(0, 0.5),
+  colsample_bytree = c(0.6, 1.0),
+  min_child_weight = c(1, 5),
+  subsample = c(0.6, 1.0)
+)
+
+# train 함수를 사용한 모델 학습 및 파라미터 튜닝
+set.seed(123)
+xgb_tune <- train(
+  x = credit_final[, !names(credit_final) %in% "default"],
+  y = credit_final$default,
+  method = "xgbTree",
+  trControl = ctrl,
+  tuneGrid = xgb_grid,
+  metric = "ROC"
+)
+
+# 최적 파라미터 확인
+print("Best Tuning Parameters:")
+print(xgb_tune$bestTune)
+
+# 교차 검증 결과 확인
+print("Cross-validation Results:")
+print(xgb_tune$results)
+
+# 최종 모델의 변수 중요도 확인
+importance <- varImp(xgb_tune)
+print("Variable Importance:")
+print(importance)
+
+# 최종 모델의 성능 평가를 위한 데이터 분할
+set.seed(123)
+train_index <- createDataPartition(credit_final$default, p = 0.8, list = FALSE)
+train_data <- credit_final[train_index, ]
+test_data <- credit_final[-train_index, ]
+
+# 최종 모델 예측
+predictions_prob <- predict(xgb_tune, newdata = test_data[, !names(test_data) %in% "default"], type = "prob")
+predictions_class <- predict(xgb_tune, newdata = test_data[, !names(test_data) %in% "default"])
+
+# 혼동 행렬 생성
+confusion_matrix <- confusionMatrix(predictions_class, test_data$default)
+print("Confusion Matrix and Statistics:")
+print(confusion_matrix)
+
+# ROC 커브 그리기
+library(pROC)
+roc_obj <- roc(test_data$default, predictions_prob[,"Yes"])
+plot(roc_obj, main = "ROC Curve")
+auc_value <- auc(roc_obj)
+cat("\nAUC:", auc_value, "\n")
+
+# 최적의 파라미터 저장
+best_params <- xgb_tune$bestTune
+cat("\nBest Parameters:\n")
+print(best_params)
+
+# 성능 메트릭 계산
+precision <- confusion_matrix$byClass["Pos Pred Value"]
+recall <- confusion_matrix$byClass["Sensitivity"]
+f1_score <- confusion_matrix$byClass["F1"]
+
+cat("\nModel Performance Metrics:\n")
+cat("Accuracy:", confusion_matrix$overall["Accuracy"], "\n")
+cat("Precision:", precision, "\n")
+cat("Recall:", recall, "\n")
+cat("F1 Score:", f1_score, "\n")
+cat("AUC:", auc_value, "\n")
+
+```
+
+
+
+
+
