@@ -514,7 +514,7 @@ XGBoost는 gradient boosting framework의 구현체로, 다음과 같은 특징�
 
 ## 📌 XGBoost vs LightGBM 예측 과정 비교
 
-### 📍 초기 상황 예측하려는 아파트 정보:
+### 📍 가격을 예측하는 모델 
 
 실제 가격: 5억원   
 평수: 32평   
