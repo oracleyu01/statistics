@@ -140,7 +140,7 @@
 - **예제72. 기계학습11. 모델 평가 이론**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_72.md)
 - **예제73. 기계학습12. 모델 평가 실습**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_73.md)  
 - **예제74. 기계학습13. 모델 성능 개선**:📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_74.md)
-- **예제76. 총정리 및 이수자 평가 예상문제 풀이**
+- **예제76. 총정리 및 머신러닝 이수자 평가 예상문제 설명**: 📄[노트](https://github.com/oracleyu01/statistics/blob/main/yys/example_75.md)
   
     
 ## 강의 안내
