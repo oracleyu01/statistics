@@ -873,6 +873,30 @@ saveRDS(rf_tune, "rf_model.rds")
 
 ```
 
+#### 5. 만들어진 모델을 불러오는 코드 
+
+```r
+
+# 필요한 라이브러리 로드
+library(randomForest)
+library(caret)
+
+# 저장된 모델 불러오기
+loaded_model <- readRDS("rf_model.rds")
+
+# 새로운 데이터로 예측하기 (예시)
+new_data <- read.csv("new_credit_data.csv")  # 새로운 데이터 불러오기
+
+# 예측 수행
+predictions_prob <- predict(loaded_model, newdata = new_data, type = "prob")  # 확률값 예측
+predictions_class <- predict(loaded_model, newdata = new_data)  # 클래스 예측
+
+# 결과 확인
+head(predictions_prob)  # 확률값 확인
+head(predictions_class)  # 클래스 예측값 확인
+
+```
+
 
 
 
