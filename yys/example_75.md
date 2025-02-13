@@ -755,6 +755,125 @@ lgb.plot.importance(importance)
 
 ```
 
+#### 4. 랜덤 포레스트로 했을때의 경우 
+
+```r
+# 필요한 라이브러리 로드
+library(randomForest)
+library(caret)
+library(dplyr)
+library(pROC)
+
+setwd("d:\\data")
+
+# 데이터 준비
+credit <- read.csv("credit.csv", stringsAsFactors = TRUE)
+
+# 범주형 변수를 factor로 변환
+categorical_cols <- c("checking_balance", "credit_history", "purpose", 
+                     "savings_balance", "employment_duration", "other_credit",
+                     "housing", "job", "phone", "default")
+credit[categorical_cols] <- lapply(credit[categorical_cols], as.factor)
+
+# default 변수를 factor로 변환 (levels를 "No"와 "Yes"로 지정)
+credit$default <- factor(ifelse(credit$default == "yes", "Yes", "No"), levels = c("No", "Yes"))
+
+# 교차 검증을 위한 trainControl 설정
+ctrl <- trainControl(
+  method = "cv",
+  number = 5,
+  verboseIter = TRUE,
+  classProbs = TRUE,
+  summaryFunction = twoClassSummary
+)
+
+# Random Forest를 위한 파라미터 그리드 설정
+rf_grid <- expand.grid(
+  mtry = seq(2, 8, 2)  # 각 분할에서 사용할 변수의 수
+)
+
+# 데이터 분할
+set.seed(123)
+train_index <- createDataPartition(credit$default, p = 0.8, list = FALSE)
+train_data <- credit[train_index, ]
+test_data <- credit[-train_index, ]
+
+# Random Forest 모델 학습 및 튜닝
+set.seed(123)
+rf_tune <- train(
+  default ~ .,
+  data = train_data,
+  method = "rf",
+  trControl = ctrl,
+  tuneGrid = rf_grid,
+  metric = "ROC",
+  ntree = 500,
+  importance = TRUE
+)
+
+# 최적 파라미터 출력
+print("Best Tuning Parameters:")
+print(rf_tune$bestTune)
+
+# 교차 검증 결과 출력
+print("Cross-validation Results:")
+print(rf_tune$results)
+
+# 변수 중요도 확인
+importance <- varImp(rf_tune)
+print("Variable Importance:")
+print(importance)
+
+# 테스트 세트에 대한 예측
+predictions_prob <- predict(rf_tune, newdata = test_data, type = "prob")
+predictions_class <- predict(rf_tune, newdata = test_data)
+
+# 혼동 행렬 생성
+confusion_matrix <- confusionMatrix(predictions_class, test_data$default)
+print("Confusion Matrix and Statistics:")
+print(confusion_matrix)
+
+# ROC 커브 그리기
+roc_obj <- roc(test_data$default, predictions_prob[,"Yes"])
+plot(roc_obj, main = "ROC Curve")
+auc_value <- auc(roc_obj)
+
+# 성능 메트릭 출력
+cat("\nModel Performance Metrics:\n")
+cat("Accuracy:", confusion_matrix$overall["Accuracy"], "\n")
+cat("Precision:", confusion_matrix$byClass["Pos Pred Value"], "\n")
+cat("Recall:", confusion_matrix$byClass["Sensitivity"], "\n")
+cat("F1 Score:", confusion_matrix$byClass["F1"], "\n")
+cat("AUC:", auc_value, "\n")
+
+# 변수 중요도 시각화
+plot(importance)
+
+# 최적 모델의 상세 정보 확인
+print("Best Model Details:")
+print(rf_tune$finalModel)
+
+# OOB 에러율 플롯
+plot(rf_tune$finalModel, main="Random Forest OOB Error Rate")
+
+# 부분 의존성 플롯 (주요 변수들에 대해)
+top_vars <- importance$importance %>%
+  as.data.frame() %>%
+  arrange(desc(Overall)) %>%
+  rownames() %>%
+  head(3)
+
+for(var in top_vars) {
+  partialPlot(rf_tune$finalModel, train_data, var, "Yes",
+              main=paste("Partial Dependence Plot for", var))
+}
+
+# 최종 모델 저장
+saveRDS(rf_tune, "rf_model.rds")
+
+```
+
+
 
 
 
