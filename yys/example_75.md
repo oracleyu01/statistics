@@ -570,6 +570,191 @@ cat("AUC:", auc_value, "\n")
 
 ```
 
+#### 3. lightgbm 으로 했을때 코드 
+
+```r
+
+# 필요한 라이브러리 로드
+library(lightgbm)
+library(caret)
+library(dplyr)
+library(pROC)
+
+setwd("d:\\data")
+
+# 데이터 준비
+credit <- read.csv("credit.csv", stringsAsFactors = TRUE)
+
+# 범주형 변수를 factor로 변환
+categorical_cols <- c("checking_balance", "credit_history", "purpose", 
+                     "savings_balance", "employment_duration", "other_credit",
+                     "housing", "job", "phone", "default")
+credit[categorical_cols] <- lapply(credit[categorical_cols], as.factor)
+
+# default 변수를 factor로 변환 (levels를 "No"와 "Yes"로 지정)
+credit$default <- factor(ifelse(credit$default == "yes", "Yes", "No"), levels = c("No", "Yes"))
+
+# 범주형 변수를 더미 변수로 변환
+dummy_cols <- c("checking_balance", "credit_history", "purpose", 
+                "savings_balance", "employment_duration", "other_credit",
+                "housing", "job", "phone")
+
+# 수치형 변수 선택
+numeric_cols <- c("months_loan_duration", "amount", "percent_of_income",
+                 "years_at_residence", "age", "existing_loans_count", "dependents")
+
+# 전체 데이터에 대한 더미 변수 생성
+credit_dummies <- model.matrix(~.-1, data = credit[dummy_cols])
+credit_final <- cbind(data.frame(credit_dummies), credit[numeric_cols], default = credit$default)
+
+# 교차 검증을 위한 trainControl 설정
+ctrl <- trainControl(
+  method = "cv",
+  number = 5,
+  verboseIter = TRUE,
+  classProbs = TRUE,
+  summaryFunction = twoClassSummary
+)
+
+# LightGBM을 위한 파라미터 그리드 설정
+lgb_grid <- expand.grid(
+  num_leaves = c(20, 31, 50),
+  max_depth = c(4, 6, 8),
+  learning_rate = c(0.01, 0.05, 0.1),
+  feature_fraction = c(0.7, 0.8, 0.9),
+  bagging_fraction = c(0.7, 0.8, 0.9),
+  min_data_in_leaf = c(10, 20, 30),
+  num_iterations = 100  # 고정값
+)
+
+# 데이터를 lgb.Dataset 형식으로 변환하는 함수
+prepare_lgb_data <- function(data, label) {
+  lgb.Dataset(
+    data = as.matrix(data),
+    label = as.numeric(label) - 1,
+    categorical_feature = NULL  # 이미 더미 변수로 변환했으므로 NULL
+  )
+}
+
+# 하이퍼파라미터 튜닝을 위한 함수
+train_lgb <- function(params, train_data, train_label, valid_data, valid_label) {
+  dtrain <- prepare_lgb_data(train_data, train_label)
+  dvalid <- prepare_lgb_data(valid_data, valid_label)
+  
+  model <- lgb.train(
+    params = params,
+    data = dtrain,
+    valids = list(valid = dvalid),
+    nrounds = params$num_iterations,
+    verbose = 0
+  )
+  
+  return(model)
+}
+
+# 기본 파라미터 설정
+base_params <- list(
+  objective = "binary",
+  metric = "auc",
+  num_iterations = 100
+)
+
+# 결과 저장을 위한 데이터프레임 초기화
+results <- data.frame()
+
+# 5-fold 교차 검증 준비
+folds <- createFolds(credit_final$default, k = 5, list = TRUE)
+
+# 그리드 서치 실행
+set.seed(123)
+for(i in 1:nrow(lgb_grid)) {
+  params <- c(base_params, as.list(lgb_grid[i,]))
+  cv_scores <- numeric(5)
+  
+  for(fold in 1:5) {
+    # 훈련/검증 데이터 분할
+    valid_idx <- folds[[fold]]
+    train_idx <- unlist(folds[-fold])
+    
+    train_data <- credit_final[train_idx, !names(credit_final) %in% "default"]
+    valid_data <- credit_final[valid_idx, !names(credit_final) %in% "default"]
+    train_label <- credit_final$default[train_idx]
+    valid_label <- credit_final$default[valid_idx]
+    
+    # 모델 학습
+    model <- train_lgb(params, train_data, train_label, valid_data, valid_label)
+    
+    # 검증 세트에 대한 예측
+    pred <- predict(model, as.matrix(valid_data))
+    cv_scores[fold] <- auc(valid_label, pred)
+  }
+  
+  # 결과 저장
+  results <- rbind(results, 
+                  data.frame(lgb_grid[i,], 
+                            mean_auc = mean(cv_scores),
+                            sd_auc = sd(cv_scores)))
+}
+
+# 최적 파라미터 찾기
+best_params <- results[which.max(results$mean_auc), ]
+print("Best Parameters:")
+print(best_params)
+
+# 최종 모델 학습을 위한 데이터 분할
+set.seed(123)
+train_idx <- createDataPartition(credit_final$default, p = 0.8, list = FALSE)
+train_data <- credit_final[train_idx, ]
+test_data <- credit_final[-train_idx, ]
+
+# 최적 파라미터로 최종 모델 학습
+final_params <- c(base_params, as.list(best_params[1:6]))
+dtrain <- prepare_lgb_data(
+  train_data[, !names(train_data) %in% "default"],
+  train_data$default
+)
+
+final_model <- lgb.train(
+  params = final_params,
+  data = dtrain,
+  nrounds = 100
+)
+
+# 변수 중요도 확인
+importance <- lgb.importance(final_model)
+print("Variable Importance:")
+print(importance)
+
+# 테스트 세트 예측
+test_pred_prob <- predict(
+  final_model,
+  as.matrix(test_data[, !names(test_data) %in% "default"])
+)
+test_pred_class <- factor(ifelse(test_pred_prob > 0.5, "Yes", "No"), levels = c("No", "Yes"))
+
+# 혼동 행렬 생성
+confusion_matrix <- confusionMatrix(test_pred_class, test_data$default)
+print("Confusion Matrix and Statistics:")
+print(confusion_matrix)
+
+# ROC 커브 그리기
+roc_obj <- roc(test_data$default, test_pred_prob)
+plot(roc_obj, main = "ROC Curve")
+auc_value <- auc(roc_obj)
+
+# 성능 메트릭 출력
+cat("\nModel Performance Metrics:\n")
+cat("Accuracy:", confusion_matrix$overall["Accuracy"], "\n")
+cat("Precision:", confusion_matrix$byClass["Pos Pred Value"], "\n")
+cat("Recall:", confusion_matrix$byClass["Sensitivity"], "\n")
+cat("F1 Score:", confusion_matrix$byClass["F1"], "\n")
+cat("AUC:", auc_value, "\n")
+
+# 변수 중요도 시각화
+lgb.plot.importance(importance)
+
+```
+
 
 
 
