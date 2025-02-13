@@ -570,7 +570,7 @@ cat("AUC:", auc_value, "\n")
 
 ```
 
-#### 3. lightgbm 으로 했을때 코드 
+#### 3. lightgbm 으로 했을때 코드 (시간 오래걸림)
 
 ```r
 
