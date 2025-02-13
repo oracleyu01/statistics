@@ -744,6 +744,26 @@ cat("LightGBM Accuracy:", accuracy, "\n")
 - `min_data_in_leaf`: 리프 노드가 가져야 할 최소 데이터 수
 - `feature_fraction`: 피처 샘플링 비율
 
+## 🎯 피쳐 샘플링 설명
+
+### XGBoost의 colsample_bytree
+- 각 트리 생성 시 전체 독립변수 중 몇 %를 사용할지 결정
+- 예시: colsample_bytree = 0.8
+  * 전체 10개 변수가 있다면
+  * 각 트리는 8개(80%)의 변수만 랜덤하게 선택하여 사용
+
+### LightGBM의 feature_fraction
+- XGBoost의 colsample_bytree와 동일한 개념
+- 예시: feature_fraction = 0.7
+  * 전체 10개 변수가 있다면
+  * 각 트리는 7개(70%)의 변수만 랜덤하게 선택하여 사용
+
+### 👍 장점
+1. 과적합 방지
+2. 변수 간 상관관계 영향 감소
+3. 모델의 일반화 성능 향상
+4. 다양한 변수 조합 시도 가능
+
 ### 사용 권장 사항
 1. **데이터 크기에 따른 선택**
    - 작은 데이터셋 (<10,000 samples): XGBoost 권장
