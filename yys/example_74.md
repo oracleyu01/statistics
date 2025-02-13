@@ -286,6 +286,8 @@ print(model)
 
 ```
 
+[부스팅_이론설명_그림](https://cafe.daum.net/oracleoracle/Sq3w/125)  
+
 ## 3. 부스팅(Boosting) 모델
 
 ```R
