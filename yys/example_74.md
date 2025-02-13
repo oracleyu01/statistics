@@ -145,7 +145,7 @@ Hold-out 방식은 데이터를 훈련용과 테스트용으로 한 번만 분�
 
 ## 2. 앙상블 학습 (배깅 & 부스팅)   
 
-[이론 그림들](https://cafe.daum.net/oracleoracle/SkWE/746) 
+[이론 그림들](https://cafe.daum.net/oracleoracle/Sq3w/124) 
 
 
 # 앙상블 학습 예제
